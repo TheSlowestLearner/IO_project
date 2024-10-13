@@ -1,2 +1,3 @@
 # IO_project
-Projekt na Inżynierię Oprogramowania. Theme to gra RPG o studencie.
+Projekt na Inżynierię Oprogramowania.
+Gra RPG o studencie walczącym z uczelnią w celu zdobycia tytułu.
