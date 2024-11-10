@@ -21,7 +21,8 @@ Gra opiera się na systemie turowym, gdzie gracz i przeciwnik (bot) wykonują sw
 - **Użycie przedmiotu**
 - **Obrona przed nadchodzącym atakiem**
 
-Profesorowie jako przeciwnicy posiadają różne paski zdrowia reprezentujące ich cechy, takie jak: energia, cierpliwość i motywacja. Aby wygrać, gracz musi skutecznie atakować te paski.
+Profesorowie jako przeciwnicy posiadają różne paski zdrowia reprezentujące ich cechy, takie jak: energia, cierpliwość 
+i motywacja. Aby wygrać, gracz musi skutecznie atakować te paski.
 
 ### Przedmioty i Power-upy
 Na kampusie dostępne są sklepy (np. Żabka, Studencki), w których można kupować przedmioty wspomagające zdrowie i ataki:
