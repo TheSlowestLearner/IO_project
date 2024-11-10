@@ -25,7 +25,7 @@ Profesorowie jako przeciwnicy posiadają różne paski zdrowia reprezentujące i
 i motywacja. Aby wygrać, gracz musi skutecznie atakować te paski.
 
 ### Przedmioty i Power-upy
-Na kampusie dostępne są sklepy (np. Żabka, Studencki), w których można kupować przedmioty wspomagające zdrowie i ataki:
+Na kampusie dostępne są sklepy (np. Żabka, Studenciak), w których można kupować przedmioty wspomagające zdrowie i ataki m.in:
 - **Batoniki** – zwiększają energię.
 - **Kawa** – przyspiesza działania gracza.
 - **Piwo** – regeneruje motywację.
