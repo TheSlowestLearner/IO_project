@@ -9,6 +9,12 @@
 - Maciej Popiołek
 - Filip Pyrek
 
+## Technologia
+Cały projekt zostanie zrealizowany w języku **C++** z wykorzystaniem biblioteki **SFML** (Simple and Fast Multimedia Library), co zapewnia:
+- Wysoką wydajność w przetwarzaniu grafiki 2D.
+- Łatwość obsługi wejścia gracza.
+- Wsparcie dla zaawansowanych funkcji multimedialnych.
+
 ## Mechanika Gry
 Gra opiera się na systemie turowym, gdzie gracz i przeciwnik (bot) wykonują swoje ruchy naprzemiennie. W każdej rundzie dostępne są następujące akcje:
 - **Atak przeciwnika**
@@ -40,7 +46,7 @@ Gra jest skierowana do osób zaznajomionych z życiem akademickim, a zwłaszcza 
 
 ## Komponenty Techniczne
 - **Game Engine** – obsługuje logikę gry, zarządza walkami, turami, przeciwnikami i mapą.
-- **Rendering Engine** – odpowiada za wyświetlanie grafiki gry.
+- **Rendering Engine** (oparty na SFML) – odpowiada za wyświetlanie grafiki gry.
 - **Input Handler** – obsługuje wejścia od gracza (klawiatura, mysz, kontroler).
 
 Gra wykorzystuje lokalną komunikację między komponentami na komputerze gracza i przechowuje stan gry w bazie danych.
