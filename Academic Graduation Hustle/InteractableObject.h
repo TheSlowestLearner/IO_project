@@ -1,6 +1,7 @@
 #pragma once
+#include"GameObject.h"
 
-class InteractableObject
+class InteractableObject : GameObject
 {
 
 };

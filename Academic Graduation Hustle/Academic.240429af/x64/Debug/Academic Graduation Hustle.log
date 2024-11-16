@@ -1,2 +1,8 @@
-﻿  main.cpp
+﻿  GameManager.cpp
+  GameObject.cpp
+  InteractableObject.cpp
+  main.cpp
+  Scene.cpp
+  WindowHandler.cpp
+  Generating Code...
   Academic Graduation Hustle.vcxproj -> C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\x64\Debug\Academic Graduation Hustle.exe
