@@ -3,5 +3,11 @@
 
 class GameManager
 {
+public:
+
+
+
+private:
+
 
 };

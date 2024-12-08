@@ -1,7 +1,13 @@
 #pragma once
-#include"InteractableObject.h"
+#include"ObjectCreators.h"
 
 class Scene
 {
+public:
+
+	virtual ~Scene() = 0;
+
+private:
+
 
 };
