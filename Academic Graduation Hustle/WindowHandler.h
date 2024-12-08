@@ -3,5 +3,11 @@
 
 class WindowHandler
 {
+public:
+
+
+
+private:
+
 
 };
