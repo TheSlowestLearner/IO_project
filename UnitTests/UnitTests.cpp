@@ -4,7 +4,7 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTests
+namespace Game_Tests
 {
 	TEST_CLASS(TaskLogic_Tests)
 	{

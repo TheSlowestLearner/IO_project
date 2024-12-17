@@ -1,9 +1,2 @@
-﻿  GameManager.cpp
-  GameObject.cpp
-  InteractableObject.cpp
-  Scene.cpp
-  WindowHandler.cpp
-  main.cpp
-  Generating Code...
-  LINK : C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\x64\Debug\Academic Graduation Hustle.exe not found or not built by the last incremental link; performing full link
+﻿  main.cpp
   Academic Graduation Hustle.vcxproj -> C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\x64\Debug\Academic Graduation Hustle.exe
