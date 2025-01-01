@@ -1,5 +1,5 @@
 #pragma once
-#include"GameObjects.h"
+#include "GameObjects.h"
 
 /// <summary>
 /// Abstrakcja klasy tworz¹cej renderowalne obiekty.
