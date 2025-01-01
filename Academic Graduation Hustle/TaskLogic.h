@@ -5,7 +5,7 @@
 #include<SFML/Window.hpp>
 
 /// <summary>
-/// Abstrakcyjna klasa polecenia.
+/// Abstrakcyjna klasa polecenia wykonuj¹ca okreœlone czynnoœci.
 /// </summary>
 class Task
 {
@@ -15,10 +15,13 @@ public:
 
 private:
 
-
+	/// <summary>
+	/// Wykonuje polecenie.
+	/// </summary>
+	virtual void execute() = 0;
 };
 /// <summary>
-/// Abstrakcyjna klasa wywo³uj¹ca zadania.
+/// Abstrakcyjna klasa nadawana obiektom wywo³uj¹cym polecenia.
 /// </summary>
 class TaskInvoker
 {
@@ -26,9 +29,19 @@ public:
 
 	virtual ~TaskInvoker() = 0;
 
+	/// <summary>
+	/// Przypisuje obiektowi konkretne polecenie.
+	/// </summary>
+	/// <param name="task">- typ polecenia</param>
+	virtual void AssignTask(Task* task);
+	/// <summary>
+	/// Wywo³uje przypisane polecenie.
+	/// </summary>
+	virtual void InvokeTask();
+
 private:
 
-
+	Task* task;		// instancja wywo³ywanego polecenia
 };
 /// <summary>
 /// Abstrakcyjna klasa otrzymuj¹ca polecenia.
