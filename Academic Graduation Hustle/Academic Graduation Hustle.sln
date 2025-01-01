@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Academic Graduation Hustle", "Academic Graduation Hustle.vcxproj", "{240429AF-F799-4FD8-938C-90CA7F5B24FD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "..\UnitTests\UnitTests.vcxproj", "{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{240429AF-F799-4FD8-938C-90CA7F5B24FD}.Release|x64.Build.0 = Release|x64
 		{240429AF-F799-4FD8-938C-90CA7F5B24FD}.Release|x86.ActiveCfg = Release|Win32
 		{240429AF-F799-4FD8-938C-90CA7F5B24FD}.Release|x86.Build.0 = Release|Win32
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Debug|x64.ActiveCfg = Debug|x64
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Debug|x64.Build.0 = Debug|x64
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Debug|x86.ActiveCfg = Debug|Win32
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Debug|x86.Build.0 = Debug|Win32
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Release|x64.ActiveCfg = Release|x64
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Release|x64.Build.0 = Release|x64
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Release|x86.ActiveCfg = Release|Win32
+		{5E50C414-119D-4F02-8AE9-96D82DB1BC7B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,3 +1,3 @@
-#include"TaskLogic.h"
+#pragma once
+#include "Tasks.h"
 
-// Klasy specyficznych poleceñ

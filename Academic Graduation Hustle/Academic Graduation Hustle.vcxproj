@@ -134,17 +134,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="InteractableObject.cpp" />
+    <ClCompile Include="GameObjects.cpp" />
+    <ClCompile Include="ObjectCreators.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="TaskLogic.cpp" />
+    <ClCompile Include="Tasks.cpp" />
     <ClCompile Include="WindowHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="InteractableObject.h" />
+    <ClInclude Include="GameObjects.h" />
+    <ClInclude Include="ObjectCreators.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="TaskLogic.h" />
+    <ClInclude Include="Tasks.h" />
     <ClInclude Include="WindowHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
