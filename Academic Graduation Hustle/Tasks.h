@@ -1,3 +1,16 @@
 #pragma once
-#include "TaskLogic.h"
+#include "WindowHandler.h"
 
+/// <summary>
+/// Konkretyzacja zadañ.
+/// </summary>
+class ConcreteTask
+{
+public:
+
+
+
+private:
+
+
+};
