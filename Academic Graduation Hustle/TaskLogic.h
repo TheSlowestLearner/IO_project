@@ -27,6 +27,9 @@ class TaskInvoker
 {
 public:
 
+	TaskInvoker()
+		: task(nullptr)
+	{ }
 	virtual ~TaskInvoker() = 0;
 
 	/// <summary>
@@ -51,8 +54,4 @@ class TaskReciever
 public:
 
 	virtual ~TaskReciever() = 0;
-
-private:
-
-
 };
