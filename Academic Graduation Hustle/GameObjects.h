@@ -53,7 +53,7 @@ private:
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
 /// </summary>
-class Button : RenderableInstance, TaskInvoker
+class Button : public RenderableInstance, public TaskInvoker
 {
 public:
 
