@@ -13,7 +13,7 @@ public:
 	/// <summary>
 	/// Rysuje obiekt na buforze.
 	/// </summary>
-	void	Draw();
+	virtual void Draw() = 0;
 
 private:
 
