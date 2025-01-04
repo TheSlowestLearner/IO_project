@@ -12,5 +12,7 @@ public:
 
 private:
 
+	static sf::RenderWindow gameWindow;		// instancja okna
 
+	// sceny...
 };
