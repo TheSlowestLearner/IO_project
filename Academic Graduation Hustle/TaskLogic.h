@@ -13,8 +13,6 @@ public:
 
 	virtual ~Task() = 0;
 
-private:
-
 	/// <summary>
 	/// Wykonuje polecenie.
 	/// </summary>
@@ -35,8 +33,8 @@ public:
 	/// <summary>
 	/// Przypisuje obiektowi konkretne polecenie.
 	/// </summary>
-	/// <param name="task">- typ polecenia</param>
-	virtual void AssignTask(Task* task);
+	/// <param name="_task">- typ polecenia</param>
+	virtual void AssignTask(Task* _task);
 	/// <summary>
 	/// Wywo³uje przypisane polecenie.
 	/// </summary>
