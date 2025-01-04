@@ -13,7 +13,7 @@ public:
 	/// <summary>
 	/// Rysuje obiekt na buforze.
 	/// </summary>
-	virtual void Draw() = 0;
+	virtual void DrawOn(sf::RenderWindow& _window) = 0;
 
 private:
 
@@ -30,7 +30,7 @@ class Decoration : RenderableInstance
 {
 public:
 
-	void Draw();
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
@@ -43,7 +43,7 @@ class Textbox : RenderableInstance
 {
 public:
 
-	void Draw();
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
@@ -58,7 +58,7 @@ class Button : public RenderableInstance, public TaskInvoker
 {
 public:
 
-	void Draw();
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
@@ -71,7 +71,7 @@ class Popup
 {
 public:
 
-	void Draw();
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
