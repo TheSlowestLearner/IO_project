@@ -47,8 +47,9 @@ public:
 
 private:
 
-	sf::Text		text;
-	sf::Vector2f	textPosition;
+	sf::RectangleShape	box;
+	sf::Text			text;
+	sf::Vector2f		textPosition;
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
