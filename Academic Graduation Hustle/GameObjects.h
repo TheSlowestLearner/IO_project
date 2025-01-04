@@ -30,7 +30,7 @@ class Decoration : RenderableInstance
 {
 public:
 
-
+	void Draw();
 
 private:
 
@@ -43,7 +43,7 @@ class Textbox : RenderableInstance
 {
 public:
 
-
+	void Draw();
 
 private:
 
@@ -58,7 +58,7 @@ class Button : public RenderableInstance, public TaskInvoker
 {
 public:
 
-
+	void Draw();
 
 private:
 
@@ -71,7 +71,7 @@ class Popup
 {
 public:
 
-
+	void Draw();
 
 private:
 
