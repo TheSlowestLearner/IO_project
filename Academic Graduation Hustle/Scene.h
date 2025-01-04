@@ -10,6 +10,11 @@ public:
 
 	virtual ~Scene() = 0;
 
+	/// <summary>
+	/// Rysuje scenê na oknie.
+	/// </summary>
+	virtual void Draw() = 0;
+
 private:
 
 	std::vector<Decoration*>	decorationVector;
