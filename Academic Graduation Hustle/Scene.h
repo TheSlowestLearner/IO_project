@@ -1,6 +1,9 @@
 #pragma once
 #include "ObjectCreators.h"
 
+/// <summary>
+/// Zbiór ró¿nego rodzaju obiektów.
+/// </summary>
 class Scene
 {
 public:
@@ -9,5 +12,6 @@ public:
 
 private:
 
-
+	std::vector<Decoration*>	decorationVector;
+	std::vector<Button*>		buttonVector;
 };
