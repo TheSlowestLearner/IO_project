@@ -17,6 +17,5 @@ public:
 
 private:
 
-	std::vector<Decoration*>	decorationVector;
-	std::vector<Button*>		buttonVector;
+
 };
