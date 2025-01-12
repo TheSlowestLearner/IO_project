@@ -15,7 +15,7 @@ public:
 	/// </summary>
 	virtual void DrawOn(sf::RenderWindow& _window) = 0;
 
-private:
+protected:
 
 	sf::Sprite		sprite;
 	sf::Texture		texture;
