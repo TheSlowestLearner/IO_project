@@ -26,7 +26,7 @@ private:
 /// <summary>
 /// Podstawowy renderowalny obiekt, mo¿liwy do wyœwietlenia.
 /// </summary>
-class Decoration : RenderableInstance
+class Decoration : public RenderableInstance
 {
 public:
 
@@ -39,7 +39,7 @@ private:
 /// <summary>
 /// Okienko z tekstem.
 /// </summary>
-class Textbox : RenderableInstance
+class Textbox : public RenderableInstance
 {
 public:
 
