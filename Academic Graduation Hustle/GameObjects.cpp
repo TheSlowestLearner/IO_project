@@ -11,3 +11,7 @@ namespace sp
 	const sf::Rect<int> ExampleSprite5(800, 800, 200, 200);
 }
 
+void Decoration::DrawOn(sf::RenderWindow& _window)
+{
+	_window.draw(this->sprite);
+}
