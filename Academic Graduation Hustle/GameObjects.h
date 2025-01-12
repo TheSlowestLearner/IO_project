@@ -17,11 +17,11 @@ public:
 
 protected:
 
-	sf::Sprite		sprite;
-	sf::Texture		texture;
-	sf::Vector2f	position;
+	sf::Sprite		sprite;		// instancja mo¿liwa do narysiwania na oknie
+	sf::Texture		texture;	// obraz nak³adany na sprite
+	sf::Vector2f	position;	// pozycja obiektu na oknie
 
-	bool	hide;				// Zmienna warunkuj¹ca rysowanie obiektu.
+	bool	hide;				// stwierdza czy obiekt powinien zostaæ narysowany czy nie
 };
 /// <summary>
 /// Podstawowy renderowalny obiekt, mo¿liwy do wyœwietlenia.
@@ -47,9 +47,8 @@ public:
 
 private:
 
-	sf::RectangleShape	box;
-	sf::Text			text;
-	sf::Vector2f		textPosition;
+	sf::Text		text;			// pole tekstowe
+	sf::Vector2f	textPosition;	// pozycja pola tekstowego relatywna do pozycji obiektu
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
@@ -62,7 +61,8 @@ public:
 
 private:
 
-	sf::Vector2f	hitbox;		// pole mo¿liwe do wciœniêcia
+	sf::Rect<int>	hitbox;			// pole mo¿liwe do wciœniêcia
+	bool			hitboxEnabled;	// stwierdza czy hitbox jest w³¹czony czy nie
 };
 /// <summary>
 /// Wyskakuj¹ce okienko z tekstem i przyciskami.
