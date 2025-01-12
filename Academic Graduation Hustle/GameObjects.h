@@ -13,7 +13,7 @@ public:
 	/// <summary>
 	/// Rysuje obiekt na buforze.
 	/// </summary>
-	void	Draw();
+	virtual void DrawOn(sf::RenderWindow& _window) = 0;
 
 private:
 
@@ -30,7 +30,7 @@ class Decoration : RenderableInstance
 {
 public:
 
-
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
@@ -43,12 +43,13 @@ class Textbox : RenderableInstance
 {
 public:
 
-
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
-	sf::Text		text;
-	sf::Vector2f	textPosition;
+	sf::RectangleShape	box;
+	sf::Text			text;
+	sf::Vector2f		textPosition;
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
@@ -57,7 +58,7 @@ class Button : public RenderableInstance, public TaskInvoker
 {
 public:
 
-
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
@@ -70,7 +71,7 @@ class Popup
 {
 public:
 
-
+	void DrawOn(sf::RenderWindow& _window);
 
 private:
 
