@@ -19,21 +19,20 @@ public:
 	/// Ustawia sprite obiektu.
 	/// </summary>
 	/// <param name="_sprite">- obiekt sprite'a</param>
-	virtual void SetSprite(const sf::Sprite& _sprite);
+	void SetSprite(const sf::Sprite& _sprite);
 	/// <summary>
 	/// Ustawia teksturê obiektu.
 	/// </summary>
 	/// <param name="_texture">- obiekt tekstury</param>
-	virtual void SetTexture(const sf::Texture& _texture);
+	void SetTexture(const sf::Texture& _texture);
 	/// <summary>
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	virtual void SetPosition(const sf::Vector2f& _position);
+	void SetPosition(const sf::Vector2f& _position);
 
-	sf::Sprite		sprite;		// instancja mo¿liwa do narysiwania na oknie
+	sf::Sprite		sprite;		// instancja mo¿liwa do narysowania na oknie
 	sf::Texture		texture;	// obraz nak³adany na sprite
-	sf::Vector2f	position;	// pozycja obiektu na oknie
 
 	bool	hide;				// stwierdza czy obiekt powinien zostaæ narysowany czy nie
 };
