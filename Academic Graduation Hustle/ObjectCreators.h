@@ -23,7 +23,7 @@ class DecorationCreator : RenderableCreator
 {
 public:
 
-	static Decoration* MakeDecoration();
+	static Decoration* MakeDecoration(sf::Texture& texture, const sf::IntRect& rect);
 
 private:
 
