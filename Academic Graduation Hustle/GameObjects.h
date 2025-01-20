@@ -29,7 +29,18 @@ public:
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	void SetPosition(const sf::Vector2f& _position);
+	virtual void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	virtual void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	virtual void Move(const float& _x, const float& _y);
 
 	sf::Sprite		sprite;		// instancja mo¿liwa do narysowania na oknie
 	sf::Texture		texture;	// obraz nak³adany na sprite
@@ -58,10 +69,27 @@ public:
 
 	void DrawOn(sf::RenderWindow& _window);
 
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	virtual void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	virtual void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	virtual void Move(const float& _x, const float& _y);
+
 private:
 
 	sf::Text		text;			// pole tekstowe
-	sf::Vector2f	textPosition;	// pozycja pola tekstowego relatywna do pozycji obiektu
+	sf::Vector2f	textPosition;	// pozycja pola tekstowego (relatywna do pozycji obiektu)
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
@@ -72,9 +100,27 @@ public:
 
 	void DrawOn(sf::RenderWindow& _window);
 
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	virtual void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	virtual void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	virtual void Move(const float& _x, const float& _y);
+
 private:
 
-	sf::Rect<int>	hitbox;			// pole mo¿liwe do wciœniêcia
+	sf::IntRect		hitbox;			// pole mo¿liwe do wciœniêcia
+	sf::Vector2f	hitboxOffset;	// pozycja hitboxa (relatywna do pozycji obiektu)
 	bool			hitboxEnabled;	// stwierdza czy hitbox jest w³¹czony czy nie
 };
 /// <summary>
@@ -85,6 +131,23 @@ class Popup
 public:
 
 	void DrawOn(sf::RenderWindow& _window);
+
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	virtual void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	virtual void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	virtual void Move(const float& _x, const float& _y);
 
 private:
 
