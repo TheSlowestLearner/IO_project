@@ -43,7 +43,7 @@ public:
 	virtual void Move(const float& _x, const float& _y);
 
 	sf::Sprite		sprite;		// instancja mo¿liwa do narysowania na oknie
-	sf::Texture		texture;	// obraz nak³adany na sprite
+	sf::Texture*	texture;	// obraz nak³adany na sprite
 
 	bool	hide;				// stwierdza czy obiekt powinien zostaæ narysowany czy nie
 };
@@ -73,18 +73,18 @@ public:
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	virtual void SetPosition(const sf::Vector2f& _position);
+	void SetPosition(const sf::Vector2f& _position);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
-	virtual void Move(const sf::Vector2f& _offset);
+	void Move(const sf::Vector2f& _offset);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
 	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
-	virtual void Move(const float& _x, const float& _y);
+	void Move(const float& _x, const float& _y);
 
 private:
 
@@ -104,18 +104,18 @@ public:
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	virtual void SetPosition(const sf::Vector2f& _position);
+	void SetPosition(const sf::Vector2f& _position);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
-	virtual void Move(const sf::Vector2f& _offset);
+	void Move(const sf::Vector2f& _offset);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
 	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
-	virtual void Move(const float& _x, const float& _y);
+	void Move(const float& _x, const float& _y);
 
 private:
 
@@ -136,18 +136,18 @@ public:
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	virtual void SetPosition(const sf::Vector2f& _position);
+	void SetPosition(const sf::Vector2f& _position);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
-	virtual void Move(const sf::Vector2f& _offset);
+	void Move(const sf::Vector2f& _offset);
 	/// <summary>
 	/// Przemieszcza obiekt w podanym kierunku.
 	/// </summary>
 	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
 	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
-	virtual void Move(const float& _x, const float& _y);
+	void Move(const float& _x, const float& _y);
 
 private:
 
