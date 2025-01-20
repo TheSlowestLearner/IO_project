@@ -18,8 +18,8 @@ public:
 	/// <summary>
 	/// Ustawia sprite obiektu.
 	/// </summary>
-	/// <param name="_sprite">- obiekt sprite'a</param>
-	void SetSprite(const sf::Sprite& _sprite);
+	/// <param name="_rect">- obszar tekstury</param>
+	void SetSprite(const sf::IntRect& _rect);
 	/// <summary>
 	/// Ustawia teksturê obiektu.
 	/// </summary>
