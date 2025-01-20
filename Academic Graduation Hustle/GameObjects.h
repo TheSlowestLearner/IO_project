@@ -15,18 +15,31 @@ public:
 	/// </summary>
 	virtual void DrawOn(sf::RenderWindow& _window) = 0;
 
-private:
+	/// <summary>
+	/// Ustawia sprite obiektu.
+	/// </summary>
+	/// <param name="_sprite">- obiekt sprite'a</param>
+	void SetSprite(const sf::Sprite& _sprite);
+	/// <summary>
+	/// Ustawia teksturê obiektu.
+	/// </summary>
+	/// <param name="_texture">- obiekt tekstury</param>
+	void SetTexture(const sf::Texture& _texture);
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	void SetPosition(const sf::Vector2f& _position);
 
-	sf::Sprite		sprite;
-	sf::Texture		texture;
-	sf::Vector2f	position;
+	sf::Sprite		sprite;		// instancja mo¿liwa do narysowania na oknie
+	sf::Texture		texture;	// obraz nak³adany na sprite
 
-	bool	hide;				// Zmienna warunkuj¹ca rysowanie obiektu.
+	bool	hide;				// stwierdza czy obiekt powinien zostaæ narysowany czy nie
 };
 /// <summary>
 /// Podstawowy renderowalny obiekt, mo¿liwy do wyœwietlenia.
 /// </summary>
-class Decoration : RenderableInstance
+class Decoration : public RenderableInstance
 {
 public:
 
@@ -39,7 +52,7 @@ private:
 /// <summary>
 /// Okienko z tekstem.
 /// </summary>
-class Textbox : RenderableInstance
+class Textbox : public RenderableInstance
 {
 public:
 
@@ -47,9 +60,8 @@ public:
 
 private:
 
-	sf::RectangleShape	box;
-	sf::Text			text;
-	sf::Vector2f		textPosition;
+	sf::Text		text;			// pole tekstowe
+	sf::Vector2f	textPosition;	// pozycja pola tekstowego relatywna do pozycji obiektu
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
@@ -62,7 +74,8 @@ public:
 
 private:
 
-	sf::Vector2f	hitbox;		// pole mo¿liwe do wciœniêcia
+	sf::Rect<int>	hitbox;			// pole mo¿liwe do wciœniêcia
+	bool			hitboxEnabled;	// stwierdza czy hitbox jest w³¹czony czy nie
 };
 /// <summary>
 /// Wyskakuj¹ce okienko z tekstem i przyciskami.
