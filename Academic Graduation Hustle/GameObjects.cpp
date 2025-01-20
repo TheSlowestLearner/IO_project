@@ -2,18 +2,6 @@
 
 constexpr char spriteFile[] = "graphics/spritesheet_placeholder.png";	// œcie¿ka do pliku z teksturami
 
-/// <summary>
-/// Zawiera pozycje wszystkich sprite'ów w pliku.
-/// </summary>
-namespace sp
-{
-	const sf::IntRect ExampleSprite1(0, 0, 200, 200);		// Przyk³ad 1
-	const sf::IntRect ExampleSprite2(200, 200, 200, 200);	// Przyk³ad 2
-	const sf::IntRect ExampleSprite3(400, 400, 200, 200);	// Przyk³ad 3
-	const sf::IntRect ExampleSprite4(600, 600, 200, 200);	// Przyk³ad 4
-	const sf::IntRect ExampleSprite5(800, 800, 200, 200);	// Przyk³ad 5
-}
-
 void RenderableInstance::SetSprite(const sf::IntRect& _rect)
 {
 	this->sprite.setTextureRect(_rect);
