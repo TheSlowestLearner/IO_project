@@ -1,7 +1,5 @@
 #include "GameObjects.h"
 
-constexpr char spriteFile[] = "graphics/spritesheet_placeholder.png";	// œcie¿ka do pliku z teksturami
-
 void RenderableInstance::SetSprite(const sf::IntRect& _rect)
 {
 	this->sprite.setTextureRect(_rect);
