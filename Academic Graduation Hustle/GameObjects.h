@@ -1,5 +1,5 @@
 #pragma once
-#include "TaskLogic.h"
+#include "GraphicsStream.h"
 
 /// <summary>
 /// Abstrakcyjna klasa obiektu mo¿liwego do wyœwietlenia na oknie.
