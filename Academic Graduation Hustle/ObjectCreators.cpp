@@ -1,6 +1,6 @@
 #include "ObjectCreators.h"
 
-Decoration* DecorationCreator::MakeDecoration(sf::Texture& texture, const sf::IntRect& rect)
+Decoration* DecorationCreator::MakeDecoration(sf::Texture* texture, const sf::IntRect& rect)
 {
 	Decoration* decoration = new Decoration();
 	decoration->SetTexture(texture);
@@ -9,7 +9,7 @@ Decoration* DecorationCreator::MakeDecoration(sf::Texture& texture, const sf::In
 	return decoration;
 }
 
-Textbox* TextboxCreator::MakeTextbox(sf::Texture& texture, const sf::IntRect& rect, const sf::Vector2f& offset, const std::string& text)
+Textbox* TextboxCreator::MakeTextbox(sf::Texture* texture, const sf::IntRect& rect, const sf::Vector2f& offset, const std::string& text)
 {
 	Textbox* textbox = new Textbox();
 	textbox->SetTexture(texture);
@@ -20,7 +20,7 @@ Textbox* TextboxCreator::MakeTextbox(sf::Texture& texture, const sf::IntRect& re
 	return textbox;
 }
 
-Button* ButtonCreator::MakeButton(sf::Texture& texture, const sf::IntRect& rect)
+Button* ButtonCreator::MakeButton(sf::Texture* texture, const sf::IntRect& rect)
 {
 	Button* button = new Button();
 	button->SetTexture(texture);
