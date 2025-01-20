@@ -6,7 +6,7 @@ void RenderableInstance::SetSprite(const sf::IntRect& _rect)
 {
 	this->sprite.setTextureRect(_rect);
 }
-void RenderableInstance::SetTexture(const sf::Texture& _texture)
+void RenderableInstance::SetTexture(sf::Texture* _texture)
 {
 	this->texture = _texture;
 }

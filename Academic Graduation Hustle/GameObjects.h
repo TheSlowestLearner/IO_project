@@ -24,7 +24,7 @@ public:
 	/// Ustawia teksturê obiektu.
 	/// </summary>
 	/// <param name="_texture">- obiekt tekstury</param>
-	void SetTexture(const sf::Texture& _texture);
+	void SetTexture(sf::Texture* _texture);
 	/// <summary>
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
