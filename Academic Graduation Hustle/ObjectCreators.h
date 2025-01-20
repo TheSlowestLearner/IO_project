@@ -10,8 +10,6 @@ public:
 
 	virtual ~RenderableCreator() = 0;
 
-	static RenderableInstance* MakeRenderableInstance();
-
 private:
 
 
@@ -23,7 +21,7 @@ class DecorationCreator : RenderableCreator
 {
 public:
 
-	static Decoration* MakeDecoration();
+	static Decoration* MakeDecoration(sf::Texture& texture, const sf::IntRect& rect);
 
 private:
 
@@ -36,7 +34,7 @@ class TextboxCreator : RenderableCreator
 {
 public:
 
-	static Textbox* MakeTextbox();
+	static Textbox* MakeTextbox(sf::Texture& texture, const sf::IntRect& rect, const sf::Vector2f& offset, const std::string& text);
 
 private:
 
@@ -49,7 +47,7 @@ class ButtonCreator : RenderableCreator
 {
 public:
 
-	static Button* MakeButton();
+	static Button* MakeButton(sf::Texture& texture, const sf::IntRect& rect);
 
 private:
 
