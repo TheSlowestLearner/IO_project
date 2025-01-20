@@ -85,11 +85,21 @@ public:
 	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
 	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
 	void Move(const float& _x, const float& _y);
+	/// <summary>
+	/// Ustawia odchylenie pola tekstowego.
+	/// </summary>
+	/// <param name="_offset">- odchylenie</param>
+	void SetOffset(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Ustawia przechowywany tekst.
+	/// </summary>
+	/// <param name="_text">- tekst</param>
+	void SetText(const std::string& _text);
 
 private:
 
-	sf::Text		text;			// pole tekstowe
-	sf::Vector2f	textPosition;	// pozycja pola tekstowego (relatywna do pozycji obiektu)
+	sf::Text		text;		// pole tekstowe
+	sf::Vector2f	textOffset;	// pozycja pola tekstowego (relatywna do pozycji obiektu)
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.

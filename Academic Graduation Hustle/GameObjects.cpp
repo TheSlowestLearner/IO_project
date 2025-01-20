@@ -40,7 +40,7 @@ void Textbox::DrawOn(sf::RenderWindow& _window)
 void Textbox::SetPosition(const sf::Vector2f& _position)
 {
 	this->sprite.setPosition(_position);
-	this->text.setPosition(_position + this->textPosition);
+	this->text.setPosition(_position + this->textOffset);
 }
 void Textbox::Move(const sf::Vector2f& _offset)
 {
@@ -51,6 +51,14 @@ void Textbox::Move(const float& _x, const float& _y)
 {
 	this->sprite.move(_x, _y);
 	this->text.move(_x, _y);
+}
+void Textbox::SetOffset(const sf::Vector2f& _offset)
+{
+	this->textOffset = _offset;
+}
+void Textbox::SetText(const std::string& _text)
+{
+	this->text.setString(_text);
 }
 
 void Button::DrawOn(sf::RenderWindow& _window)
