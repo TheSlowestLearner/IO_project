@@ -1,2 +1,57 @@
-﻿  main.cpp
+﻿  GameManager.cpp
+  GameObjects.cpp
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:             T=float
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         and
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(79,50): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:             T=float
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         and
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(80,51): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244: '+=': conversion from 'const T' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:             T=float
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         and
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(85,29): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244: '+=': conversion from 'const T' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:             T=float
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         and
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(86,30): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(91,22): warning C4244: '+=': conversion from 'const float' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(91,22): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(91,22): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(91,22): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(91,22): warning C4244:         ]
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(92,23): warning C4244: '+=': conversion from 'const float' to 'T', possible loss of data
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(92,23): warning C4244:         with
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(92,23): warning C4244:         [
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(92,23): warning C4244:             T=int
+C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\GameObjects.cpp(92,23): warning C4244:         ]
+  GraphicsStream.cpp
+  ObjectCreators.cpp
+  main.cpp
+  Scene.cpp
+  TaskLogic.cpp
+  Tasks.cpp
+  WindowHandler.cpp
+  Generating Code...
   Academic Graduation Hustle.vcxproj -> C:\Users\macie\Desktop\Studia\Rok 2\Sem 3\Inżynieria Oprogramowania\Academic Graduation Hustle\x64\Debug\Academic Graduation Hustle.exe
