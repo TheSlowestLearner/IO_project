@@ -1,5 +1,8 @@
 #include "GameObjects.h"
 
+RenderableInstance::~RenderableInstance()
+{ }
+
 void RenderableInstance::SetSprite(const sf::IntRect& _rect)
 {
 	this->sprite.setTextureRect(_rect);
