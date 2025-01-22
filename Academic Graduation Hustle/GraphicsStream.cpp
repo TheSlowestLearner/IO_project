@@ -1,5 +1,9 @@
 #include "GraphicsStream.h"
 
+sf::Texture SpriteStream::player_textures;
+sf::Texture SpriteStream::enemy_textures;
+sf::Texture SpriteStream::decoration_textures;
+
 void SpriteStream::Init()
 {
 	player_textures.loadFromFile(player_spritesheet_path);
