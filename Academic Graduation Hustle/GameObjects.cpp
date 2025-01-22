@@ -2,6 +2,12 @@
 
 RenderableInstance::~RenderableInstance()
 { }
+Decoration::~Decoration()
+{ }
+Textbox::~Textbox()
+{ }
+Button::~Button()
+{ }
 
 void RenderableInstance::SetSprite(const sf::IntRect& _rect)
 {

@@ -54,6 +54,8 @@ class Decoration : public RenderableInstance
 {
 public:
 
+	~Decoration() override;
+
 	void DrawOn(sf::RenderWindow& _window);
 
 private:
@@ -66,6 +68,8 @@ private:
 class Textbox : public RenderableInstance
 {
 public:
+
+	~Textbox() override;
 
 	void DrawOn(sf::RenderWindow& _window);
 
@@ -107,6 +111,8 @@ private:
 class Button : public RenderableInstance, public TaskInvoker
 {
 public:
+
+	~Button() override;
 
 	void DrawOn(sf::RenderWindow& _window);
 

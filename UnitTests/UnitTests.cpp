@@ -12,8 +12,12 @@ namespace Game_Tests
 		
 		TEST_METHOD(TaskSystem)
 		{
-			static struct Invoker : public TaskInvoker {};
-			static struct TestSubject : public TaskReciever
+			struct Invoker : public TaskInvoker
+			{
+				~Invoker()
+				{ }
+			};
+			struct TestSubject : public TaskReciever
 			{
 				bool passed;
 
@@ -25,7 +29,7 @@ namespace Game_Tests
 					this->passed = true;
 				}
 			};
-			static struct PassTest : public Task
+			struct PassTest : public Task
 			{
 				TestSubject* subject;
 

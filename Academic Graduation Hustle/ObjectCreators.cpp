@@ -1,8 +1,5 @@
 #include "ObjectCreators.h"
 
-RenderableCreator::~RenderableCreator()
-{ }
-
 Decoration* DecorationCreator::MakeDecoration(sf::Texture* texture, const sf::IntRect& rect)
 {
 	Decoration* decoration = new Decoration();
