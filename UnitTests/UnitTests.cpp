@@ -10,9 +10,42 @@ namespace Game_Tests
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(TaskSystem)
 		{
+			static struct Invoker : public TaskInvoker {};
+			static struct TestSubject : public TaskReciever
+			{
+				bool passed;
 
+				TestSubject()
+					: passed(false)
+				{ }
+				void pass()
+				{
+					this->passed = true;
+				}
+			};
+			static struct PassTest : public Task
+			{
+				TestSubject* subject;
+
+				PassTest(TestSubject* subject_ptr)
+					:subject(subject_ptr)
+				{ }
+
+				void execute() override
+				{
+					this->subject->pass();
+				}
+			};
+
+			Invoker invoker;
+			TestSubject subject;
+
+			invoker.AssignTask(new PassTest(&subject));
+			invoker.InvokeTask();
+
+			Assert::IsTrue(subject.passed);
 		}
 	};
 	TEST_CLASS(Scene_Tests)
