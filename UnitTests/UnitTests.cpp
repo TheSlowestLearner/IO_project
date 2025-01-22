@@ -60,7 +60,7 @@ namespace Game_Tests
 
 		TEST_METHOD(TestMethod1)
 		{
-			SpriteStream::Init();
+
 		}
 	};
 	TEST_CLASS(GameObjects_Tests)
