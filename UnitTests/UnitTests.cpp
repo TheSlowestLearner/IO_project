@@ -9,7 +9,7 @@ namespace Game_Tests
 	TEST_CLASS(TaskLogic_Tests)
 	{
 	public:
-		
+
 		TEST_METHOD(TaskSystem)
 		{
 			struct Invoker : public TaskInvoker
@@ -54,13 +54,13 @@ namespace Game_Tests
 			Assert::IsTrue(subject.passed);
 		}
 	};
-	TEST_CLASS(Scene_Tests)
+	TEST_CLASS(GraphicsStream_Tests)
 	{
 	public:
 
 		TEST_METHOD(TestMethod1)
 		{
-
+			SpriteStream::Init();
 		}
 	};
 	TEST_CLASS(GameObjects_Tests)
@@ -73,6 +73,15 @@ namespace Game_Tests
 		}
 	};
 	TEST_CLASS(ObjectCreators_Tests)
+	{
+	public:
+
+		TEST_METHOD(TestMethod1)
+		{
+
+		}
+	};
+	TEST_CLASS(Scene_Tests)
 	{
 	public:
 
