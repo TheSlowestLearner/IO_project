@@ -34,11 +34,11 @@ public:
 	/// Przypisuje obiektowi konkretne polecenie.
 	/// </summary>
 	/// <param name="_task">- typ polecenia</param>
-	virtual void AssignTask(Task* _task);
+	void AssignTask(Task* _task);
 	/// <summary>
 	/// Wywo³uje przypisane polecenie.
 	/// </summary>
-	virtual void InvokeTask();
+	void InvokeTask();
 
 private:
 
