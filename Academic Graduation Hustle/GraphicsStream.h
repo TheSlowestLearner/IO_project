@@ -2,13 +2,13 @@
 #include "TaskLogic.h"
 
 // œcie¿ka do pliku ze sprite'ami gracza
-constexpr char player_spritesheet_path[]		= "graphics/spritesheet_placeholder.png";
+const char player_spritesheet_path[] = "graphics/spritesheet_placeholder.png";
 
 // œcie¿ka do pliku ze sprite'ami przeciwników
-constexpr char enemy_spritesheet_path[]			= "graphics/spritesheet_placeholder.png";
+const char enemy_spritesheet_path[]	= "graphics/spritesheet_placeholder.png";
 
 // œcie¿ka do pliku ze sprite'ami dekoracji
-constexpr char decoration_spritesheet_path[]	= "graphics/spritesheet_placeholder.png";
+const char decoration_spritesheet_path[] = "graphics/spritesheet_placeholder.png";
 
 /// <summary>
 /// Zawiera pozycje wszystkich sprite'ów w pliku.

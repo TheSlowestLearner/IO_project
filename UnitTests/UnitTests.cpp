@@ -14,7 +14,7 @@ namespace Game_Tests
 		{
 			struct Invoker : public TaskInvoker
 			{
-				~Invoker()
+				~Invoker() override
 				{ }
 			};
 			struct TestSubject : public TaskReciever
@@ -35,6 +35,8 @@ namespace Game_Tests
 
 				PassTest(TestSubject* subject_ptr)
 					:subject(subject_ptr)
+				{ }
+				~PassTest() override
 				{ }
 
 				void execute() override
