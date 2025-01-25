@@ -1,5 +1,5 @@
 #pragma once
-#include "TaskLogic.h"
+#include "GraphicsStream.h"
 
 /// <summary>
 /// Abstrakcyjna klasa obiektu mo¿liwego do wyœwietlenia na oknie.
@@ -18,21 +18,32 @@ public:
 	/// <summary>
 	/// Ustawia sprite obiektu.
 	/// </summary>
-	/// <param name="_sprite">- obiekt sprite'a</param>
-	void SetSprite(const sf::Sprite& _sprite);
+	/// <param name="_rect">- obszar tekstury</param>
+	void SetSprite(const sf::IntRect& _rect);
 	/// <summary>
 	/// Ustawia teksturê obiektu.
 	/// </summary>
 	/// <param name="_texture">- obiekt tekstury</param>
-	void SetTexture(const sf::Texture& _texture);
+	void SetTexture(sf::Texture* _texture);
 	/// <summary>
 	/// Ustawia pozycjê obiektu.
 	/// </summary>
 	/// <param name="_position">- obiekt wektora</param>
-	void SetPosition(const sf::Vector2f& _position);
+	virtual void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	virtual void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	virtual void Move(const float& _x, const float& _y);
 
 	sf::Sprite		sprite;		// instancja mo¿liwa do narysowania na oknie
-	sf::Texture		texture;	// obraz nak³adany na sprite
+	sf::Texture*	texture;	// obraz nak³adany na sprite
 
 	bool	hide;				// stwierdza czy obiekt powinien zostaæ narysowany czy nie
 };
@@ -42,6 +53,8 @@ public:
 class Decoration : public RenderableInstance
 {
 public:
+
+	~Decoration() override;
 
 	void DrawOn(sf::RenderWindow& _window);
 
@@ -56,12 +69,41 @@ class Textbox : public RenderableInstance
 {
 public:
 
+	~Textbox() override;
+
 	void DrawOn(sf::RenderWindow& _window);
+
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	void Move(const float& _x, const float& _y);
+	/// <summary>
+	/// Ustawia odchylenie pola tekstowego.
+	/// </summary>
+	/// <param name="_offset">- odchylenie</param>
+	void SetOffset(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Ustawia przechowywany tekst.
+	/// </summary>
+	/// <param name="_text">- tekst</param>
+	void SetText(const std::string& _text);
 
 private:
 
-	sf::Text		text;			// pole tekstowe
-	sf::Vector2f	textPosition;	// pozycja pola tekstowego relatywna do pozycji obiektu
+	sf::Text		text;		// pole tekstowe
+	sf::Vector2f	textOffset;	// pozycja pola tekstowego (relatywna do pozycji obiektu)
 };
 /// <summary>
 /// Przycisk wywo³uj¹cy polecenia po wciœniêciu.
@@ -70,11 +112,31 @@ class Button : public RenderableInstance, public TaskInvoker
 {
 public:
 
+	~Button() override;
+
 	void DrawOn(sf::RenderWindow& _window);
+
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	void Move(const float& _x, const float& _y);
 
 private:
 
-	sf::Rect<int>	hitbox;			// pole mo¿liwe do wciœniêcia
+	sf::IntRect		hitbox;			// pole mo¿liwe do wciœniêcia
+	sf::Vector2f	hitboxOffset;	// pozycja hitboxa (relatywna do pozycji obiektu)
 	bool			hitboxEnabled;	// stwierdza czy hitbox jest w³¹czony czy nie
 };
 /// <summary>
@@ -85,6 +147,23 @@ class Popup
 public:
 
 	void DrawOn(sf::RenderWindow& _window);
+
+	/// <summary>
+	/// Ustawia pozycjê obiektu.
+	/// </summary>
+	/// <param name="_position">- obiekt wektora</param>
+	void SetPosition(const sf::Vector2f& _position);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_offset">- kierunek i d³ugoœæ ruchu</param>
+	void Move(const sf::Vector2f& _offset);
+	/// <summary>
+	/// Przemieszcza obiekt w podanym kierunku.
+	/// </summary>
+	/// <param name="_x">- poziom; (-) lewo; (+) prawo</param>
+	/// <param name="_y">- pion; (-) góra; (+) dó³</param>
+	void Move(const float& _x, const float& _y);
 
 private:
 
