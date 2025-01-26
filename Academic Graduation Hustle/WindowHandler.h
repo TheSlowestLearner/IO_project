@@ -1,18 +1,23 @@
 #pragma once
+#include <memory>
 #include "Scene.h"
+#include <SFML/Graphics.hpp>
+#include "Animator.h"
 
-/// <summary>
-/// Klasa udostêpniaj¹ca metody zarz¹dzaj¹ce treœci¹ okna.
-/// </summary>
-class WindowHandler : TaskReciever
+class WindowHandler 
 {
 public:
+    WindowHandler();
 
+    void SetScene(std::shared_ptr<Scene> scene); 
+    void ProcessEvents();                        
+    void Update();                             
+    void Render();                              
 
+    bool IsRunning() const;                     
+    std::shared_ptr<Scene> GetCurrentScene() const;
 
 private:
-
-	static sf::RenderWindow gameWindow;		// instancja okna
-
-	// sceny...
+    sf::RenderWindow window;                    
+    std::shared_ptr<Scene> currentScene;       
 };

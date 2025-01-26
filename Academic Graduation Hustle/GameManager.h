@@ -1,13 +1,14 @@
 #pragma once
 #include "Tasks.h"
+#include "WindowHandler.h"
+#include "MainMenu.h"
+#include <memory>
 
-class GameManager
-{
+class GameManager {
 public:
-
-
+    GameManager();
+    void Run(); 
 
 private:
-
-
+    std::shared_ptr<WindowHandler> windowHandler; 
 };
