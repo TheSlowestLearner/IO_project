@@ -7,6 +7,13 @@ MainMenu::MainMenu() : isStartClicked(false)
     startButton.setPosition(850, 450);               //Zamienic na sprite faktyczny
     startButton.setSize(sf::Vector2f(200, 50));     
     startButton.setFillColor(sf::Color::Blue);      
+
+    if (!backgroundTexture.loadFromFile("graphics/menu_background.png")) //Bedzie trzeba zamieniæ na inny
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    backgroundSprite.setTexture(backgroundTexture);
+    backgroundSprite.setScale(1980, 1080);
 }
 
 void MainMenu::Render(sf::RenderWindow& window)

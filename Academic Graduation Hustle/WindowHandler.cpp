@@ -56,3 +56,25 @@ std::shared_ptr<Scene> WindowHandler::GetCurrentScene() const
 {
     return currentScene;
 }
+
+//Pozycja Gracza
+void WindowHandler::SetPlayerPosition(const sf::Vector2f& position)
+{
+    lastPlayerPosition = position;
+}
+
+sf::Vector2f WindowHandler::GetPlayerPosition() const
+{
+    return lastPlayerPosition;
+}
+
+//Lokacja
+void WindowHandler::SetShopIndex(const int index)
+{
+    LocationIndex = index;
+}
+
+int WindowHandler::GetShopIndex() const
+{
+    return LocationIndex;
+}

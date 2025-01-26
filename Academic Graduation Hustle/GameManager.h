@@ -2,6 +2,9 @@
 #include "Tasks.h"
 #include "WindowHandler.h"
 #include "MainMenu.h"
+#include "GameScene.h"
+#include "ShopScene.h"
+#include "FightScene.h"
 #include <memory>
 
 class GameManager {
