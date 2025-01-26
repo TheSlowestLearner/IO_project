@@ -17,11 +17,18 @@ void GameManager::Run() {
         windowHandler->ProcessEvents();
         windowHandler->Update();
 
-        if (auto currentScene = std::dynamic_pointer_cast<MainMenu>(windowHandler->GetCurrentScene())) {
-            if (currentScene->IsStartClicked()) {
-                std::shared_ptr<GameScene> gameScene = std::make_shared<GameScene>();
+        if (auto currentScene = std::dynamic_pointer_cast<MainMenu>(windowHandler->GetCurrentScene())) 
+        {
+            if (currentScene->IsStartClicked()) 
+            {
+                std::shared_ptr<GameScene> gameScene = std::make_shared<GameScene>(windowHandler);
                 windowHandler->SetScene(gameScene);
             }
+            /*if (currentScene->IsLocationClicked())
+            {
+                std::shared_ptr<GameScene> gameScene = std::make_shared<FightScene>(windowHandler);
+                windowHandler->SetScene(gameScene);
+            }*/
         }
 
         windowHandler->Render();

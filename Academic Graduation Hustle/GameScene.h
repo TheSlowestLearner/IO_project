@@ -2,16 +2,19 @@
 #include "Scene.h"
 #include <SFML/Graphics.hpp>
 #include "Animator.h"
+#include "WindowHandler.h" 
+#include "GameManager.h"
 
 
 class GameScene : public Scene {
 public:
-    GameScene();
+    //GameScene();
+    GameScene(std::shared_ptr<WindowHandler> handler);
 
     void Render(sf::RenderWindow& window) override;
-    //void Update(sf::RenderWindow& window) override;
     void Update() override;
     void HandleMouseClick(int x, int y) override;
+
 
 private:
 
@@ -34,4 +37,7 @@ private:
     //T³o
     sf::Sprite backgroundSprite;
     sf::Texture backgroundTexture;
+
+    std::shared_ptr<WindowHandler> windowHandler;
+
 }; 

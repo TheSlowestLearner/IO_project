@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -15,56 +27,16 @@
       "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:Animator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:FightScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:Animator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ObjectCreators.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ObjectCreators.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Tasks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:Tasks.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\TaskLogic.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:TaskLogic.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:WindowHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,208 +46,117 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "WindowHandler.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
-              "RelativeDocumentMoniker": "WindowHandler.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
-              "RelativeToolTip": "WindowHandler.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:02:29.928Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "WindowHandler.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.h",
-              "RelativeDocumentMoniker": "WindowHandler.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.h",
-              "RelativeToolTip": "WindowHandler.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T18:02:27.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Animator.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.h",
-              "RelativeDocumentMoniker": "Animator.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.h",
-              "RelativeToolTip": "Animator.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T18:11:16.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameScene.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
-              "RelativeDocumentMoniker": "GameScene.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
-              "RelativeToolTip": "GameScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T19:30:35.216Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GameScene.cpp",
               "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
               "RelativeDocumentMoniker": "GameScene.cpp",
               "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
               "RelativeToolTip": "GameScene.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAJMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAKEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-25T19:30:42.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameManager.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.h",
-              "RelativeDocumentMoniker": "GameManager.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.h",
-              "RelativeToolTip": "GameManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T18:29:53.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Animator.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.cpp",
-              "RelativeDocumentMoniker": "Animator.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Animator.cpp",
-              "RelativeToolTip": "Animator.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:11:38.351Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ShopScene.cpp",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
+              "RelativeDocumentMoniker": "ShopScene.cpp",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
+              "RelativeToolTip": "ShopScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-26T13:23:58.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShopScene.h",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
+              "RelativeDocumentMoniker": "ShopScene.h",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
+              "RelativeToolTip": "ShopScene.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-26T13:23:52.861Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainMenu.cpp",
               "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
               "RelativeDocumentMoniker": "MainMenu.cpp",
               "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
               "RelativeToolTip": "MainMenu.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:50:20.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-25T18:50:20.935Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "WindowHandler.cpp",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
+              "RelativeDocumentMoniker": "WindowHandler.cpp",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
+              "RelativeToolTip": "WindowHandler.cpp",
+              "ViewState": "AgIAAB8AAAAAAAAAAIAwwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-26T17:00:21.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GameScene.h",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
+              "RelativeDocumentMoniker": "GameScene.h",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
+              "RelativeToolTip": "GameScene.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-25T19:30:35.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FightScene.cpp",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
+              "RelativeDocumentMoniker": "FightScene.cpp",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
+              "RelativeToolTip": "FightScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-26T12:33:48.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FightScene.h",
+              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h",
+              "RelativeDocumentMoniker": "FightScene.h",
+              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h",
+              "RelativeToolTip": "FightScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-26T12:34:00.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MainMenu.h",
               "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
               "RelativeDocumentMoniker": "MainMenu.h",
               "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
               "RelativeToolTip": "MainMenu.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T18:54:20.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TaskLogic.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\TaskLogic.cpp",
-              "RelativeDocumentMoniker": "TaskLogic.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\TaskLogic.cpp",
-              "RelativeToolTip": "TaskLogic.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T23:33:43.901Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Tasks.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Tasks.cpp",
-              "RelativeDocumentMoniker": "Tasks.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Tasks.cpp",
-              "RelativeToolTip": "Tasks.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T23:33:45.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ObjectCreators.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ObjectCreators.h",
-              "RelativeDocumentMoniker": "ObjectCreators.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ObjectCreators.h",
-              "RelativeToolTip": "ObjectCreators.h",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T23:33:54.26Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GameManager.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.cpp",
-              "RelativeDocumentMoniker": "GameManager.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameManager.cpp",
-              "RelativeToolTip": "GameManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:29:29.286Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.h",
-              "RelativeDocumentMoniker": "Scene.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.h",
-              "RelativeToolTip": "Scene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-25T18:49:37.717Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Scene.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.cpp",
-              "RelativeDocumentMoniker": "Scene.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\Scene.cpp",
-              "RelativeToolTip": "Scene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:21:25.853Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T18:02:20.937Z"
+              "WhenOpened": "2025-01-25T18:54:20.229Z"
             }
           ]
         }

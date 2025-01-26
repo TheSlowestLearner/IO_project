@@ -1,8 +1,11 @@
 #include "GameScene.h"
-#include "WindowHandler.h"
+#include "ShopScene.h"
+#include "FightScene.h"
 #include <iostream>
 
-GameScene::GameScene() 
+#define UNTIL_FIGHT 3
+
+GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(handler)
 {
     if (!backgroundTexture.loadFromFile("graphics/background.png")) 
     {
@@ -52,11 +55,18 @@ GameScene::GameScene()
         throw std::runtime_error("Texture not found!");
     }
     playerSprite.setTexture(playerTexture);
-    playerSprite.setPosition(585, 680);      // Pozycja startowa
     playerSprite.setScale(4.5f, 4.5f);
-
     playerSprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
     playerAnimator = new Animator(playerSprite, { 32, 32 }, 7, 0, 2);
+
+    if (windowHandler->GetPlayerPosition() != sf::Vector2f(0, 0))
+    {
+        playerSprite.setPosition(windowHandler->GetPlayerPosition());
+    }
+    else
+    {
+        playerSprite.setPosition(585, 680); 
+    }
 }
 
 void MoveTowards(sf::Sprite& playerSprite, const sf::Sprite& targetLocationSprite, float speed, float deltaTime)
@@ -87,6 +97,7 @@ bool isWalking = true;
 sf::Vector2f targetPosition;
 sf::Clock gameClock;
 int selectedLocationIndex = -1;
+int locationCounter = 0;
 void GameScene::Update()
 {
     playerAnimator->Update(0.016f);
@@ -94,7 +105,8 @@ void GameScene::Update()
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
     float deltaTime = gameClock.restart().asSeconds();
 
-    sf::Sprite* LocationSprites[] = {&academicSprite,&biedronkaSprite,&studenciakSprite,&halaSprite,&wimiipSprite,&miasteczkoSprite,&librarySprite};
+    sf::Sprite* LocationSprites[] = {&academicSprite,&librarySprite,&biedronkaSprite,&halaSprite,&miasteczkoSprite,&studenciakSprite,&wimiipSprite};
+    //Indexy: Akademik=0, Biblioteka=1, Biedronka=2, Hala=3, Miasteczko=4, Studenciak=5, Wimiip=6
     for (int i=0;i<7;i++)
     {
         if (LocationSprites[i]->getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
@@ -115,7 +127,6 @@ void GameScene::Update()
         {
             if (LocationSprites[i]->getGlobalBounds().contains(mouseWorldPosition))
             {
-                //MoveTowards(playerSprite, *LocationSprites[i], 50, deltaTime);
                 targetPosition = LocationSprites[i]->getPosition();
                 selectedLocationIndex = i;
                 isMoving = true;
@@ -141,7 +152,27 @@ void GameScene::Update()
             playerAnimator->SetAnimation(0, 7);
             isMoving = false;
             isWalking = true;
+            windowHandler->SetShopIndex(selectedLocationIndex);
             selectedLocationIndex = -1;
+
+            //Zmiana sceny na inn¹
+            windowHandler->SetPlayerPosition(playerSprite.getPosition());
+            if (locationCounter == UNTIL_FIGHT)
+            {
+                //Walka
+                locationCounter = 0;
+                auto newScene = std::make_shared<FightScene>(windowHandler);
+                windowHandler->SetScene(newScene);
+            }
+            else
+            {
+                locationCounter++;
+                //Sklep
+                {
+                    auto newScene = std::make_shared<ShopScene>(windowHandler);
+                    windowHandler->SetScene(newScene);
+                }
+            }
         }
     }
 }
@@ -166,10 +197,6 @@ void GameScene::Render(sf::RenderWindow& window)
     window.draw(wimiipSprite);
     //Gracz
     window.draw(playerSprite);
-
 }
 
-void GameScene::HandleMouseClick(int x, int y) 
-{
-    
-}
+void GameScene::HandleMouseClick(int x, int y) {}

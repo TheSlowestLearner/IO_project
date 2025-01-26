@@ -6,6 +6,7 @@
 class MainMenu : public Scene 
 {
 public:
+
     MainMenu();
 
     void Render(sf::RenderWindow& window) override;
@@ -15,6 +16,10 @@ public:
     bool IsStartClicked() const;
 
 private:
+
+    sf::Sprite backgroundSprite;
+    sf::Texture backgroundTexture;
     sf::RectangleShape startButton; // Graficzny przycisk "Start", trzeba zamienic xd
     bool isStartClicked;
+    
 };
