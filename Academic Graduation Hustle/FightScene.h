@@ -6,15 +6,15 @@
 #include "GameManager.h"
 #include "GameScene.h"
 
-
-class FightScene : public Scene {
+class FightScene : public Scene
+{
 public:
+
     FightScene(std::shared_ptr<WindowHandler> handler);
 
     void Render(sf::RenderWindow& window) override;
     void Update() override;
     void HandleMouseClick(int x, int y) override;
-
 
 private:
 
@@ -34,4 +34,7 @@ private:
 
     std::shared_ptr<WindowHandler> windowHandler;
 
+    sf::Sprite attackButton;
+    sf::Sprite itemButton;
+    sf::Texture buttonTexture;
 };
