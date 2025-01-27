@@ -53,13 +53,13 @@ void FightScene::Update()
 {
     static unsigned int buttons_pressed = 0;
 
-    // this->HandleExit();
+    // opuszczanie sceny
     if (buttons_pressed > 5)
     {
         buttons_pressed = 0;
-        this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
-        std::cout << "Over 5 buttons pushed! Returning to game scene!" << std::endl;
+        this->HandleExit();
     }
+    // aktualizacja sceny
     else
     {
         // aktualizacja animacji
@@ -87,14 +87,12 @@ void FightScene::Update()
         {
             if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
             {
-                // this->HandleAttack();
-                std::cout << "Attack pressed!" << std::endl;
+                this->HandleAttack();
                 buttons_pressed++;
             }
             else if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
             {
-                // this->HandleItem();
-                std::cout << "Item pressed!" << std::endl;
+                this->HandleItem();
                 buttons_pressed++;
             }
 
@@ -118,13 +116,14 @@ void FightScene::HandleMouseClick(int x, int y) {}
 
 void FightScene::HandleAttack()
 {
-
+    std::cout << "FIGHT SCENE: attack pressed" << std::endl;
 }
 void FightScene::HandleItem()
 {
-
+    std::cout << "FIGHT SCENE: item pressed" << std::endl;
 }
 void FightScene::HandleExit()
 {
-
+    this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
+    std::cout << "FIGHT SCENE: over 5 buttons pushed, returning to game scene" << std::endl;
 }
