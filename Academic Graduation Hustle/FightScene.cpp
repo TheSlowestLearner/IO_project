@@ -6,7 +6,7 @@
 
 FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
-    if (!backgroundTexture.loadFromFile("graphics/background.png")) //Bedzie trzeba zamieniæ na inny
+    if (!backgroundTexture.loadFromFile("graphics/background.png"))
         throw std::runtime_error("Background texture not found!");
     if (!enemyTexture.loadFromFile("graphics/enemy_sprite_sheet.png"))
         throw std::runtime_error("Enemy texture not found!");
@@ -15,10 +15,11 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     if (!buttonTexture.loadFromFile("graphics/spritesheet_placeholder.png"))
         throw std::runtime_error("Button texture not found!");
 
+    // t³o
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setScale(1980, 1080);
 
-
+    // przeciwnik
     enemySprite.setTexture(enemyTexture);
     enemySprite.setPosition(1005, 480);
     enemySprite.setScale(-4.5f,4.5f);
@@ -26,7 +27,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     enemySprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
     enemyAnimator = new Animator(enemySprite, { 32, 32 }, 7, 0, 2);
 
-    
+    // gracz
     playerSprite.setTexture(playerTexture);
     playerSprite.setPosition(385, 480);    
     playerSprite.setScale(4.5f, 4.5f);
@@ -34,7 +35,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     playerSprite.setTextureRect(sf::IntRect(0, 32, 32, 32));
     playerAnimator = new Animator(playerSprite, { 32, 32 }, 7, 1, 2);
 
-    
+    // przyciski
     attackButton.setTexture(buttonTexture);
     attackButton.setTextureRect({ 1500,100,200,80 });
     attackButton.setPosition(200, 800);
@@ -48,21 +49,20 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     // przyciski korzystaj¹ z placeholdera
 }
 
-
 void FightScene::Update()
 {
+    // zmienna tymczasowa (do usuniêcia)
     static unsigned int buttons_pressed = 0;
 
     // opuszczanie sceny
     if (buttons_pressed > 5)
     {
-        buttons_pressed = 0;
+        buttons_pressed = 0; // do usuniêcia
         this->HandleExit();
     }
     // aktualizacja sceny
     else
     {
-        // aktualizacja animacji
         playerAnimator->Update(0.016f);
         enemyAnimator->Update(0.016f);
 
