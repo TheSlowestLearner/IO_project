@@ -37,4 +37,8 @@ private:
     sf::Sprite attackButton;
     sf::Sprite itemButton;
     sf::Texture buttonTexture;
+
+    void HandleAttack();
+    void HandleItem();
+    void HandleExit();
 };

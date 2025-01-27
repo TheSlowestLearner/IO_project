@@ -51,39 +51,58 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
 
 void FightScene::Update()
 {
-    playerAnimator->Update(0.016f);
-    enemyAnimator->Update(0.016f);
+    static unsigned int buttons_pressed = 0;
 
-    sf::Vector2i mousePosition = sf::Mouse::getPosition();
-    sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
-
-    if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
-        attackButton.setColor({ 100,100,100 });
-    else
-        attackButton.setColor({ 255,255,255 });
-
-    if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
-        itemButton.setColor({ 100,100,100 });
-    else
-        itemButton.setColor({ 255,255,255 });
-
-    static bool held = false;
-
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !held)
+    // this->HandleExit();
+    if (buttons_pressed > 5)
     {
-        if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
-        {
-            std::cout << "Attack pressed!" << std::endl;
-        }
-        else if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
-        {
-            std::cout << "Item pressed!" << std::endl;
-        }
-
-        held = true;
+        buttons_pressed = 0;
+        this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
+        std::cout << "Over 5 buttons pushed! Returning to game scene!" << std::endl;
     }
-    else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
-        held = false;
+    else
+    {
+        // aktualizacja animacji
+        playerAnimator->Update(0.016f);
+        enemyAnimator->Update(0.016f);
+
+        // pobranie pozycji kursora
+        sf::Vector2i mousePosition = sf::Mouse::getPosition();
+        sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
+
+        // podœwietlanie przycisków
+        if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
+            attackButton.setColor({ 100,100,100 });
+        else
+            attackButton.setColor({ 255,255,255 });
+
+        if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
+            itemButton.setColor({ 100,100,100 });
+        else
+            itemButton.setColor({ 255,255,255 });
+
+        // ogarniêcie funkcjonalnoœci przycisków
+        static bool held = false; // czy przycisk myszy jest przytrzymywany?
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !held)
+        {
+            if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
+            {
+                // this->HandleAttack();
+                std::cout << "Attack pressed!" << std::endl;
+                buttons_pressed++;
+            }
+            else if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
+            {
+                // this->HandleItem();
+                std::cout << "Item pressed!" << std::endl;
+                buttons_pressed++;
+            }
+
+            held = true;
+        }
+        else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            held = false;
+    }
 }
 
 void FightScene::Render(sf::RenderWindow& window)
@@ -96,3 +115,16 @@ void FightScene::Render(sf::RenderWindow& window)
 }
 
 void FightScene::HandleMouseClick(int x, int y) {}
+
+void FightScene::HandleAttack()
+{
+
+}
+void FightScene::HandleItem()
+{
+
+}
+void FightScene::HandleExit()
+{
+
+}
