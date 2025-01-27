@@ -67,13 +67,23 @@ void FightScene::Update()
     else
         itemButton.setColor({ 255,255,255 });
 
-    for (int i = 0; i < 7; i++)
+    static bool held = false;
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !held)
     {
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
         {
-            //if (BUTTON->getGlobalBounds().contains(mouseWorldPosition))
+            std::cout << "Attack pressed!" << std::endl;
         }
+        else if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
+        {
+            std::cout << "Item pressed!" << std::endl;
+        }
+
+        held = true;
     }
+    else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        held = false;
 }
 
 void FightScene::Render(sf::RenderWindow& window)

@@ -3,7 +3,7 @@
 #include "FightScene.h"
 #include <iostream>
 
-#define UNTIL_FIGHT 0
+#define UNTIL_FIGHT 1
 
 GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(handler)
 {
