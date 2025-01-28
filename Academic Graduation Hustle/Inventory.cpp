@@ -23,9 +23,9 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     useButton.setSize(sf::Vector2f(100, 100));
     useButton.setFillColor(sf::Color::Green);
 
-    if (!randomFont.loadFromFile("font/random_font.ttf"))
+    if (!randomFont.loadFromFile("fonts/random_font.ttf"))
     {
-        throw std::runtime_error("Texture not found!");
+        throw std::runtime_error("Font not found!");
     }
     itemsValue.setFont(randomFont);
     itemsValue.setCharacterSize(120);
