@@ -17,6 +17,28 @@ class FightScene : public Scene
         HEAL,
         HURT,
     };
+    struct Statistic
+    {
+        int amount;
+
+        sf::Texture texture;
+        sf::Sprite sprite;
+        sf::Text name;
+        sf::Text amountText;
+        sf::Font font;
+
+        Statistic();
+
+        inline void Update();
+    };
+    struct UI
+    {
+        Statistic health;
+        Statistic energy;
+        Statistic sanity;
+
+        UI();
+    };
 public:
 
     FightScene(std::shared_ptr<WindowHandler> handler);
@@ -60,6 +82,8 @@ private:
     sf::Sprite itemButton;      // przycisk do wykorzystania przedmiotu
     sf::Texture buttonTexture;  // tekstury przycisków
 
+    UI stats;                   // interfejs ze statystykami gracza
+
     // Obs³uguje operacjê ataku.
     inline void HandleAttack();
     // Obs³uguje operacjê u¿ycia przedmiotu.
@@ -69,8 +93,8 @@ private:
     // Obs³uguje opuszczenie sceny.
     inline void HandleExit();
 
-    /// <summary>
-    /// Aktualizuje sprite'y postaci.
-    /// </summary>
+    // Aktualizuje sprite'y postaci.
     inline void UpdateSprites();
+    // Aktualizuje interfejs statystyk.
+    inline void UpdateStats();
 };

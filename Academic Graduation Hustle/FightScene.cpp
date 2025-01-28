@@ -4,16 +4,106 @@
 #include "Scene.h"
 #include <iostream>
 
+#pragma warning(disable : 4996)
+
+// STATYSTYKI
+
+FightScene::Statistic::Statistic()
+    : amount(100)
+{
+    if (!texture.loadFromFile("graphics/spritesheet_placeholder.png"))
+        throw std::runtime_error("Failed to load stat icon textures!");
+
+    if (!font.loadFromFile("fonts/VT323-Regular.ttf"))
+        throw std::runtime_error("Failed to load font!");
+}
+void FightScene::Statistic::Update()
+{
+    amountText.setString(std::to_string(amount));
+
+    if (amount == 0)
+        amountText.setColor({ 50,50,50 });
+    else if (amount <= 10)
+        amountText.setColor({ 200,0,0 });
+    else if (amount <= 30)
+        amountText.setColor({ 150,150,0 });
+    else
+        amountText.setColor({ 255,255,255 });
+
+}
+
+// INTERFEJS
+
+constexpr int icon_col = 70;
+constexpr float icon_scale = 1.f;
+constexpr int text_col = 140;
+constexpr int text_size = 40;
+constexpr int value_col = 260;
+constexpr int value_row_off = -6;
+constexpr int value_size = 50;
+constexpr int health_row = 100;
+constexpr int energy_row = 200;
+constexpr int sanity_row = 300;
+FightScene::UI::UI()
+{
+    // zdrowie
+    health.sprite.setTexture(health.texture);
+    health.sprite.setTextureRect({ 0, 0, 60, 60 });
+    health.sprite.setPosition(icon_col, health_row);
+    health.sprite.setScale(icon_scale, icon_scale);
+    
+    health.name.setFont(health.font);
+    health.name.setCharacterSize(text_size);
+    health.name.setPosition(text_col, health_row);
+    health.name.setString("HEALTH:");
+
+    health.amountText.setFont(health.font);
+    health.amountText.setCharacterSize(value_size);
+    health.amountText.setPosition(value_col, health_row + value_row_off);
+
+    // energia
+    energy.sprite.setTexture(energy.texture);
+    energy.sprite.setTextureRect({ 1700, 1700, 60, 60 });
+    energy.sprite.setPosition(icon_col, energy_row);
+    energy.sprite.setScale(icon_scale, icon_scale);
+
+    energy.name.setFont(health.font);
+    energy.name.setCharacterSize(text_size);
+    energy.name.setPosition(text_col, energy_row);
+    energy.name.setString("ENERGY:");
+
+    energy.amountText.setFont(health.font);
+    energy.amountText.setCharacterSize(value_size);
+    energy.amountText.setPosition(value_col, energy_row + value_row_off);
+
+    // psychika
+    sanity.sprite.setTexture(sanity.texture);
+    sanity.sprite.setTextureRect({ 0, 1700, 60, 60 });
+    sanity.sprite.setPosition(icon_col, sanity_row);
+    sanity.sprite.setScale(icon_scale, icon_scale);
+
+    sanity.name.setFont(health.font);
+    sanity.name.setCharacterSize(text_size);
+    sanity.name.setPosition(text_col, sanity_row);
+    sanity.name.setString("SANITY:");
+
+    sanity.amountText.setFont(health.font);
+    sanity.amountText.setCharacterSize(value_size);
+    sanity.amountText.setPosition(value_col, sanity_row + value_row_off);
+}
+
+// KLASA SCENY
+
 FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
     if (!backgroundTexture.loadFromFile("graphics/background.png"))
-        throw std::runtime_error("Background texture not found!");
+        throw std::runtime_error("Failed to load background texture!");
     if (!enemyTexture.loadFromFile("graphics/enemy_sprite_sheet.png"))
-        throw std::runtime_error("Enemy texture not found!");
+        throw std::runtime_error("Failed to load enemy textures!");
     if (!playerTexture.loadFromFile("graphics/player_sprite_sheet.png"))
-        throw std::runtime_error("Player texture not found!");
+        throw std::runtime_error("Failed to load player textures!");
     if (!buttonTexture.loadFromFile("graphics/spritesheet_placeholder.png"))
-        throw std::runtime_error("Button texture not found!");
+        throw std::runtime_error("Failed to load button textures!");
 
     // t³o
     backgroundSprite.setTexture(backgroundTexture);
@@ -56,25 +146,44 @@ void FightScene::Update()
     // opuszczanie sceny
     if (false)
     {
-        this->HandleExit();
+        HandleExit();
     }
     // aktualizacja sceny
     else
     {
-        this->UpdateSprites();
+        UpdateSprites();
+        UpdateStats();
 
         if (currentPlayerAnimation == IDLE)
-            this->HandleButtons();
+            HandleButtons();
     }
 }
 
 void FightScene::Render(sf::RenderWindow& window)
 {
+    // t³o
     window.draw(backgroundSprite);
+
+    // postacie
     window.draw(playerSprite);
     window.draw(enemySprite);
+
+    // przyciski
     window.draw(attackButton);
     window.draw(itemButton);
+
+    // interfejs
+    window.draw(stats.health.sprite);
+    window.draw(stats.health.name);
+    window.draw(stats.health.amountText);
+
+    window.draw(stats.energy.sprite);
+    window.draw(stats.energy.name);
+    window.draw(stats.energy.amountText);
+
+    window.draw(stats.sanity.sprite);
+    window.draw(stats.sanity.name);
+    window.draw(stats.sanity.amountText);
 }
 
 void FightScene::HandleMouseClick(int x, int y) {}
@@ -308,4 +417,10 @@ inline void FightScene::UpdateSprites()
     }
         break;
     }
+}
+inline void FightScene::UpdateStats()
+{
+    stats.health.Update();
+    stats.energy.Update();
+    stats.sanity.Update();
 }
