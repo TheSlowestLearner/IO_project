@@ -9,6 +9,14 @@
 
 class FightScene : public Scene
 {
+    enum Anim
+    {
+        IDLE,
+        ATTACK,
+        DEATH,
+        HEAL,
+        HURT,
+    };
 public:
 
     FightScene(std::shared_ptr<WindowHandler> handler);
@@ -33,11 +41,13 @@ private:
     sf::Sprite playerSprite;        // sprite gracza
     sf::Texture playerTexture;      // tekstura gracza
     Animator* playerAnimator;       // dynamiczny animator gracza
+    Anim currentPlayerAnimation;    // obecna animacja gracza
 
     //Enemy
     sf::Sprite enemySprite;     // sprite przeciwnika
     sf::Texture enemyTexture;   // tekstura przeciwnika
     Animator* enemyAnimator;    // dynamiczny animator przeciwnika
+    Anim currentEnemyAnimation; // obecna animacja przeciwnika
 
     //T³o
     sf::Sprite backgroundSprite;    // sprite t³a
@@ -50,10 +60,17 @@ private:
     sf::Sprite itemButton;      // przycisk do wykorzystania przedmiotu
     sf::Texture buttonTexture;  // tekstury przycisków
 
-    // Obs³uguje operacjê ataku
-    void HandleAttack();
-    // Obs³uguje operacjê u¿ycia przedmiotu
-    void HandleItem();
-    // Obs³uguje opuszczenie sceny
-    void HandleExit();
+    // Obs³uguje operacjê ataku.
+    inline void HandleAttack();
+    // Obs³uguje operacjê u¿ycia przedmiotu.
+    inline void HandleItem();
+    // Obs³uguje interakcjê z przyciskami.
+    inline void HandleButtons();
+    // Obs³uguje opuszczenie sceny.
+    inline void HandleExit();
+
+    /// <summary>
+    /// Aktualizuje sprite'y postaci.
+    /// </summary>
+    inline void UpdateSprites();
 };
