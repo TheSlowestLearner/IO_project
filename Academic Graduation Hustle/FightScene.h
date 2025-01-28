@@ -39,6 +39,29 @@ class FightScene : public Scene
 
         UI();
     };
+    struct EnemyUI
+    {
+        enum Attack
+        {
+            NONE,
+            BASE,
+            FOO1,
+            FOO2,
+        };
+
+        int points;
+        int required;
+        sf::RectangleShape pointBar;
+        sf::RectangleShape pointBar_empty;
+        Attack nextAttack;
+        sf::Font font;
+        sf::Text pointText;
+        sf::Text attackText;
+        sf::Text nextAttackText;
+
+        EnemyUI();
+        inline void Update();
+    };
 public:
 
     FightScene(std::shared_ptr<WindowHandler> handler);
@@ -83,6 +106,7 @@ private:
     sf::Texture buttonTexture;  // tekstury przycisków
 
     UI stats;                   // interfejs ze statystykami gracza
+    EnemyUI enemyStats;         // interfejs ze statystykami przeciwnika
 
     // Obs³uguje operacjê ataku.
     inline void HandleAttack();

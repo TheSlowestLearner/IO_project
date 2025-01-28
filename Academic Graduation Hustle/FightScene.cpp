@@ -17,7 +17,7 @@ FightScene::Statistic::Statistic()
     if (!font.loadFromFile("fonts/VT323-Regular.ttf"))
         throw std::runtime_error("Failed to load font!");
 }
-void FightScene::Statistic::Update()
+inline void FightScene::Statistic::Update()
 {
     amountText.setString(std::to_string(amount));
 
@@ -90,6 +90,61 @@ FightScene::UI::UI()
     sanity.amountText.setFont(health.font);
     sanity.amountText.setCharacterSize(value_size);
     sanity.amountText.setPosition(value_col, sanity_row + value_row_off);
+}
+
+// PRZECIWNIK
+
+constexpr int bar_col = 1000;
+constexpr int bar_row = 200;
+constexpr float bar_hei = 50.f;
+constexpr float bar_wid = 300.f;
+constexpr float bar_out = -10.f;
+constexpr float pt_txt_off_x = 20.f;
+constexpr float pt_txt_off_y = -40.f;
+constexpr int pt_txt_size = 60;
+constexpr float at_txt_off_x = 0.f;
+constexpr float at_txt_off_y = 60.f;
+constexpr int at_txt_size = 40;
+constexpr float nat_txt_off_x = 0.f;
+constexpr float nat_txt_off_y = 120.f;
+constexpr int nat_txt_size = 30;
+FightScene::EnemyUI::EnemyUI()
+    : points(0), required(100), nextAttack(NONE)
+{
+    if (!font.loadFromFile("fonts/VT323-Regular.ttf"))
+        throw std::runtime_error("Failed to load font!");
+
+    // pusty pasek
+    pointBar_empty.setPosition(bar_col, bar_row);
+    pointBar_empty.setSize({ bar_hei,bar_wid });
+    pointBar_empty.setOutlineThickness(bar_out);
+    pointBar_empty.setFillColor({ 200,100,0 });
+    pointBar_empty.setOutlineColor({ 100,50,0 });
+
+    // wype³niaj¹cy pasek
+    pointBar.setPosition(bar_col, bar_row);
+    pointBar.setSize({ bar_hei,bar_wid });
+    pointBar.setOutlineThickness(-bar_out);
+    pointBar.setFillColor({ 0,200,0 });
+    pointBar.setOutlineColor({ 0,100,0 });
+
+    // napisy
+    pointText.setFont(font);
+    pointText.setPosition(bar_col + pt_txt_off_x, bar_row + pt_txt_off_y);
+    pointText.setCharacterSize(pt_txt_size);
+
+    attackText.setFont(font);
+    attackText.setPosition(bar_col + at_txt_off_x, bar_row + at_txt_off_y);
+    attackText.setCharacterSize(at_txt_size);
+    attackText.setString("NEXT ATTACK:");
+
+    attackText.setFont(font);
+    attackText.setPosition(bar_col + nat_txt_off_x, bar_row + nat_txt_off_y);
+    attackText.setCharacterSize(nat_txt_size);
+}
+inline void FightScene::EnemyUI::Update()
+{
+    // do wype³nienia
 }
 
 // KLASA SCENY
@@ -172,7 +227,7 @@ void FightScene::Render(sf::RenderWindow& window)
     window.draw(attackButton);
     window.draw(itemButton);
 
-    // interfejs
+    // statystyki gracza
     window.draw(stats.health.sprite);
     window.draw(stats.health.name);
     window.draw(stats.health.amountText);
@@ -184,22 +239,29 @@ void FightScene::Render(sf::RenderWindow& window)
     window.draw(stats.sanity.sprite);
     window.draw(stats.sanity.name);
     window.draw(stats.sanity.amountText);
+
+    // statystyki przeciwnika
+    window.draw(enemyStats.pointBar_empty);
+    window.draw(enemyStats.pointBar);
+    window.draw(enemyStats.pointText);
+    window.draw(enemyStats.attackText);
+    window.draw(enemyStats.nextAttackText);
 }
 
 void FightScene::HandleMouseClick(int x, int y) {}
 
-void FightScene::HandleAttack()
+inline void FightScene::HandleAttack()
 {
     std::cout << "FIGHT SCENE: attack pressed" << std::endl;
     currentPlayerAnimation = ATTACK;
     currentEnemyAnimation = DEATH;
 }
-void FightScene::HandleItem()
+inline void FightScene::HandleItem()
 {
     std::cout << "FIGHT SCENE: item pressed" << std::endl;
     currentPlayerAnimation = HEAL;
 }
-void FightScene::HandleButtons()
+inline void FightScene::HandleButtons()
 {
     // pobranie pozycji kursora
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
@@ -234,7 +296,7 @@ void FightScene::HandleButtons()
     else if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
         held = false;
 }
-void FightScene::HandleExit()
+inline void FightScene::HandleExit()
 {
     std::cout << "FIGHT SCENE: over 5 buttons pushed, returning to game scene" << std::endl;
     this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
