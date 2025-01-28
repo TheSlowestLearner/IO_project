@@ -61,9 +61,6 @@ void FightScene::Update()
     // aktualizacja sceny
     else
     {
-        // playerAnimator->Update(0.016f);
-        // enemyAnimator->Update(0.016f);
-
         this->UpdateSprites();
 
         if (currentPlayerAnimation == IDLE)
@@ -134,14 +131,15 @@ void FightScene::HandleExit()
     this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
 }
 
-constexpr int pf_attack = 6;    // iloœæ klatek ataku gracza
-constexpr int pf_death = 10;    // iloœæ klatek œmierci gracza
-constexpr int pf_heal = 8;      // iloœæ klatek uzdrowienia gracza
-constexpr int pf_hurt = 6;      // iloœæ klatek obra¿eñ gracza
-constexpr int pf_idle = 7;      // iloœæ klatek bezczynnoœci gracza
-constexpr int ef_attack = 6;    // iloœæ klatek ataku przeciwnika
-constexpr int ef_death = 11;    // iloœæ klatek œmierci przeciwnika
-constexpr int ef_idle = 7;      // iloœæ klatek bezczynnoœci przeciwnika
+constexpr int param = 128;
+constexpr int pf_attack = 6 * param;    // iloœæ klatek ataku gracza
+constexpr int pf_death = 10 * param;    // iloœæ klatek œmierci gracza
+constexpr int pf_heal = 8 * param;      // iloœæ klatek uzdrowienia gracza
+constexpr int pf_hurt = 6 * param;      // iloœæ klatek obra¿eñ gracza
+constexpr int pf_idle = 7 * param;      // iloœæ klatek bezczynnoœci gracza
+constexpr int ef_attack = 6 * param;    // iloœæ klatek ataku przeciwnika
+constexpr int ef_death = 11 * param;    // iloœæ klatek œmierci przeciwnika
+constexpr int ef_idle = 7 * param;      // iloœæ klatek bezczynnoœci przeciwnika
 inline void FightScene::UpdateSprites()
 {
     static int player_frame = 0;
@@ -151,33 +149,38 @@ inline void FightScene::UpdateSprites()
     switch (currentPlayerAnimation)
     {
     case IDLE:      // ANIMACJA BEZCZYNNOŒCI
+    {
         playerAnimator->Update(0.016f);
+    }
         break;
 
     case ATTACK:    // ANIMACJA ATAKU
+    {
         if (player_frame == 0)
         {
-            playerAnimator->SetAnimation(3, pf_attack);
+            playerAnimator->SetAnimation(3, 6);
             player_frame++;
         }
         else
         {
             playerAnimator->Update(0.016f);
             player_frame++;
-    
+
             if (player_frame > pf_attack)
             {
-                playerAnimator->SetAnimation(1, pf_idle);
+                playerAnimator->SetAnimation(1, 7);
                 currentPlayerAnimation = IDLE;
                 player_frame = 0;
             }
         }
+    }
         break;
     
     case DEATH:     // ANIMACJA ŒMIERCI
+    {
         if (player_frame == 0)
         {
-            playerAnimator->SetAnimation(6, pf_death);
+            playerAnimator->SetAnimation(6, 10);
             player_frame++;
         }
         else
@@ -187,17 +190,19 @@ inline void FightScene::UpdateSprites()
 
             if (player_frame > pf_death)
             {
-                playerAnimator->SetAnimation(1, pf_idle);
+                playerAnimator->SetAnimation(1, 7);
                 currentPlayerAnimation = IDLE;
                 player_frame = 0;
             }
         }
+    }
         break;
     
     case HEAL:      // ANIMACJA UZDROWIENIA
+    {
         if (player_frame == 0)
         {
-            playerAnimator->SetAnimation(4, pf_heal);
+            playerAnimator->SetAnimation(4, 8);
             player_frame++;
         }
         else
@@ -207,20 +212,19 @@ inline void FightScene::UpdateSprites()
 
             if (player_frame > pf_heal)
             {
-                playerAnimator->SetAnimation(1, pf_idle);
+                playerAnimator->SetAnimation(1, 7);
                 currentPlayerAnimation = IDLE;
                 player_frame = 0;
             }
         }
-        // wydruk kontrolny
-        if (currentPlayerAnimation == HEAL)
-            std::cout << "FIGHT SCENE: played 'heal' frame no." << player_frame << std::endl;
+    }
         break;
     
     case HURT:      // ANIMACJA OBRA¯EÑ
+    {
         if (player_frame == 0)
         {
-            playerAnimator->SetAnimation(5, pf_hurt);
+            playerAnimator->SetAnimation(5, 6);
             player_frame++;
         }
         else
@@ -230,15 +234,18 @@ inline void FightScene::UpdateSprites()
 
             if (player_frame > pf_hurt)
             {
-                playerAnimator->SetAnimation(1, pf_idle);
+                playerAnimator->SetAnimation(1, 7);
                 currentPlayerAnimation = IDLE;
                 player_frame = 0;
             }
         }
+    }
         break;
     
     default:
+    {
         throw std::runtime_error("Trying to play invalid player animation!");
+    }
         break;
     }
 
@@ -246,13 +253,16 @@ inline void FightScene::UpdateSprites()
     switch (currentEnemyAnimation)
     {
     case IDLE:      // ANIMACJA BEZCZYNNOŒCI
+    {
         enemyAnimator->Update(0.016f);
+    }
         break;
 
     case ATTACK:    // ANIMACJA ATAKU
+    {
         if (enemy_frame == 0)
         {
-            enemyAnimator->SetAnimation(3, ef_attack);
+            enemyAnimator->SetAnimation(3, 6);
             enemy_frame++;
         }
         else
@@ -262,17 +272,19 @@ inline void FightScene::UpdateSprites()
 
             if (enemy_frame > ef_attack)
             {
-                enemyAnimator->SetAnimation(0, ef_idle);
+                enemyAnimator->SetAnimation(0, 7);
                 currentEnemyAnimation = IDLE;
                 enemy_frame = 0;
             }
         }
+    }
         break;
 
     case DEATH:     // ANIMACJA ŒMIERCI
+    {
         if (enemy_frame == 0)
         {
-            enemyAnimator->SetAnimation(2, ef_death);
+            enemyAnimator->SetAnimation(2, 11);
             enemy_frame++;
         }
         else
@@ -282,15 +294,18 @@ inline void FightScene::UpdateSprites()
 
             if (enemy_frame > ef_death)
             {
-                enemyAnimator->SetAnimation(0, ef_idle);
+                enemyAnimator->SetAnimation(0, 7);
                 currentEnemyAnimation = IDLE;
                 enemy_frame = 0;
             }
         }
+    }
         break;
 
     default:
+    {
         throw std::runtime_error("Trying to play invalid enemy animation!");
+    }
         break;
     }
 }
