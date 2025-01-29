@@ -11,7 +11,7 @@
 FightScene::Statistic::Statistic()
     : amount(100)
 {
-    if (!texture.loadFromFile("graphics/spritesheet_placeholder.png"))
+    if (!texture.loadFromFile("graphics/statistics.png"))
         throw std::runtime_error("Failed to load stat icon textures!");
 
     if (!font.loadFromFile("fonts/VT323-Regular.ttf"))
@@ -35,11 +35,12 @@ inline void FightScene::Statistic::Update()
 // INTERFEJS
 
 constexpr int icon_col = 70;
-constexpr float icon_scale = 1.f;
-constexpr int text_col = 140;
+constexpr float icon_scale = 3.f;
+constexpr int text_col = 164;
 constexpr int text_size = 40;
-constexpr int value_col = 260;
-constexpr int value_row_off = -6;
+constexpr int text_off_y = 16;
+constexpr int value_col = 280;
+constexpr int value_off_y = 10;
 constexpr int value_size = 50;
 constexpr int health_row = 100;
 constexpr int energy_row = 200;
@@ -48,66 +49,66 @@ FightScene::UI::UI()
 {
     // zdrowie
     health.sprite.setTexture(health.texture);
-    health.sprite.setTextureRect({ 0, 0, 60, 60 });
+    health.sprite.setTextureRect({ 0, 0, 32, 32 });
     health.sprite.setPosition(icon_col, health_row);
     health.sprite.setScale(icon_scale, icon_scale);
     
     health.name.setFont(health.font);
     health.name.setCharacterSize(text_size);
-    health.name.setPosition(text_col, health_row);
+    health.name.setPosition(text_col, health_row + text_off_y);
     health.name.setString("HEALTH:");
 
     health.amountText.setFont(health.font);
     health.amountText.setCharacterSize(value_size);
-    health.amountText.setPosition(value_col, health_row + value_row_off);
+    health.amountText.setPosition(value_col, health_row + value_off_y);
 
     // energia
     energy.sprite.setTexture(energy.texture);
-    energy.sprite.setTextureRect({ 1700, 1700, 60, 60 });
+    energy.sprite.setTextureRect({ 64, 0, 32, 32 });
     energy.sprite.setPosition(icon_col, energy_row);
     energy.sprite.setScale(icon_scale, icon_scale);
 
     energy.name.setFont(health.font);
     energy.name.setCharacterSize(text_size);
-    energy.name.setPosition(text_col, energy_row);
+    energy.name.setPosition(text_col, energy_row + text_off_y);
     energy.name.setString("ENERGY:");
 
     energy.amountText.setFont(health.font);
     energy.amountText.setCharacterSize(value_size);
-    energy.amountText.setPosition(value_col, energy_row + value_row_off);
+    energy.amountText.setPosition(value_col, energy_row + value_off_y);
 
     // psychika
     sanity.sprite.setTexture(sanity.texture);
-    sanity.sprite.setTextureRect({ 0, 1700, 60, 60 });
+    sanity.sprite.setTextureRect({ 32, 0, 32, 32 });
     sanity.sprite.setPosition(icon_col, sanity_row);
     sanity.sprite.setScale(icon_scale, icon_scale);
 
     sanity.name.setFont(health.font);
     sanity.name.setCharacterSize(text_size);
-    sanity.name.setPosition(text_col, sanity_row);
+    sanity.name.setPosition(text_col, sanity_row + text_off_y);
     sanity.name.setString("SANITY:");
 
     sanity.amountText.setFont(health.font);
     sanity.amountText.setCharacterSize(value_size);
-    sanity.amountText.setPosition(value_col, sanity_row + value_row_off);
+    sanity.amountText.setPosition(value_col, sanity_row + value_off_y);
 }
 
 // PRZECIWNIK
 
-constexpr int bar_col = 1000;
-constexpr int bar_row = 200;
-constexpr float bar_hei = 50.f;
-constexpr float bar_wid = 300.f;
-constexpr float bar_out = -10.f;
-constexpr float pt_txt_off_x = 20.f;
-constexpr float pt_txt_off_y = -40.f;
+constexpr int bar_col = 1100;
+constexpr int bar_row = 100;
+constexpr float bar_wid = 50.f;
+constexpr float bar_len = 300.f;
+constexpr float bar_out = 5.f;
+constexpr float pt_txt_off_x = 100.f;
+constexpr float pt_txt_off_y = -20.f;
 constexpr int pt_txt_size = 60;
-constexpr float at_txt_off_x = 0.f;
+constexpr float at_txt_off_x = 100.f;
 constexpr float at_txt_off_y = 60.f;
-constexpr int at_txt_size = 40;
-constexpr float nat_txt_off_x = 0.f;
+constexpr int at_txt_size = 55;
+constexpr float nat_txt_off_x = 100.f;
 constexpr float nat_txt_off_y = 120.f;
-constexpr int nat_txt_size = 30;
+constexpr int nat_txt_size = 50;
 FightScene::EnemyUI::EnemyUI()
     : points(0), required(100), nextAttack(NONE)
 {
@@ -116,15 +117,15 @@ FightScene::EnemyUI::EnemyUI()
 
     // pusty pasek
     pointBar_empty.setPosition(bar_col, bar_row);
-    pointBar_empty.setSize({ bar_hei,bar_wid });
+    pointBar_empty.setSize({ bar_wid,bar_len });
     pointBar_empty.setOutlineThickness(bar_out);
     pointBar_empty.setFillColor({ 200,100,0 });
     pointBar_empty.setOutlineColor({ 100,50,0 });
 
     // wype³niaj¹cy pasek
-    pointBar.setPosition(bar_col, bar_row);
-    pointBar.setSize({ bar_hei,bar_wid });
-    pointBar.setOutlineThickness(-bar_out);
+    pointBar.setPosition(bar_col, bar_row + bar_len);
+    pointBar.setSize({ bar_wid,0 });
+    pointBar.setOutlineThickness(bar_out);
     pointBar.setFillColor({ 0,200,0 });
     pointBar.setOutlineColor({ 0,100,0 });
 
@@ -138,13 +139,47 @@ FightScene::EnemyUI::EnemyUI()
     attackText.setCharacterSize(at_txt_size);
     attackText.setString("NEXT ATTACK:");
 
-    attackText.setFont(font);
-    attackText.setPosition(bar_col + nat_txt_off_x, bar_row + nat_txt_off_y);
-    attackText.setCharacterSize(nat_txt_size);
+    nextAttackText.setFont(font);
+    nextAttackText.setPosition(bar_col + nat_txt_off_x, bar_row + nat_txt_off_y);
+    nextAttackText.setCharacterSize(nat_txt_size);
 }
 inline void FightScene::EnemyUI::Update()
 {
-    // do wype³nienia
+    // pasek
+    float percentage = static_cast<float>(points) / static_cast<float>(required);
+    pointBar.setSize({ bar_wid, bar_len * -percentage });
+
+    if (points == 0)
+        pointBar.setOutlineThickness(0);
+    else
+        pointBar.setOutlineThickness(bar_out);
+
+    // tekst z punktami
+    pointText.setString(std::to_string(points) + " / " + std::to_string(required));
+
+    // tekst z nastêpnym atakiem
+    switch (nextAttack)
+    {
+    case NONE:
+        nextAttackText.setString("-");
+        break;
+
+    case BASE:
+        nextAttackText.setString("basic hit");
+        break;
+
+    case FOO1:
+        nextAttackText.setString("foo1");
+        break;
+
+    case FOO2:
+        nextAttackText.setString("foo2");
+        break;
+
+    default:
+        throw std::runtime_error("Trying to perform a nonexistent attack!");
+        break;
+    }
 }
 
 // KLASA SCENY
@@ -208,6 +243,7 @@ void FightScene::Update()
     {
         UpdateSprites();
         UpdateStats();
+        UpdateEnemy();
 
         if (currentPlayerAnimation == IDLE)
             HandleButtons();
@@ -485,4 +521,8 @@ inline void FightScene::UpdateStats()
     stats.health.Update();
     stats.energy.Update();
     stats.sanity.Update();
+}
+inline void FightScene::UpdateEnemy()
+{
+    enemyStats.Update();
 }

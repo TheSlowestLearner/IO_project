@@ -61,6 +61,7 @@ class FightScene : public Scene
 
         EnemyUI();
         inline void Update();
+        inline void QueueNextAttack();
     };
 public:
 
@@ -121,4 +122,6 @@ private:
     inline void UpdateSprites();
     // Aktualizuje interfejs statystyk.
     inline void UpdateStats();
+    // Aktualizuje interfejs przeciwnika.
+    inline void UpdateEnemy();
 };
