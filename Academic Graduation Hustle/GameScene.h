@@ -18,12 +18,12 @@ public:
 
 private:
 
-    //Wyœwietlanie gracza:
+    //WyÅ“wietlanie gracza:
     sf::Sprite playerSprite; 
     sf::Texture playerTexture;
     Animator* playerAnimator;
 
-    //Wyœwietlanie Lokacji:
+    //WyÅ“wietlanie Lokacji:
     sf::Sprite locationSprite;
     sf::Texture locationTexture;
     sf::Sprite academicSprite;
@@ -34,9 +34,12 @@ private:
     sf::Sprite miasteczkoSprite;
     sf::Sprite librarySprite;
     
-    //T³o
+    //TÂ³o
     sf::Sprite backgroundSprite;
     sf::Texture backgroundTexture;
+    //Ekwipunek
+    sf::Sprite equipmentSprite;
+    sf::Texture equipmentTexture;
 
     std::shared_ptr<WindowHandler> windowHandler;
 
