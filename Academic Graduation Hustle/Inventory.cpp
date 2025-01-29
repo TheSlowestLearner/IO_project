@@ -161,6 +161,7 @@ void Inventory::Update()
                     {
                         //Efekt przedmiotu
                         player1->modifyItem(itemId, -1);
+                        player1->savePlayer();
                     }
                 }
             }
