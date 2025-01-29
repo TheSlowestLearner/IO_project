@@ -260,8 +260,8 @@ void FightScene::ItemBag::HandleRightArrow()
 
 // KLASA SCENY
 
-FightScene::FightScene(std::shared_ptr<WindowHandler> handler, Player& player)
-    : windowHandler(handler), player(player)
+FightScene::FightScene(std::shared_ptr<WindowHandler> handler)
+    : windowHandler(handler)
 {
     srand(time(NULL));
 

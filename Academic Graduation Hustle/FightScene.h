@@ -86,7 +86,7 @@ class FightScene : public Scene
     };
 public:
 
-    FightScene(std::shared_ptr<WindowHandler> handler, Player& player);
+    FightScene(std::shared_ptr<WindowHandler> handler);
 
     /// <summary>
     /// Rysuje obiekty na oknie.
@@ -126,8 +126,6 @@ private:
     sf::Sprite attackButton;    // przycisk do atakowania
     sf::Sprite itemButton;      // przycisk do wykorzystania przedmiotu
     sf::Texture buttonTexture;  // tekstury przycisków
-
-    Player& player;             // odniesienie do obiektu gracza
 
     UI stats;                   // interfejs ze statystykami gracza
     EnemyUI enemyStats;         // interfejs ze statystykami przeciwnika
