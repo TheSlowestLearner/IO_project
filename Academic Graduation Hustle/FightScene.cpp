@@ -245,7 +245,7 @@ void FightScene::Update()
         UpdateStats();
         UpdateEnemy();
 
-        if (currentPlayerAnimation == IDLE)
+        if (currentPlayerAnimation == IDLE && currentEnemyAnimation == IDLE)
             HandleButtons();
     }
 }
@@ -290,7 +290,7 @@ inline void FightScene::HandleAttack()
 {
     std::cout << "FIGHT SCENE: attack pressed" << std::endl;
     currentPlayerAnimation = ATTACK;
-    currentEnemyAnimation = DEATH;
+    currentEnemyAnimation = HURT;
 }
 inline void FightScene::HandleItem()
 {
@@ -338,19 +338,22 @@ inline void FightScene::HandleExit()
     this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
 }
 
-constexpr int param = 128;
-constexpr int pf_attack = 6 * param;    // iloœæ klatek ataku gracza
-constexpr int pf_death = 10 * param;    // iloœæ klatek œmierci gracza
-constexpr int pf_heal = 8 * param;      // iloœæ klatek uzdrowienia gracza
-constexpr int pf_hurt = 6 * param;      // iloœæ klatek obra¿eñ gracza
-constexpr int pf_idle = 7 * param;      // iloœæ klatek bezczynnoœci gracza
-constexpr int ef_attack = 6 * param;    // iloœæ klatek ataku przeciwnika
-constexpr int ef_death = 11 * param;    // iloœæ klatek œmierci przeciwnika
-constexpr int ef_idle = 7 * param;      // iloœæ klatek bezczynnoœci przeciwnika
+constexpr int pf_attack = 6;    // iloœæ klatek ataku gracza
+constexpr int pf_death = 10;    // iloœæ klatek œmierci gracza
+constexpr int pf_heal = 8;      // iloœæ klatek uzdrowienia gracza
+constexpr int pf_hurt = 6;      // iloœæ klatek obra¿eñ gracza
+constexpr int pf_idle = 7;      // iloœæ klatek bezczynnoœci gracza
+constexpr int ef_attack = 6;    // iloœæ klatek ataku przeciwnika
+constexpr int ef_death = 11;    // iloœæ klatek œmierci przeciwnika
+constexpr int ef_heal = 8;      // iloœæ klatek uzdrowienia przeciwnika
+constexpr int ef_hurt = 8;      // iloœæ klatek obra¿eñ przeciwnika
+constexpr int ef_idle = 7;      // iloœæ klatek bezczynnoœci przeciwnika
 inline void FightScene::UpdateSprites()
 {
-    static int player_frame = 0;
-    static int enemy_frame = 0;
+    static bool playing_player = false;
+    static bool player_back = false;
+    static bool playing_enemy = false;
+    static bool enemy_back = false;
     
     // obs³uga animacji gracza
     switch (currentPlayerAnimation)
@@ -363,21 +366,21 @@ inline void FightScene::UpdateSprites()
 
     case ATTACK:    // ANIMACJA ATAKU
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(3, 6);
-            player_frame++;
+            playerAnimator->SetAnimation(3, pf_attack);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_attack - 1);
 
-            if (player_frame > pf_attack)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -385,21 +388,21 @@ inline void FightScene::UpdateSprites()
     
     case DEATH:     // ANIMACJA ŒMIERCI
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(6, 10);
-            player_frame++;
+            playerAnimator->SetAnimation(6, pf_death);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_death - 1);
 
-            if (player_frame > pf_death)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -407,21 +410,21 @@ inline void FightScene::UpdateSprites()
     
     case HEAL:      // ANIMACJA UZDROWIENIA
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(4, 8);
-            player_frame++;
+            playerAnimator->SetAnimation(4, pf_heal);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_heal - 1);
 
-            if (player_frame > pf_heal)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -429,21 +432,21 @@ inline void FightScene::UpdateSprites()
     
     case HURT:      // ANIMACJA OBRA¯EÑ
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(5, 6);
-            player_frame++;
+            playerAnimator->SetAnimation(5, pf_hurt);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_hurt - 1);
 
-            if (player_frame > pf_hurt)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -467,21 +470,21 @@ inline void FightScene::UpdateSprites()
 
     case ATTACK:    // ANIMACJA ATAKU
     {
-        if (enemy_frame == 0)
+        if (!playing_enemy)
         {
-            enemyAnimator->SetAnimation(3, 6);
-            enemy_frame++;
+            enemyAnimator->SetAnimation(1, ef_attack);
+            playing_enemy = true;
         }
         else
         {
-            enemyAnimator->Update(0.016f);
-            enemy_frame++;
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_attack - 1);
 
-            if (enemy_frame > ef_attack)
+            if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, 7);
+                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = IDLE;
-                enemy_frame = 0;
+                playing_enemy = false;
+                enemy_back = false;
             }
         }
     }
@@ -489,25 +492,69 @@ inline void FightScene::UpdateSprites()
 
     case DEATH:     // ANIMACJA ŒMIERCI
     {
-        if (enemy_frame == 0)
+        if (!playing_enemy)
         {
-            enemyAnimator->SetAnimation(2, 11);
-            enemy_frame++;
+            enemyAnimator->SetAnimation(4, ef_death);
+            playing_enemy = true;
         }
         else
         {
-            enemyAnimator->Update(0.016f);
-            enemy_frame++;
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_death - 1);
 
-            if (enemy_frame > ef_death)
+            if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, 7);
+                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = IDLE;
-                enemy_frame = 0;
+                playing_enemy = false;
+                enemy_back = false;
             }
         }
     }
         break;
+
+    case HEAL:     // ANIMACJA UZDROWIENIA
+    {
+        if (!playing_enemy)
+        {
+            enemyAnimator->SetAnimation(2, ef_heal);
+            playing_enemy = true;
+        }
+        else
+        {
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_heal - 1);
+
+            if (playing_enemy && enemy_back)
+            {
+                enemyAnimator->SetAnimation(0, ef_idle);
+                currentEnemyAnimation = IDLE;
+                playing_enemy = false;
+                enemy_back = false;
+            }
+        }
+    }
+    break;
+
+    case HURT:     // ANIMACJA OBRA¯EÑ
+    {
+        if (!playing_enemy)
+        {
+            enemyAnimator->SetAnimation(3, ef_hurt);
+            playing_enemy = true;
+        }
+        else
+        {
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_hurt - 1);
+
+            if (playing_enemy && enemy_back)
+            {
+                enemyAnimator->SetAnimation(0, ef_idle);
+                currentEnemyAnimation = IDLE;
+                playing_enemy = false;
+                enemy_back = false;
+            }
+        }
+    }
+    break;
 
     default:
     {
