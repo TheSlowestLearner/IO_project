@@ -14,4 +14,7 @@ public:
 
 private:
     std::shared_ptr<WindowHandler> windowHandler; 
+
+    // Funkcja do pobierania aktualnego czasu
+    //std::string GetCurrentTime();
 };

@@ -145,6 +145,7 @@
     <ClCompile Include="ShopScene.cpp" />
     <ClCompile Include="TaskLogic.cpp" />
     <ClCompile Include="Tasks.cpp" />
+    <ClCompile Include="TopBar.cpp" />
     <ClCompile Include="WindowHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <ClInclude Include="ShopScene.h" />
     <ClInclude Include="TaskLogic.h" />
     <ClInclude Include="Tasks.h" />
+    <ClInclude Include="TopBar.h" />
     <ClInclude Include="WindowHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

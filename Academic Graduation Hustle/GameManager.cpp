@@ -10,6 +10,7 @@ GameManager::GameManager() {
 }
 
 void GameManager::Run() {
+
     std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
     windowHandler->SetScene(mainMenu);
 
@@ -17,9 +18,9 @@ void GameManager::Run() {
         windowHandler->ProcessEvents();
         windowHandler->Update();
 
-        if (auto currentScene = std::dynamic_pointer_cast<MainMenu>(windowHandler->GetCurrentScene())) 
+        if (auto currentScene = std::dynamic_pointer_cast<MainMenu>(windowHandler->GetCurrentScene()))
         {
-            if (currentScene->IsStartClicked()) 
+            if (currentScene->IsStartClicked())
             {
                 std::shared_ptr<GameScene> gameScene = std::make_shared<GameScene>(windowHandler);
                 windowHandler->SetScene(gameScene);
