@@ -9,7 +9,7 @@
 Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
     player1 = new Player;
-    player1->savePlayer();
+    player1->loadPlayer();
     exitButton.setPosition(0, 0);
     exitButton.setSize(sf::Vector2f(100, 100));
     exitButton.setFillColor(sf::Color::Black);
