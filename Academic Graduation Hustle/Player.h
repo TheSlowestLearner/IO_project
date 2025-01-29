@@ -6,12 +6,11 @@
 */
 
 #define stats_number 3      //ilosc statystyk gracza
-#define items_number 11     //ilosc itemow
+#define items_number 10     //ilosc itemow
 #define start_stats_value 100 //poczatkowa wartosc statystyk gracza
 
 enum Item {
     beer,
-    beer2,
     cigarettes,
     coffee,
     energy_drink,
@@ -20,7 +19,7 @@ enum Item {
     salad,
     snack_bar,
     toilet_paper,
-    vape
+    vape,
 };
 class Player
 {

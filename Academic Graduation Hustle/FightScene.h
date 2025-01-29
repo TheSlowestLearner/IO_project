@@ -63,6 +63,27 @@ class FightScene : public Scene
         inline void Update();
         inline void QueueNextAttack();
     };
+    struct ItemBag
+    {
+        Item currentItem;
+        int itemAmount;
+
+        sf::Texture bagTexture;
+        sf::Texture itemTexture;
+        sf::Texture arrowTexture;
+        sf::Sprite bagSprite;
+        sf::Sprite itemSprite;
+        sf::Sprite leftArrow;
+        sf::Sprite rightArrow;
+        sf::RectangleShape background;
+        
+        bool empty;
+
+        ItemBag();
+        inline void Update();
+        void HandleLeftArrow();
+        void HandleRightArrow();
+    };
 public:
 
     FightScene(std::shared_ptr<WindowHandler> handler);
@@ -70,7 +91,7 @@ public:
     /// <summary>
     /// Rysuje obiekty na oknie.
     /// </summary>
-    /// <param name="window">- </param>
+    /// <param name="window">- orygina³ instancji okna</param>
     void Render(sf::RenderWindow& window) override;
     /// <summary>
     /// Aktualizuje okno.
@@ -108,6 +129,7 @@ private:
 
     UI stats;                   // interfejs ze statystykami gracza
     EnemyUI enemyStats;         // interfejs ze statystykami przeciwnika
+    ItemBag itemBag;            // interfejs do zarz¹dzania u¿ywanymi przedmiotami
 
     // Obs³uguje operacjê ataku.
     inline void HandleAttack();

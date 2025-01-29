@@ -145,6 +145,9 @@ FightScene::EnemyUI::EnemyUI()
 }
 inline void FightScene::EnemyUI::Update()
 {
+    if (points > required)
+        points = required;
+
     // pasek
     float percentage = static_cast<float>(points) / static_cast<float>(required);
     pointBar.setSize({ bar_wid, bar_len * -percentage });
@@ -182,17 +185,77 @@ inline void FightScene::EnemyUI::Update()
     }
 }
 
+// PRZEDMIOTY
+
+constexpr float bg_col = 1300.f;
+constexpr float bg_row = 750.f;
+constexpr float bg_size = 160.f;
+constexpr float bag_off_x = -2.f;
+constexpr float bag_off_y = 5.f;
+constexpr float it_scale = 3.f;
+constexpr float ar_scale = 2.f;
+constexpr float ar_off = 50.f;
+FightScene::ItemBag::ItemBag()
+    : currentItem(beer), itemAmount(0), empty(true)
+{
+    if (!bagTexture.loadFromFile("graphics/backpack.png"))
+        throw std::runtime_error("Backpack texture not found!");
+    if (!itemTexture.loadFromFile("graphics/items_locations_sprite_sheet.png"))
+        throw std::runtime_error("Item textures not found!");
+    if (!arrowTexture.loadFromFile("graphics/arrow.png"))
+        throw std::runtime_error("Arrow texture not found!");
+
+    // dane
+    // for (int i = 0; i < items_number; i++)
+    //     itemAmount += player.seeItems(i);
+
+    // t³o
+    background.setPosition(bg_col, bg_row);
+    background.setSize({ bg_size,bg_size});
+    background.setFillColor({ 100,100,100 });
+    background.setOutlineThickness(10);
+    background.setOutlineColor({ 50,50,50 });
+
+    bagSprite.setTexture(bagTexture);
+    bagSprite.setPosition(bg_col + bag_off_x, bg_row + bag_off_y);
+    bagSprite.setScale(bg_size / 32.f, bg_size / 32.f);
+    bagSprite.setColor({ 150,150,150 });
+
+    // przedmiot
+    itemSprite.setTexture(itemTexture);
+    itemSprite.setTextureRect({ 0,32,32,32 });
+    itemSprite.setPosition(bg_col + ((bg_size - 32.f * it_scale) / 2.f), bg_row + ((bg_size - 32.f * it_scale) / 2.f));
+    itemSprite.setScale(it_scale, it_scale);
+
+    // strza³ki
+    leftArrow.setTexture(arrowTexture);
+    leftArrow.setPosition(bg_col - ar_off, bg_row + ((bg_size - 32.f * ar_scale) / 2.f));
+    leftArrow.setScale(-ar_scale, ar_scale);
+
+    rightArrow.setTexture(arrowTexture);
+    rightArrow.setPosition(bg_col + bg_size + ar_off, bg_row + ((bg_size - 32.f * ar_scale) / 2.f));
+    rightArrow.setScale(ar_scale, ar_scale);
+}
+inline void FightScene::ItemBag::Update()
+{
+    // przedmiot
+    itemSprite.setTextureRect({ 32.f * currentItem, 32.f, 32.f, 32.f });
+
+}
+
 // KLASA SCENY
 
 FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
+    srand(time(NULL));
+
     if (!backgroundTexture.loadFromFile("graphics/background.png"))
         throw std::runtime_error("Failed to load background texture!");
     if (!enemyTexture.loadFromFile("graphics/enemy_sprite_sheet.png"))
         throw std::runtime_error("Failed to load enemy textures!");
     if (!playerTexture.loadFromFile("graphics/player_sprite_sheet.png"))
         throw std::runtime_error("Failed to load player textures!");
-    if (!buttonTexture.loadFromFile("graphics/spritesheet_placeholder.png"))
+    if (!buttonTexture.loadFromFile("graphics/fight_buttons_sheet.png"))
         throw std::runtime_error("Failed to load button textures!");
 
     // t³o
@@ -204,7 +267,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     playerSprite.setPosition(385, 480);
     playerSprite.setScale(4.5f, 4.5f);
 
-    playerSprite.setTextureRect(sf::IntRect(0, 32, 32, 32));
+    playerSprite.setTextureRect({ 0, 32, 32, 32 });
     playerAnimator = new Animator(playerSprite, { 32, 32 }, 7, 1, 2);
     currentPlayerAnimation = IDLE;
 
@@ -213,24 +276,21 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(h
     enemySprite.setPosition(1005, 480);
     enemySprite.setScale(-4.5f,4.5f);
 
-    enemySprite.setTextureRect(sf::IntRect(0, 0, 32, 32));
+    enemySprite.setTextureRect({ 0, 0, 32, 32 });
     enemyAnimator = new Animator(enemySprite, { 32, 32 }, 7, 0, 2);
     currentEnemyAnimation = IDLE;
 
     // przyciski
     attackButton.setTexture(buttonTexture);
-    attackButton.setTextureRect({ 1500,100,200,80 });
+    attackButton.setTextureRect({ 0,0,92,32 });
     attackButton.setPosition(200, 800);
-    attackButton.setScale(1.f, 1.f);
+    attackButton.setScale(3.f, 3.f);
 
     itemButton.setTexture(buttonTexture);
-    itemButton.setTextureRect({ 1500,1700,200,80 });
+    itemButton.setTextureRect({ 92,0,92,32 });
     itemButton.setPosition(600, 800);
-    itemButton.setScale(1.f, 1.f);
-
-    // przyciski korzystaj¹ z placeholdera
+    itemButton.setScale(3.f, 3.f);
 }
-
 void FightScene::Update()
 {
     // opuszczanie sceny
@@ -245,11 +305,10 @@ void FightScene::Update()
         UpdateStats();
         UpdateEnemy();
 
-        if (currentPlayerAnimation == IDLE)
+        if (currentPlayerAnimation == IDLE && currentEnemyAnimation == IDLE)
             HandleButtons();
     }
 }
-
 void FightScene::Render(sf::RenderWindow& window)
 {
     // t³o
@@ -282,15 +341,24 @@ void FightScene::Render(sf::RenderWindow& window)
     window.draw(enemyStats.pointText);
     window.draw(enemyStats.attackText);
     window.draw(enemyStats.nextAttackText);
-}
 
+    // przedmioty
+    window.draw(itemBag.background);
+    window.draw(itemBag.bagSprite);
+    window.draw(itemBag.leftArrow);
+    window.draw(itemBag.rightArrow);
+    if(!itemBag.empty)
+        window.draw(itemBag.itemSprite);
+}
 void FightScene::HandleMouseClick(int x, int y) {}
 
 inline void FightScene::HandleAttack()
 {
     std::cout << "FIGHT SCENE: attack pressed" << std::endl;
+
+    enemyStats.points += rand() % 21 + 20;
     currentPlayerAnimation = ATTACK;
-    currentEnemyAnimation = DEATH;
+    currentEnemyAnimation = HURT;
 }
 inline void FightScene::HandleItem()
 {
@@ -305,12 +373,12 @@ inline void FightScene::HandleButtons()
 
     // podœwietlanie przycisków
     if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
-        attackButton.setColor({ 100,100,100 });
+        attackButton.setColor({ 150,150,150 });
     else
         attackButton.setColor({ 255,255,255 });
 
     if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
-        itemButton.setColor({ 100,100,100 });
+        itemButton.setColor({ 150,150,150 });
     else
         itemButton.setColor({ 255,255,255 });
 
@@ -338,19 +406,22 @@ inline void FightScene::HandleExit()
     this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
 }
 
-constexpr int param = 128;
-constexpr int pf_attack = 6 * param;    // iloœæ klatek ataku gracza
-constexpr int pf_death = 10 * param;    // iloœæ klatek œmierci gracza
-constexpr int pf_heal = 8 * param;      // iloœæ klatek uzdrowienia gracza
-constexpr int pf_hurt = 6 * param;      // iloœæ klatek obra¿eñ gracza
-constexpr int pf_idle = 7 * param;      // iloœæ klatek bezczynnoœci gracza
-constexpr int ef_attack = 6 * param;    // iloœæ klatek ataku przeciwnika
-constexpr int ef_death = 11 * param;    // iloœæ klatek œmierci przeciwnika
-constexpr int ef_idle = 7 * param;      // iloœæ klatek bezczynnoœci przeciwnika
+constexpr int pf_attack = 6;    // iloœæ klatek ataku gracza
+constexpr int pf_death = 10;    // iloœæ klatek œmierci gracza
+constexpr int pf_heal = 8;      // iloœæ klatek uzdrowienia gracza
+constexpr int pf_hurt = 6;      // iloœæ klatek obra¿eñ gracza
+constexpr int pf_idle = 7;      // iloœæ klatek bezczynnoœci gracza
+constexpr int ef_attack = 6;    // iloœæ klatek ataku przeciwnika
+constexpr int ef_death = 11;    // iloœæ klatek œmierci przeciwnika
+constexpr int ef_heal = 8;      // iloœæ klatek uzdrowienia przeciwnika
+constexpr int ef_hurt = 8;      // iloœæ klatek obra¿eñ przeciwnika
+constexpr int ef_idle = 7;      // iloœæ klatek bezczynnoœci przeciwnika
 inline void FightScene::UpdateSprites()
 {
-    static int player_frame = 0;
-    static int enemy_frame = 0;
+    static bool playing_player = false;
+    static bool player_back = false;
+    static bool playing_enemy = false;
+    static bool enemy_back = false;
     
     // obs³uga animacji gracza
     switch (currentPlayerAnimation)
@@ -363,21 +434,21 @@ inline void FightScene::UpdateSprites()
 
     case ATTACK:    // ANIMACJA ATAKU
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(3, 6);
-            player_frame++;
+            playerAnimator->SetAnimation(3, pf_attack);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_attack - 1);
 
-            if (player_frame > pf_attack)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -385,21 +456,21 @@ inline void FightScene::UpdateSprites()
     
     case DEATH:     // ANIMACJA ŒMIERCI
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(6, 10);
-            player_frame++;
+            playerAnimator->SetAnimation(6, pf_death);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_death - 1);
 
-            if (player_frame > pf_death)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -407,21 +478,21 @@ inline void FightScene::UpdateSprites()
     
     case HEAL:      // ANIMACJA UZDROWIENIA
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(4, 8);
-            player_frame++;
+            playerAnimator->SetAnimation(4, pf_heal);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_heal - 1);
 
-            if (player_frame > pf_heal)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -429,21 +500,21 @@ inline void FightScene::UpdateSprites()
     
     case HURT:      // ANIMACJA OBRA¯EÑ
     {
-        if (player_frame == 0)
+        if (!playing_player)
         {
-            playerAnimator->SetAnimation(5, 6);
-            player_frame++;
+            playerAnimator->SetAnimation(5, pf_hurt);
+            playing_player = true;
         }
         else
         {
-            playerAnimator->Update(0.016f);
-            player_frame++;
+            player_back = (playerAnimator->Update(0.016f) == pf_hurt - 1);
 
-            if (player_frame > pf_hurt)
+            if (playing_player && player_back)
             {
-                playerAnimator->SetAnimation(1, 7);
+                playerAnimator->SetAnimation(1, pf_idle);
                 currentPlayerAnimation = IDLE;
-                player_frame = 0;
+                playing_player = false;
+                player_back = false;
             }
         }
     }
@@ -467,21 +538,21 @@ inline void FightScene::UpdateSprites()
 
     case ATTACK:    // ANIMACJA ATAKU
     {
-        if (enemy_frame == 0)
+        if (!playing_enemy)
         {
-            enemyAnimator->SetAnimation(3, 6);
-            enemy_frame++;
+            enemyAnimator->SetAnimation(1, ef_attack);
+            playing_enemy = true;
         }
         else
         {
-            enemyAnimator->Update(0.016f);
-            enemy_frame++;
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_attack - 1);
 
-            if (enemy_frame > ef_attack)
+            if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, 7);
+                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = IDLE;
-                enemy_frame = 0;
+                playing_enemy = false;
+                enemy_back = false;
             }
         }
     }
@@ -489,25 +560,69 @@ inline void FightScene::UpdateSprites()
 
     case DEATH:     // ANIMACJA ŒMIERCI
     {
-        if (enemy_frame == 0)
+        if (!playing_enemy)
         {
-            enemyAnimator->SetAnimation(2, 11);
-            enemy_frame++;
+            enemyAnimator->SetAnimation(4, ef_death);
+            playing_enemy = true;
         }
         else
         {
-            enemyAnimator->Update(0.016f);
-            enemy_frame++;
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_death - 1);
 
-            if (enemy_frame > ef_death)
+            if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, 7);
+                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = IDLE;
-                enemy_frame = 0;
+                playing_enemy = false;
+                enemy_back = false;
             }
         }
     }
         break;
+
+    case HEAL:     // ANIMACJA UZDROWIENIA
+    {
+        if (!playing_enemy)
+        {
+            enemyAnimator->SetAnimation(2, ef_heal);
+            playing_enemy = true;
+        }
+        else
+        {
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_heal - 1);
+
+            if (playing_enemy && enemy_back)
+            {
+                enemyAnimator->SetAnimation(0, ef_idle);
+                currentEnemyAnimation = IDLE;
+                playing_enemy = false;
+                enemy_back = false;
+            }
+        }
+    }
+    break;
+
+    case HURT:     // ANIMACJA OBRA¯EÑ
+    {
+        if (!playing_enemy)
+        {
+            enemyAnimator->SetAnimation(3, ef_hurt);
+            playing_enemy = true;
+        }
+        else
+        {
+            enemy_back = (enemyAnimator->Update(0.016f) == ef_hurt - 1);
+
+            if (playing_enemy && enemy_back)
+            {
+                enemyAnimator->SetAnimation(0, ef_idle);
+                currentEnemyAnimation = IDLE;
+                playing_enemy = false;
+                enemy_back = false;
+            }
+        }
+    }
+    break;
 
     default:
     {
