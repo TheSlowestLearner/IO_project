@@ -6,7 +6,7 @@ Animator::Animator(sf::Sprite& sprite, sf::Vector2i frameSize, int frameCount, i
     UpdateSpriteTextureRect();
 }
 
-void Animator::Update(float deltaTime)
+int Animator::Update(float deltaTime)
 {
     timeElapsed += deltaTime;
     if (timeElapsed >= animationSpeed)
@@ -15,6 +15,7 @@ void Animator::Update(float deltaTime)
         currentFrame = (currentFrame + 1) % frameCount; 
         UpdateSpriteTextureRect();
     }
+    return currentFrame;
 }
 
 void Animator::SetAnimation(int row, int frameCount)
