@@ -196,7 +196,7 @@ constexpr float it_scale = 3.f;
 constexpr float ar_scale = 2.f;
 constexpr float ar_off = 50.f;
 FightScene::ItemBag::ItemBag()
-    : currentItem(beer), itemAmount(0), empty(true)
+    : currentItem(0), itemAmount(0), empty(true)
 {
     if (!bagTexture.loadFromFile("graphics/backpack.png"))
         throw std::runtime_error("Backpack texture not found!");
@@ -240,13 +240,28 @@ FightScene::ItemBag::ItemBag()
 inline void FightScene::ItemBag::Update()
 {
     // przedmiot
-    itemSprite.setTextureRect({ 32 * static_cast<int>(currentItem), 32, 32, 32 });
+    itemSprite.setTextureRect({ 32 * currentItem, 32, 32, 32 });
+
+}
+void FightScene::ItemBag::HandleLeftArrow()
+{
+    if (!empty)
+        for (int i = 0; i < items_number; i++)
+        {
+            currentItem--;
+            if (currentItem < 0)
+                currentItem += items_number;
+        }
+}
+void FightScene::ItemBag::HandleRightArrow()
+{
 
 }
 
 // KLASA SCENY
 
-FightScene::FightScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
+FightScene::FightScene(std::shared_ptr<WindowHandler> handler, Player& player)
+    : windowHandler(handler), player(player)
 {
     srand(time(NULL));
 
@@ -383,17 +398,35 @@ inline void FightScene::HandleButtons()
     else
         itemButton.setColor({ 255,255,255 });
 
+    if (itemBag.leftArrow.getGlobalBounds().contains(mouseWorldPosition))
+        itemBag.leftArrow.setColor({ 150,150,150 });
+    else
+        itemBag.leftArrow.setColor({ 255,255,255 });
+
+    if (itemBag.rightArrow.getGlobalBounds().contains(mouseWorldPosition))
+        itemBag.rightArrow.setColor({ 150,150,150 });
+    else
+        itemBag.rightArrow.setColor({ 255,255,255 });
+
     // obs³uga funkcjonalnoœci przycisków
     static bool held = false; // czy przycisk myszy jest przytrzymywany?
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !held)
     {
         if (attackButton.getGlobalBounds().contains(mouseWorldPosition))
         {
-            this->HandleAttack();
+            HandleAttack();
         }
         else if (itemButton.getGlobalBounds().contains(mouseWorldPosition))
         {
-            this->HandleItem();
+            HandleItem();
+        }
+        else if (itemBag.leftArrow.getGlobalBounds().contains(mouseWorldPosition))
+        {
+            itemBag.HandleLeftArrow();
+        }
+        else if (itemBag.rightArrow.getGlobalBounds().contains(mouseWorldPosition))
+        {
+            itemBag.HandleRightArrow();
         }
 
         held = true;
