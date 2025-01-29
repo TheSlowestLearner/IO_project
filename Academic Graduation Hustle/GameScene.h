@@ -4,7 +4,7 @@
 #include "Animator.h"
 #include "WindowHandler.h" 
 #include "GameManager.h"
-
+#include "Inventory.h"
 
 class GameScene : public Scene {
 public:

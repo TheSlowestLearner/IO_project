@@ -208,6 +208,7 @@ FightScene::ItemBag::ItemBag()
     // dane
     // for (int i = 0; i < items_number; i++)
     //     itemAmount += player.seeItems(i);
+    empty = (itemAmount == 0);
 
     // t³o
     background.setPosition(bg_col, bg_row);
@@ -239,7 +240,7 @@ FightScene::ItemBag::ItemBag()
 inline void FightScene::ItemBag::Update()
 {
     // przedmiot
-    itemSprite.setTextureRect({ 32.f * currentItem, 32.f, 32.f, 32.f });
+    itemSprite.setTextureRect({ 32 * static_cast<int>(currentItem), 32, 32, 32 });
 
 }
 
