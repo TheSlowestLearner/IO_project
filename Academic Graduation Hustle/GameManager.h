@@ -10,10 +10,9 @@
 class GameManager {
 public:
     GameManager();
-    void Run(); 
-
-    Player player;
+    void Run();
 
 private:
-    std::shared_ptr<WindowHandler> windowHandler; 
+    std::shared_ptr<WindowHandler> windowHandler;
+    Player player;
 };
