@@ -11,7 +11,7 @@ class GameManager {
 public:
     GameManager();
     void Run();
-    Player player;
+    static Player player;
 
 private:
     std::shared_ptr<WindowHandler> windowHandler;
