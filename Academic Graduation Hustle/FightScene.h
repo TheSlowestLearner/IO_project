@@ -1,6 +1,6 @@
 #pragma once
-#include "Scene.h"
 #include <SFML/Graphics.hpp>
+#include "Scene.h"
 #include "Animator.h"
 #include "WindowHandler.h" 
 #include "GameManager.h"

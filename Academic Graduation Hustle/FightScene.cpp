@@ -1,7 +1,4 @@
 #include "FightScene.h"
-#include "WindowHandler.h"
-#include "GameScene.h"
-#include "Scene.h"
 #include <iostream>
 
 #pragma warning(disable : 4996)
@@ -251,11 +248,21 @@ void FightScene::ItemBag::HandleLeftArrow()
             currentItem--;
             if (currentItem < 0)
                 currentItem += items_number;
+            if (GameManager::player.seeItems(currentItem) != 0)
+                break;
         }
 }
 void FightScene::ItemBag::HandleRightArrow()
 {
-
+    if (!empty)
+        for (int i = 0; i < items_number; i++)
+        {
+            currentItem++;
+            if (currentItem >= items_number)
+                currentItem = 0;
+            if (GameManager::player.seeItems(currentItem) != 0)
+                break;
+        }
 }
 
 // KLASA SCENY
