@@ -11,6 +11,7 @@ class FightScene : public Scene
 {
     enum Anim
     {
+        NONE,
         IDLE,
         ATTACK,
         DEATH,
@@ -44,9 +45,16 @@ class FightScene : public Scene
         enum Attack
         {
             NONE,
-            BASE,
-            FOO1,
-            FOO2,
+            HEALTH1,
+            HEALTH2,
+            ENERGY1,
+            ENERGY2,
+            SANITY1,
+            SANITY2,
+            HEALTH_ENERGY,
+            HEALTH_SANITY,
+            ENERGY_SANITY,
+            ALL,
         };
 
         int points;
@@ -61,7 +69,8 @@ class FightScene : public Scene
 
         EnemyUI();
         inline void Update();
-        inline void QueueNextAttack();
+        inline void QueueAttack();
+        void HandleHit();
     };
     struct ItemBag
     {
@@ -146,4 +155,6 @@ private:
     inline void UpdateStats();
     // Aktualizuje interfejs przeciwnika.
     inline void UpdateEnemy();
+    // Aktualizuje interfejs przedmiotów.
+    inline void UpdateItems();
 };
