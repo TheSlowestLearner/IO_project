@@ -5,6 +5,8 @@
 #include "GameScene.h"
 //#include "Scene.h"
 
+Player GameManager::player;
+
 GameManager::GameManager() {
     windowHandler = std::make_shared<WindowHandler>();
 }
