@@ -138,6 +138,7 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ObjectCreators.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,8 +154,10 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ObjectCreators.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShopScene.h" />
     <ClInclude Include="TaskLogic.h" />

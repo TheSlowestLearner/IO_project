@@ -1,6 +1,6 @@
 #pragma once
-#include "Scene.h"
 #include <SFML/Graphics.hpp>
+#include "Scene.h"
 #include "Animator.h"
 #include "WindowHandler.h" 
 #include "GameManager.h"
@@ -11,6 +11,7 @@ class FightScene : public Scene
 {
     enum Anim
     {
+        NONE,
         IDLE,
         ATTACK,
         DEATH,
@@ -44,9 +45,16 @@ class FightScene : public Scene
         enum Attack
         {
             NONE,
-            BASE,
-            FOO1,
-            FOO2,
+            HEALTH1,
+            HEALTH2,
+            ENERGY1,
+            ENERGY2,
+            SANITY1,
+            SANITY2,
+            HEALTH_ENERGY,
+            HEALTH_SANITY,
+            ENERGY_SANITY,
+            ALL,
         };
 
         int points;
@@ -61,7 +69,8 @@ class FightScene : public Scene
 
         EnemyUI();
         inline void Update();
-        inline void QueueNextAttack();
+        inline void QueueAttack();
+        void HandleHit();
     };
     struct ItemBag
     {
@@ -86,7 +95,7 @@ class FightScene : public Scene
     };
 public:
 
-    FightScene(std::shared_ptr<WindowHandler> handler, Player& player);
+    FightScene(std::shared_ptr<WindowHandler> handler);
 
     /// <summary>
     /// Rysuje obiekty na oknie.
@@ -127,8 +136,6 @@ private:
     sf::Sprite itemButton;      // przycisk do wykorzystania przedmiotu
     sf::Texture buttonTexture;  // tekstury przycisków
 
-    Player& player;             // odniesienie do obiektu gracza
-
     UI stats;                   // interfejs ze statystykami gracza
     EnemyUI enemyStats;         // interfejs ze statystykami przeciwnika
     ItemBag itemBag;            // interfejs do zarz¹dzania u¿ywanymi przedmiotami
@@ -148,4 +155,6 @@ private:
     inline void UpdateStats();
     // Aktualizuje interfejs przeciwnika.
     inline void UpdateEnemy();
+    // Aktualizuje interfejs przedmiotów.
+    inline void UpdateItems();
 };
