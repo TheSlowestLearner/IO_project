@@ -1,42 +1,49 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\",
+  "WorkspaceRootPath": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:FightScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:FightScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\TopBar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TopBar.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:ShopScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:WindowHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:GameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{240429AF-F799-4FD8-938C-90CA7F5B24FD}|Academic Graduation Hustle.vcxproj|solutionrelative:MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,41 +53,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GameScene.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
-              "RelativeDocumentMoniker": "GameScene.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
-              "RelativeToolTip": "GameScene.cpp",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAKEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-25T19:30:42.119Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ShopScene.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
-              "RelativeDocumentMoniker": "ShopScene.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
-              "RelativeToolTip": "ShopScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-26T13:23:58.005Z",
-              "EditorCaption": ""
+              "DocumentIndex": 10,
+              "Title": "xutility",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.42.34433\\include\\xutility",
+              "ViewState": "AgIAADQBAAAAAAAAAAAIwJUBAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-30T08:59:06.385Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TopBar.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\TopBar.cpp",
+              "RelativeDocumentMoniker": "TopBar.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\TopBar.cpp",
+              "RelativeToolTip": "TopBar.cpp",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-30T08:58:11.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameScene.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
+              "RelativeDocumentMoniker": "GameScene.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.cpp",
+              "RelativeToolTip": "GameScene.cpp",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-25T19:30:42.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShopScene.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
+              "RelativeDocumentMoniker": "ShopScene.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.cpp",
+              "RelativeToolTip": "ShopScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-26T13:23:58.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ShopScene.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
               "RelativeDocumentMoniker": "ShopScene.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\ShopScene.h",
               "RelativeToolTip": "ShopScene.h",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -88,11 +121,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "MainMenu.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
               "RelativeDocumentMoniker": "MainMenu.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.cpp",
               "RelativeToolTip": "MainMenu.cpp",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -100,11 +133,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "WindowHandler.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
               "RelativeDocumentMoniker": "WindowHandler.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\WindowHandler.cpp",
               "RelativeToolTip": "WindowHandler.cpp",
               "ViewState": "AgIAAB8AAAAAAAAAAIAwwC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
@@ -112,11 +145,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "GameScene.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.h",
               "RelativeDocumentMoniker": "GameScene.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\GameScene.h",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\GameScene.h",
               "RelativeToolTip": "GameScene.h",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -124,35 +157,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "FightScene.cpp",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
               "RelativeDocumentMoniker": "FightScene.cpp",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.cpp",
               "RelativeToolTip": "FightScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-26T12:33:48.992Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "FightScene.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.h",
               "RelativeDocumentMoniker": "FightScene.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\FightScene.h",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\FightScene.h",
               "RelativeToolTip": "FightScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-26T12:34:00.839Z"
+              "WhenOpened": "2025-01-26T12:34:00.839Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MainMenu.h",
-              "DocumentMoniker": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
+              "DocumentMoniker": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
               "RelativeDocumentMoniker": "MainMenu.h",
-              "ToolTip": "C:\\Users\\pytki\\OneDrive\\Pulpit\\Studia\\IO\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
+              "ToolTip": "C:\\Users\\ankap\\OneDrive - Akademia G\u00F3rniczo-Hutnicza im. Stanis\u0142awa Staszica w Krakowie\\repos\\zapychacz\\IO_project\\Academic Graduation Hustle\\MainMenu.h",
               "RelativeToolTip": "MainMenu.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",

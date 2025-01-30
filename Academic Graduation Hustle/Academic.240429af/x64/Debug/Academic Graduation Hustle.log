@@ -1,2 +1,34 @@
 ﻿  GameScene.cpp
-  Academic Graduation Hustle.vcxproj -> C:\Users\pytki\OneDrive\Pulpit\Studia\IO\IO_project\Academic Graduation Hustle\x64\Debug\Academic Graduation Hustle.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,61): error C2665: „FightScene::FightScene”: żadna przeciążona funkcja nie może przekonwertować wszystkich typów argumentów
+  (kompilowanie pliku źródłowego „GameScene.cpp”)
+      C:\Users\ankap\OneDrive - Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie\repos\zapychacz\IO_project\Academic Graduation Hustle\FightScene.h(151,1):
+      może to być „FightScene::FightScene(FightScene &&)”
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,61):
+          „FightScene::FightScene(FightScene &&)”: nie można dokonać konwersji argumentu 1 z „std::shared_ptr<WindowHandler>” do „FightScene &&”
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82):
+              Przyczyna: nie można skonwertować z "std::shared_ptr<WindowHandler>" na "FightScene"
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82):
+              Nie jest dostępny żaden operator konwersji zdefiniowany przez użytkownika, który mógłby wykonać tę konwersję lub operator nie może zostać wywołany
+      C:\Users\ankap\OneDrive - Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie\repos\zapychacz\IO_project\Academic Graduation Hustle\FightScene.h(151,1):
+      lub       "FightScene::FightScene(const FightScene &)"
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,61):
+          „FightScene::FightScene(const FightScene &)”: nie można dokonać konwersji argumentu 1 z „std::shared_ptr<WindowHandler>” do „const FightScene &”
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82):
+              Przyczyna: nie można skonwertować z "std::shared_ptr<WindowHandler>" na "const FightScene"
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,82):
+              Nie jest dostępny żaden operator konwersji zdefiniowany przez użytkownika, który mógłby wykonać tę konwersję lub operator nie może zostać wywołany
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,61):
+      podczas próby dopasowania listy argumentów "(std::shared_ptr<WindowHandler>)"
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xutility(406,61):
+      kontekst tworzenia wystąpienia szablonu (najpierw najstarszy) to
+          C:\Users\ankap\OneDrive - Akademia Górniczo-Hutnicza im. Stanisława Staszica w Krakowie\repos\zapychacz\IO_project\Academic Graduation Hustle\GameScene.cpp(178,38):
+          zobacz odwołanie do kompilowanego tworzenia wystąpienia „std::shared_ptr<FightScene> std::make_shared<FightScene,std::shared_ptr<WindowHandler>&>(std::shared_ptr<WindowHandler> &)” funkcji szablon
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\memory(2906,46):
+          zobacz odwołanie do kompilowanego tworzenia wystąpienia „std::_Ref_count_obj2<FightScene>::_Ref_count_obj2<std::shared_ptr<WindowHandler>&>(std::shared_ptr<WindowHandler> &)” funkcji szablon
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\memory(2095,18):
+          zobacz odwołanie do kompilowanego tworzenia wystąpienia „void std::_Construct_in_place<_Ty,std::shared_ptr<WindowHandler>&>(_Ty &,std::shared_ptr<WindowHandler> &) noexcept(false)” funkcji szablon
+          with
+          [
+              _Ty=FightScene
+          ]
+  

@@ -1,8 +1,12 @@
 #include "WindowHandler.h"
+#include "MainMenu.h"
 #include <iostream>
+#include <random>
 
 WindowHandler::WindowHandler()
     : window(sf::VideoMode(1920, 1080), "Academic Graduation Hustle") {
+    // Losowanie semestru przy uruchomieniu
+    RandomizeSemester();
 }
 
 void WindowHandler::SetScene(std::shared_ptr<Scene> scene) 
@@ -36,6 +40,12 @@ void WindowHandler::Render()
        currentScene->Render(window); 
     }
 
+    // Renderowanie górnego paska tylko poza MainMenu
+    if (std::dynamic_pointer_cast<MainMenu>(currentScene) == nullptr)
+    {
+        topBar.Render(window);
+    }
+
     window.display();
 }
 
@@ -45,6 +55,20 @@ void WindowHandler::Update()
     {
         currentScene->Update();
     }
+
+    // Aktualizacja dynamicznych elementów paska
+    topBar.UpdateTime(currentTime);  // Przekazanie aktualnego czasu
+    topBar.UpdateSemester(currentSemester);  // Przekazanie aktualnego semestru
+
+    //// Generowanie losowego semestru w zakresie od 1 do 5
+    //std::random_device rd;   // Pobranie losowego ziarna
+    //std::mt19937 gen(rd());  // Silnik losowy
+    //std::uniform_int_distribution<> dis(1, 5); // Zakres losowania: od 1 do 5
+
+    //currentSemester = dis(gen); // Przypisanie losowego semestru
+
+    // Symulacja dynamicznych zmian czasu (opcjonalne)
+    currentTime = "21:37"; // Aktualny czas systemowy lub gry
 }
 
 bool WindowHandler::IsRunning() const 
@@ -77,4 +101,16 @@ void WindowHandler::SetShopIndex(const int index)
 int WindowHandler::GetShopIndex() const
 {
     return LocationIndex;
+}
+
+// Losowanie semestru
+void WindowHandler::RandomizeSemester()
+{
+    static std::random_device rd;   // Pobranie losowego ziarna
+    //static std::mt19937 gen(static_cast<unsigned>(std::time(nullptr)));
+    //std::uniform_int_distribution<> dis(1, 5); // Zakres losowania: od 1 do 5
+
+    //currentSemester = dis(gen); // Przypisanie losowego semestru
+    currentSemester = 3;
+    //currentSemester = rand() % 5 + 1;
 }
