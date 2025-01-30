@@ -35,12 +35,12 @@ constexpr float icon_scale = 3.f;
 constexpr int text_col = 164;
 constexpr int text_size = 40;
 constexpr int text_off_y = 16;
-constexpr int value_col = 280;
+constexpr int value_col = 300;
 constexpr int value_off_y = 10;
 constexpr int value_size = 50;
-constexpr int health_row = 100;
-constexpr int energy_row = 200;
-constexpr int sanity_row = 300;
+constexpr int health_row = 150;
+constexpr int energy_row = 250;
+constexpr int sanity_row = 350;
 FightScene::UI::UI()
 {
     // zdrowie
@@ -98,7 +98,7 @@ FightScene::UI::UI()
 // PRZECIWNIK
 
 constexpr int bar_col = 1100;
-constexpr int bar_row = 100;
+constexpr int bar_row = 160;
 constexpr float bar_wid = 50.f;
 constexpr float bar_len = 300.f;
 constexpr float bar_out = 5.f;
@@ -297,7 +297,7 @@ void FightScene::EnemyUI::HandleHit()
 
 // PRZEDMIOTY
 
-constexpr float bg_col = 1300.f;
+constexpr float bg_col = 1100.f;
 constexpr float bg_row = 750.f;
 constexpr float bg_size = 160.f;
 constexpr float bag_off_x = -2.f;
@@ -399,7 +399,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler)
 
     // gracz
     playerSprite.setTexture(playerTexture);
-    playerSprite.setPosition(385, 480);
+    playerSprite.setPosition(440, 480);
     playerSprite.setScale(4.5f, 4.5f);
 
     playerSprite.setTextureRect({ 0, 32, 32, 32 });
@@ -418,12 +418,12 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler)
     // przyciski
     attackButton.setTexture(buttonTexture);
     attackButton.setTextureRect({ 0,0,92,32 });
-    attackButton.setPosition(200, 800);
+    attackButton.setPosition(300, 700);
     attackButton.setScale(3.f, 3.f);
 
     itemButton.setTexture(buttonTexture);
     itemButton.setTextureRect({ 92,0,92,32 });
-    itemButton.setPosition(600, 800);
+    itemButton.setPosition(600, 700);
     itemButton.setScale(3.f, 3.f);
 }
 void FightScene::Update()
