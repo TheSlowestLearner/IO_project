@@ -28,18 +28,25 @@ public:
 	};
 
 	/// <summary>
+	/// Funkcja u¿ywana do inicjalizacji.
+	/// </summary>
+	static void LoadSounds();
+	/// <summary>
 	/// Odgrywa efekt dŸwiêkowy.
 	/// </summary>
 	/// <param name="sound">- identyfikator dŸwiêku</param>
-	static void PlaySound(const Sound& sound);
+	static void PlaySound(const Sound& _sound);
 	/// <summary>
 	/// Odgrywa muzykê.
 	/// </summary>
 	/// <param name="music">- identyfikator utworu</param>
-	static void PlayMusic(const Music& music);
+	static void PlayMusic(const Music& _music);
 
 private:
 
 	static sf::SoundBuffer sounds[sound_amount];
 	static sf::Music soundtracks[music_amount];
+
+	static sf::Sound sound;
+	static sf::Music* music;
 };
