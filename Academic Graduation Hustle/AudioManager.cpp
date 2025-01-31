@@ -32,7 +32,7 @@ void AudioManager::LoadSounds()
 	// utwory
 	// ;(
 
-	music->setLoop(true);
+	music = &soundtracks[0];
 }
 void AudioManager::PlaySound(const Sound& _sound)
 {
@@ -42,6 +42,7 @@ void AudioManager::PlaySound(const Sound& _sound)
 void AudioManager::PlayMusic(const Music& _music)
 {
 	// nie ma muzyki wiêc nie ma funkcji
+	music->setLoop(true);
 }
 void AudioManager::PauseMusic()
 {
