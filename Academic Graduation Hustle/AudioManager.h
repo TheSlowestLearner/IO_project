@@ -41,6 +41,14 @@ public:
 	/// </summary>
 	/// <param name="music">- identyfikator utworu</param>
 	static void PlayMusic(const Music& _music);
+	/// <summary>
+	/// Wstrzymuje muzykê.
+	/// </summary>
+	static void PauseMusic();
+	/// <summary>
+	/// Kontynuuje muzykê.
+	/// </summary>
+	static void ContinueMusic();
 
 private:
 
