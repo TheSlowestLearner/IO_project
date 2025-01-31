@@ -16,6 +16,9 @@ FightScene::Statistic::Statistic()
 }
 inline void FightScene::Statistic::Update()
 {
+    if (amount < 0)
+        amount = 0;
+
     amountText.setString(std::to_string(amount));
 
     if (amount == 0)
@@ -144,6 +147,7 @@ FightScene::EnemyUI::EnemyUI()
     nextAttackText.setFont(font);
     nextAttackText.setPosition(bar_col + nat_txt_off_x, bar_row + nat_txt_off_y);
     nextAttackText.setCharacterSize(nat_txt_size);
+    QueueAttack();
 }
 inline void FightScene::EnemyUI::Update()
 {
@@ -289,8 +293,8 @@ void FightScene::EnemyUI::HandleHit()
 
     case ALL:
         GameManager::player.modifyStats(0, -(rand() % 31 + 10));
-        GameManager::player.modifyStats(0, -(rand() % 31 + 10));
-        GameManager::player.modifyStats(0, -(rand() % 31 + 10));
+        GameManager::player.modifyStats(1, -(rand() % 31 + 10));
+        GameManager::player.modifyStats(2, -(rand() % 31 + 10));
         break;
     }
 }
@@ -435,7 +439,7 @@ void FightScene::Update()
 
     // opuszczanie sceny
     if (enemyStats.points >= enemyStats.required ||
-        GameManager::player.seeStats(0) == 0 && GameManager::player.seeStats(1) == 0 && GameManager::player.seeStats(2) == 0)
+        stats.health.amount == 0 && stats.energy.amount == 0 && stats.sanity.amount == 0)
         HandleExit();
     // aktualizacja sceny
     else if(currentPlayerAnimation == IDLE && currentEnemyAnimation == IDLE)
@@ -511,12 +515,14 @@ inline void FightScene::HandleAttack()
             if (enemyStats.nextAttack != NONE)
                 currentEnemyAnimation = ATTACK;
 
-            if (GameManager::player.seeStats(0) == 0 && GameManager::player.seeStats(1) == 0 && GameManager::player.seeStats(2) == 0)
+            enemyStats.HandleHit();
+            UpdateStats();
+
+            if (stats.health.amount == 0 && stats.energy.amount == 0 && stats.sanity.amount == 0)
                 currentPlayerAnimation = DEATH;
             else if (enemyStats.nextAttack != NONE)
                 currentPlayerAnimation = HURT;
 
-            enemyStats.HandleHit();
             enemyStats.QueueAttack();
         }
     }
@@ -590,7 +596,7 @@ inline void FightScene::HandleExit()
 
     std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
 
-    if(countdown++ > 2000)
+    if(countdown++ > 2500)
     {
         countdown = 0;
         this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
@@ -763,10 +769,11 @@ inline void FightScene::UpdateSprites()
 
             if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = NONE;
                 playing_enemy = false;
                 enemy_back = false;
+
+                HandleAttack();
             }
         }
     }
