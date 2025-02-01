@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "GameScene.h"
 #include "Player.h"
+#include "AudioManager.h"
 
 class FightScene : public Scene
 {

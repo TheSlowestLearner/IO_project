@@ -518,6 +518,13 @@ inline void FightScene::HandleAttack()
             enemyStats.HandleHit();
             UpdateStats();
 
+            if (enemyStats.nextAttack == EnemyUI::HEALTH1
+                || enemyStats.nextAttack == EnemyUI::ENERGY1
+                || enemyStats.nextAttack == EnemyUI::SANITY1)
+                AudioManager::PlaySound(AudioManager::Sound::SOFT_HIT);
+            else
+                AudioManager::PlaySound(AudioManager::Sound::HARD_HIT);
+
             if (stats.health.amount == 0 && stats.energy.amount == 0 && stats.sanity.amount == 0)
                 currentPlayerAnimation = DEATH;
             else if (enemyStats.nextAttack != NONE)
@@ -595,10 +602,9 @@ inline void FightScene::HandleExit()
 {
     static int countdown = 0;
 
-    std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
-
-    if(countdown++ > 2500)
+    if(countdown++ > (enemyStats.points >= enemyStats.required ? 2000 : 4000))
     {
+        std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
         countdown = 0;
         this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
     }
@@ -659,6 +665,7 @@ inline void FightScene::UpdateSprites()
         {
             playerAnimator->SetAnimation(6, pf_death);
             playing_player = true;
+            AudioManager::PlaySound(AudioManager::Sound::PLAYER_DEATH);
         }
         else
         {
@@ -680,6 +687,7 @@ inline void FightScene::UpdateSprites()
         {
             playerAnimator->SetAnimation(4, pf_heal);
             playing_player = true;
+            AudioManager::PlaySound(AudioManager::Sound::HEAL);
         }
         else
         {
@@ -763,6 +771,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(4, ef_death);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::ENEMY_DYING);
         }
         else
         {
@@ -786,6 +795,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(2, ef_heal);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::HEAL);
         }
         else
         {
@@ -808,6 +818,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(3, ef_hurt);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::SOFT_HIT);
         }
         else
         {
