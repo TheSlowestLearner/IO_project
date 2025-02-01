@@ -147,7 +147,6 @@ FightScene::EnemyUI::EnemyUI()
     nextAttackText.setFont(font);
     nextAttackText.setPosition(bar_col + nat_txt_off_x, bar_row + nat_txt_off_y);
     nextAttackText.setCharacterSize(nat_txt_size);
-    QueueAttack();
 }
 inline void FightScene::EnemyUI::Update()
 {
@@ -218,30 +217,60 @@ inline void FightScene::EnemyUI::Update()
         break;
     }
 }
-inline void FightScene::EnemyUI::QueueAttack()
+inline void FightScene::EnemyUI::QueueAttack(const UI& _ui)
 {
+    bool health_bar = _ui.health.amount, energy_bar = _ui.energy.amount, sanity_bar = _ui.sanity.amount;
     int number = rand() % 101;
 
-    if (number == 0)
-        nextAttack = NONE;
-    else if (number < 18)
+    if (!health_bar && !energy_bar)
+    {
+        number = rand() % 57 + 44;
+        if (number > 65 && number < 77)
+            number = 99;
+    }
+    else if (!health_bar && !sanity_bar)
+    {
+        number = rand() % 57 + 44;
+        if (number > 43 && number < 66)
+            number -= 22;
+        if (number > 76 && number < 88)
+            number = 99;
+    }
+    else if (!energy_bar && !sanity_bar)
+    {
+        number = (rand() % 57 + 66) % 101;
+        if (number > 43 && number < 66)
+            number -= 22;
+        if (number > 76 && number < 88)
+            number = 99;
+    }
+    else if (!health_bar)
+        number = rand() % 79 + 22;
+    else if (!energy_bar)
+        number = (rand() % 79 + 44) % 101;
+    else if (!sanity_bar)
+        number = (rand() % 79 + 66) % 101;
+
+    if (number < 17)
         nextAttack = HEALTH1;
-    else if (number < 35)
-        nextAttack = ENERGY1;
-    else if (number < 52)
-        nextAttack = SANITY1;
-    else if (number < 57)
+    else if (number < 22)
         nextAttack = HEALTH2;
-    else if (number < 62)
+    else if (number < 39)
+        nextAttack = ENERGY1;
+    else if (number < 44)
         nextAttack = ENERGY2;
-    else if (number < 67)
+    else if (number < 61)
+        nextAttack = SANITY1;
+    else if (number < 66)
         nextAttack = SANITY2;
-    else if (number < 78)
+    else if (number < 77)
         nextAttack = HEALTH_ENERGY;
-    else if (number < 89)
+    else if (number < 88)
         nextAttack = HEALTH_SANITY;
-    else if (number < 100)
+    else if (number < 99)
         nextAttack = ENERGY_SANITY;
+    else if (number < 100)
+        nextAttack = NONE;
     else
         nextAttack = ALL;
 }
@@ -418,6 +447,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler)
     enemySprite.setTextureRect({ 0, 0, 32, 32 });
     enemyAnimator = new Animator(enemySprite, { 32, 32 }, 7, 0, 2);
     currentEnemyAnimation = IDLE;
+    enemyStats.QueueAttack(stats);
 
     // przyciski
     attackButton.setTexture(buttonTexture);
@@ -530,7 +560,7 @@ inline void FightScene::HandleAttack()
             else if (enemyStats.nextAttack != NONE)
                 currentPlayerAnimation = HURT;
 
-            enemyStats.QueueAttack();
+            enemyStats.QueueAttack(stats);
         }
     }
 
@@ -602,7 +632,7 @@ inline void FightScene::HandleExit()
 {
     static int countdown = 0;
 
-    if(countdown++ > (enemyStats.points >= enemyStats.required ? 2000 : 4000))
+    if(countdown++ > (enemyStats.points >= enemyStats.required ? 2000 : 5000))
     {
         std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
         countdown = 0;

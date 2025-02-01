@@ -70,7 +70,7 @@ class FightScene : public Scene
 
         EnemyUI();
         inline void Update();
-        inline void QueueAttack();
+        inline void QueueAttack(const UI& _ui);
         void HandleHit();
     };
     struct ItemBag
