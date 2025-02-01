@@ -30,7 +30,10 @@ void AudioManager::LoadSounds()
 		throw std::runtime_error("Failed to load the \"step\" sound!");
 
 	// utwory
-	// ;(
+	if (!soundtracks[0].openFromFile("songs/main_theme.wav"))
+		throw std::runtime_error("Failed to load \"main_theme\"!");
+	if (!soundtracks[1].openFromFile("songs/main_theme_extended.wav"))
+		throw std::runtime_error("Failed to load \"main_theme_extended\"!");
 
 	music = &soundtracks[0];
 }
@@ -41,8 +44,9 @@ void AudioManager::PlaySound(const Sound& _sound)
 }
 void AudioManager::PlayMusic(const Music& _music)
 {
-	// nie ma muzyki wiêc nie ma funkcji
+	music = &soundtracks[_music];
 	music->setLoop(true);
+	music->play();
 }
 void AudioManager::PauseMusic()
 {
