@@ -2,7 +2,7 @@
 #include<SFML/Audio.hpp>
 
 constexpr int sound_amount = 9;
-constexpr int music_amount = 1;
+constexpr int music_amount = 2;
 
 class AudioManager
 {
