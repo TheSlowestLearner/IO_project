@@ -22,9 +22,8 @@ public:
 	};
 	enum Music
 	{
-		MUSIC1,
-		MUSIC2,
-		MUSIC3,
+		MAIN_THEME,
+		MAIN_THEME_EXTENDED,
 	};
 
 	/// <summary>
