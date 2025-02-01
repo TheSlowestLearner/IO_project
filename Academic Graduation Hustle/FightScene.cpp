@@ -532,7 +532,8 @@ inline void FightScene::HandleAttack()
 inline void FightScene::HandleItem()
 {
     std::cout << "FIGHT SCENE: item pressed" << std::endl;
-    currentPlayerAnimation = HEAL;
+    if(GameManager::player.seeItems(itemBag.currentItem) != 0)
+        currentPlayerAnimation = HEAL;
 
     if (GameManager::player.seeItems(itemBag.currentItem) == 0)
         itemBag.HandleRightArrow();
