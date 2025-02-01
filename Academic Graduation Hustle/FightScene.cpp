@@ -16,6 +16,9 @@ FightScene::Statistic::Statistic()
 }
 inline void FightScene::Statistic::Update()
 {
+    if (amount < 0)
+        amount = 0;
+
     amountText.setString(std::to_string(amount));
 
     if (amount == 0)
@@ -214,30 +217,60 @@ inline void FightScene::EnemyUI::Update()
         break;
     }
 }
-inline void FightScene::EnemyUI::QueueAttack()
+inline void FightScene::EnemyUI::QueueAttack(const UI& _ui)
 {
+    bool health_bar = _ui.health.amount, energy_bar = _ui.energy.amount, sanity_bar = _ui.sanity.amount;
     int number = rand() % 101;
 
-    if (number == 0)
-        nextAttack = NONE;
-    else if (number < 18)
+    if (!health_bar && !energy_bar)
+    {
+        number = rand() % 57 + 44;
+        if (number > 65 && number < 77)
+            number = 99;
+    }
+    else if (!health_bar && !sanity_bar)
+    {
+        number = rand() % 57 + 44;
+        if (number > 43 && number < 66)
+            number -= 22;
+        if (number > 76 && number < 88)
+            number = 99;
+    }
+    else if (!energy_bar && !sanity_bar)
+    {
+        number = (rand() % 57 + 66) % 101;
+        if (number > 43 && number < 66)
+            number -= 22;
+        if (number > 76 && number < 88)
+            number = 99;
+    }
+    else if (!health_bar)
+        number = rand() % 79 + 22;
+    else if (!energy_bar)
+        number = (rand() % 79 + 44) % 101;
+    else if (!sanity_bar)
+        number = (rand() % 79 + 66) % 101;
+
+    if (number < 17)
         nextAttack = HEALTH1;
-    else if (number < 35)
-        nextAttack = ENERGY1;
-    else if (number < 52)
-        nextAttack = SANITY1;
-    else if (number < 57)
+    else if (number < 22)
         nextAttack = HEALTH2;
-    else if (number < 62)
+    else if (number < 39)
+        nextAttack = ENERGY1;
+    else if (number < 44)
         nextAttack = ENERGY2;
-    else if (number < 67)
+    else if (number < 61)
+        nextAttack = SANITY1;
+    else if (number < 66)
         nextAttack = SANITY2;
-    else if (number < 78)
+    else if (number < 77)
         nextAttack = HEALTH_ENERGY;
-    else if (number < 89)
+    else if (number < 88)
         nextAttack = HEALTH_SANITY;
-    else if (number < 100)
+    else if (number < 99)
         nextAttack = ENERGY_SANITY;
+    else if (number < 100)
+        nextAttack = NONE;
     else
         nextAttack = ALL;
 }
@@ -289,8 +322,8 @@ void FightScene::EnemyUI::HandleHit()
 
     case ALL:
         GameManager::player.modifyStats(0, -(rand() % 31 + 10));
-        GameManager::player.modifyStats(0, -(rand() % 31 + 10));
-        GameManager::player.modifyStats(0, -(rand() % 31 + 10));
+        GameManager::player.modifyStats(1, -(rand() % 31 + 10));
+        GameManager::player.modifyStats(2, -(rand() % 31 + 10));
         break;
     }
 }
@@ -414,6 +447,7 @@ FightScene::FightScene(std::shared_ptr<WindowHandler> handler)
     enemySprite.setTextureRect({ 0, 0, 32, 32 });
     enemyAnimator = new Animator(enemySprite, { 32, 32 }, 7, 0, 2);
     currentEnemyAnimation = IDLE;
+    enemyStats.QueueAttack(stats);
 
     // przyciski
     attackButton.setTexture(buttonTexture);
@@ -435,7 +469,7 @@ void FightScene::Update()
 
     // opuszczanie sceny
     if (enemyStats.points >= enemyStats.required ||
-        GameManager::player.seeStats(0) == 0 && GameManager::player.seeStats(1) == 0 && GameManager::player.seeStats(2) == 0)
+        stats.health.amount == 0 && stats.energy.amount == 0 && stats.sanity.amount == 0)
         HandleExit();
     // aktualizacja sceny
     else if(currentPlayerAnimation == IDLE && currentEnemyAnimation == IDLE)
@@ -511,13 +545,22 @@ inline void FightScene::HandleAttack()
             if (enemyStats.nextAttack != NONE)
                 currentEnemyAnimation = ATTACK;
 
-            if (GameManager::player.seeStats(0) == 0 && GameManager::player.seeStats(1) == 0 && GameManager::player.seeStats(2) == 0)
+            enemyStats.HandleHit();
+            UpdateStats();
+
+            if (enemyStats.nextAttack == EnemyUI::HEALTH1
+                || enemyStats.nextAttack == EnemyUI::ENERGY1
+                || enemyStats.nextAttack == EnemyUI::SANITY1)
+                AudioManager::PlaySound(AudioManager::Sound::SOFT_HIT);
+            else
+                AudioManager::PlaySound(AudioManager::Sound::HARD_HIT);
+
+            if (stats.health.amount == 0 && stats.energy.amount == 0 && stats.sanity.amount == 0)
                 currentPlayerAnimation = DEATH;
             else if (enemyStats.nextAttack != NONE)
                 currentPlayerAnimation = HURT;
 
-            enemyStats.HandleHit();
-            enemyStats.QueueAttack();
+            enemyStats.QueueAttack(stats);
         }
     }
 
@@ -526,7 +569,8 @@ inline void FightScene::HandleAttack()
 inline void FightScene::HandleItem()
 {
     std::cout << "FIGHT SCENE: item pressed" << std::endl;
-    currentPlayerAnimation = HEAL;
+    if(GameManager::player.seeItems(itemBag.currentItem) != 0)
+        currentPlayerAnimation = HEAL;
 
     if (GameManager::player.seeItems(itemBag.currentItem) == 0)
         itemBag.HandleRightArrow();
@@ -588,10 +632,9 @@ inline void FightScene::HandleExit()
 {
     static int countdown = 0;
 
-    std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
-
-    if(countdown++ > 2000)
+    if(countdown++ > (enemyStats.points >= enemyStats.required ? 2000 : 5000))
     {
+        std::cout << "FIGHT SCENE: returning to game scene" << std::endl;
         countdown = 0;
         this->windowHandler->SetScene(std::make_shared<GameScene>(windowHandler));
     }
@@ -652,6 +695,7 @@ inline void FightScene::UpdateSprites()
         {
             playerAnimator->SetAnimation(6, pf_death);
             playing_player = true;
+            AudioManager::PlaySound(AudioManager::Sound::PLAYER_DEATH);
         }
         else
         {
@@ -673,6 +717,7 @@ inline void FightScene::UpdateSprites()
         {
             playerAnimator->SetAnimation(4, pf_heal);
             playing_player = true;
+            AudioManager::PlaySound(AudioManager::Sound::HEAL);
         }
         else
         {
@@ -756,6 +801,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(4, ef_death);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::ENEMY_DYING);
         }
         else
         {
@@ -763,10 +809,11 @@ inline void FightScene::UpdateSprites()
 
             if (playing_enemy && enemy_back)
             {
-                enemyAnimator->SetAnimation(0, ef_idle);
                 currentEnemyAnimation = NONE;
                 playing_enemy = false;
                 enemy_back = false;
+
+                HandleAttack();
             }
         }
     }
@@ -778,6 +825,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(2, ef_heal);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::HEAL);
         }
         else
         {
@@ -800,6 +848,7 @@ inline void FightScene::UpdateSprites()
         {
             enemyAnimator->SetAnimation(3, ef_hurt);
             playing_enemy = true;
+            AudioManager::PlaySound(AudioManager::Sound::SOFT_HIT);
         }
         else
         {

@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "GameScene.h"
 #include "Player.h"
+#include "AudioManager.h"
 
 class FightScene : public Scene
 {
@@ -69,7 +70,7 @@ class FightScene : public Scene
 
         EnemyUI();
         inline void Update();
-        inline void QueueAttack();
+        inline void QueueAttack(const UI& _ui);
         void HandleHit();
     };
     struct ItemBag
