@@ -1,8 +1,9 @@
 #include "GameManager.h"
+#include "AudioManager.h"
 
 int main()
 {
-
+    AudioManager::LoadSounds();
     GameManager gameManager;
     gameManager.Run();
     return 0;

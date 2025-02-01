@@ -6,7 +6,7 @@ class Animator
 public:
     Animator(sf::Sprite& sprite, sf::Vector2i frameSize, int frameCount, int row, float animationSpeed);
 
-    void Update(float deltaTime); 
+    int Update(float deltaTime); 
     void SetAnimation(int row, int frameCount); 
     void Reset(); 
 

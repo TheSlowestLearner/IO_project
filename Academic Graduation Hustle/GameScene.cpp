@@ -3,7 +3,7 @@
 #include "FightScene.h"
 #include <iostream>
 
-#define UNTIL_FIGHT 3
+#define UNTIL_FIGHT 1
 
 GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(handler)
 {
@@ -45,10 +45,19 @@ GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(hand
     locationSprite.setTextureRect(sf::IntRect(160, 0, 32, 32));
     studenciakSprite = locationSprite;
     studenciakSprite.setPosition(1195, 800);
-    //Wydzia³
+    //WydziaÂ³
     locationSprite.setTextureRect(sf::IntRect(192, 0, 32, 32));
     wimiipSprite = locationSprite;
     wimiipSprite.setPosition(985, 585);
+
+    //Ekwipunek
+    if (!equipmentTexture.loadFromFile("graphics/backpack.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    equipmentSprite.setTexture(equipmentTexture);
+    equipmentSprite.setScale(3, 3);
+    equipmentSprite.setPosition(1820, 985);
 
     if (!playerTexture.loadFromFile("graphics/player_sprite_sheet.png")) 
     {
@@ -132,6 +141,11 @@ void GameScene::Update()
                 isMoving = true;
                 break;
             }
+            if (equipmentSprite.getGlobalBounds().contains(mouseWorldPosition))
+            {
+                auto newScene = std::make_shared<Inventory>(windowHandler);
+                windowHandler->SetScene(newScene);
+            }
         }
     }
     
@@ -155,7 +169,7 @@ void GameScene::Update()
             windowHandler->SetShopIndex(selectedLocationIndex);
             selectedLocationIndex = -1;
 
-            //Zmiana sceny na inn¹
+            //Zmiana sceny na innÂ¹
             windowHandler->SetPlayerPosition(playerSprite.getPosition());
             if (locationCounter == UNTIL_FIGHT)
             {
@@ -179,7 +193,7 @@ void GameScene::Update()
 
 void GameScene::Render(sf::RenderWindow& window)
 {
-    //T³o
+    //TÂ³o
     window.draw(backgroundSprite);
     //Akademik
     window.draw(academicSprite);
@@ -193,10 +207,12 @@ void GameScene::Render(sf::RenderWindow& window)
     window.draw(miasteczkoSprite);
     //Studenciak
     window.draw(studenciakSprite);
-    //Wydzia³
+    //WydziaÂ³
     window.draw(wimiipSprite);
     //Gracz
     window.draw(playerSprite);
+    //Ekwipunek
+    window.draw(equipmentSprite);
 }
 
 void GameScene::HandleMouseClick(int x, int y) {}

@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,15 +129,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="FightScene.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="ObjectCreators.cpp" />
     <ClCompile Include="main.cpp" />
@@ -145,20 +147,25 @@
     <ClCompile Include="ShopScene.cpp" />
     <ClCompile Include="TaskLogic.cpp" />
     <ClCompile Include="Tasks.cpp" />
+    <ClCompile Include="TopBar.cpp" />
     <ClCompile Include="WindowHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="FightScene.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="ObjectCreators.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShopScene.h" />
     <ClInclude Include="TaskLogic.h" />
     <ClInclude Include="Tasks.h" />
+    <ClInclude Include="TopBar.h" />
     <ClInclude Include="WindowHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
