@@ -10,9 +10,6 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
 {
     player1 = new Player;
     player1->loadPlayer();
-    useButton.setPosition(895, 730);
-    useButton.setSize(sf::Vector2f(100, 100));
-    useButton.setFillColor(sf::Color::Green);
 
     if (!randomFont.loadFromFile("fonts/random_font.ttf"))
     {
@@ -27,15 +24,15 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     {
         throw std::runtime_error("Texture not found!");
     }
+    if (!useButtonTexture.loadFromFile("graphics/use_button2.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
     if (!rightButtonTexture.loadFromFile("graphics/arrow.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
     if (!leftButtonTexture.loadFromFile("graphics/arrow.png"))
-    {
-        throw std::runtime_error("Texture not found!");
-    }
-    if (!useButtonTexture.loadFromFile("graphics/exit_button.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
@@ -100,6 +97,9 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     leftButtonSprite.setPosition(300, 600);
     leftButtonSprite.setScale(5, 3.15);
     leftButtonSprite.rotate(180);
+    useButtonSprite.setTexture(useButtonTexture);
+    useButtonSprite.setPosition(800, 740);
+    useButtonSprite.setScale(3, 3);
     for (int i = 0; i <= items_number; i++)
     {
         ItemsSprite[i].setTexture(ItemsTexture[i]);
@@ -165,7 +165,7 @@ void Inventory::Update()
                 }
             }
         }
-        if (useButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (useButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -250,7 +250,7 @@ void Inventory::Render(sf::RenderWindow& window)
     {
         window.draw(rightButtonSprite);
         window.draw(leftButtonSprite);
-        window.draw(useButton);
+        window.draw(useButtonSprite);
         itemsValue.setString(std::to_string(player1->seeItems(itemId)));
         window.draw(itemsValue);
     }
