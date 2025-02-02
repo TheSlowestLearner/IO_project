@@ -219,7 +219,7 @@ inline void FightScene::EnemyUI::Update()
 }
 inline void FightScene::EnemyUI::QueueAttack(const UI& _ui)
 {
-    bool health_bar = _ui.health.amount, energy_bar = _ui.energy.amount, sanity_bar = _ui.sanity.amount;
+    bool health_bar = _ui.health.amount > 0, energy_bar = _ui.energy.amount > 0, sanity_bar = _ui.sanity.amount > 0;
     int number = rand() % 101;
 
     if (!health_bar && !energy_bar)
