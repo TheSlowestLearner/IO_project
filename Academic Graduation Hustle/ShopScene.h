@@ -7,6 +7,8 @@
 #include "WindowHandler.h" 
 #include "GameManager.h"
 #include "GameScene.h"
+#include "Player.h"
+#include "Inventory.h"
 #include <vector>
 
 class ShopScene : public Scene {
@@ -17,6 +19,7 @@ public:
     void Update() override;
     void HandleMouseClick(int x, int y) override;
 
+    void SetPlayer(Player* player);
 
 private:
 
@@ -30,20 +33,23 @@ private:
     sf::Sprite buttonSprite;             // Sprite przycisku
     sf::Texture buttonTexture;
 
-    int LocationIndex;
-
     std::shared_ptr<WindowHandler> windowHandler;
 
     std::vector<std::unique_ptr<sf::Texture>> itemTextures;
     std::vector<std::unique_ptr<sf::Sprite>> itemSprites;
 
-    // Opisy przedmiotów
-    std::vector<sf::Text> itemDescriptions;                // Teksty opisów
-    std::vector<std::string> itemDescriptionStrings = {    // Treœci opisów
+    //std::shared_ptr<Inventory> inventory;
+    Player* player;
+
+    // Opisy przedmiotÃ³w
+    std::vector<sf::Text> itemDescriptions;                // Teksty opisÃ³w
+    std::vector<std::string> itemDescriptionStrings = {    // Tre?ci opisÃ³w
         "Piwo: +15 sanity,-10 zdrowia",
         "Kawa: +5 energii",
-        "Sa³atka: +10 zdrowia",
+        "Sa?atka: +10 zdrowia",
         "Papier toaletowy: +10 energii"
     };
-
+    bool isClicked = false;
+    int itemId = 0;
+    int LocationIndex;
 };
