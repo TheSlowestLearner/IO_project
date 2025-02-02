@@ -14,20 +14,24 @@ public:
     void Render(sf::RenderWindow& window) override;
     void Update() override;
     void HandleMouseClick(int x, int y) override;
-    void UploadPlayer(Player *player);
+    void UploadPlayer(Player* player);
 
 private:
     bool isClicked = false;
-    int itemId=0;
-    Player *player1;
+    int itemId = 0;
+    Player* player1;
     sf::Sprite backgroundSprite;
     sf::Texture backgroundTexture;
     sf::Sprite ItemsSprite[12];
     sf::Texture ItemsTexture[12];
-    sf::RectangleShape exitButton;  //Do zamiany na sprite
-    sf::RectangleShape rightButton; //Do zamiany na sprite
-    sf::RectangleShape leftButton;  //Do zamiany na sprite
-    sf::RectangleShape useButton;   //Do zamiany na sprite
+    sf::Sprite exitButtonSprite;
+    sf::Texture exitButtonTexture;
+    sf::Sprite rightButtonSprite;
+    sf::Texture rightButtonTexture;
+    sf::Sprite leftButtonSprite;
+    sf::Texture leftButtonTexture;
+    sf::Sprite useButtonSprite;
+    sf::Texture useButtonTexture;
     sf::Font randomFont;
     sf::Text itemsValue;
     std::shared_ptr<WindowHandler> windowHandler;
