@@ -24,9 +24,14 @@ private:
     sf::Texture backgroundTexture;
     sf::Sprite ItemsSprite[12];
     sf::Texture ItemsTexture[12];
-    sf::RectangleShape exitButton;  //Do zamiany na sprite
-    sf::RectangleShape rightButton; //Do zamiany na sprite
-    sf::RectangleShape leftButton;  //Do zamiany na sprite
+    sf::Sprite exitButtonSprite;
+    sf::Texture exitButtonTexture;
+    sf::Sprite rightButtonSprite;
+    sf::Texture rightButtonTexture;
+    sf::Sprite leftButtonSprite;
+    sf::Texture leftButtonTexture;
+    sf::Sprite useButtonSprite;
+    sf::Texture useButtonTexture;
     sf::RectangleShape useButton;   //Do zamiany na sprite
     sf::Font randomFont;
     sf::Text itemsValue;
