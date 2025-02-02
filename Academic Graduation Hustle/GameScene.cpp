@@ -56,8 +56,8 @@ GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(hand
         throw std::runtime_error("Texture not found!");
     }
     equipmentSprite.setTexture(equipmentTexture);
-    equipmentSprite.setScale(3, 3);
-    equipmentSprite.setPosition(1820, 985);
+    equipmentSprite.setScale(4.5, 4.5);
+    equipmentSprite.setPosition(1650, 805);
 
     if (!playerTexture.loadFromFile("graphics/player_sprite_sheet.png")) 
     {
