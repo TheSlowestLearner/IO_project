@@ -8,6 +8,11 @@
 #define stats_number 3      //ilosc statystyk gracza
 #define items_number 10     //ilosc itemow
 #define start_stats_value 100 //poczatkowa wartosc statystyk gracza
+enum Stat {
+    heath,
+    energy,
+    sanity,
+};
 
 enum Item {
     beer,
@@ -37,7 +42,7 @@ public:
     }
     void modifyStats(int statId, int value)     //zmiana statystyk o wybrana wartosc
     {
-        if (stats_number >= statId && 0 <= statId)
+        if (stats_number > statId && 0 <= statId)
         {
             stats[statId] += value;
         }
@@ -46,7 +51,7 @@ public:
     }
     int seeStats(int statId)    //podglad wartosci statystyk o podanym id   *zwrot wartosci -2 oznacza ze cos poszlo nie tak
     {
-        if (stats_number >= statId && 0 <= statId)
+        if (stats_number > statId && 0 <= statId)
         {
             return stats[statId];
         }
@@ -54,14 +59,14 @@ public:
     }
     void modifyItem(int itemId, int value)     //zmiana ilosci itemu o wybrana wartosc
     {
-        if (items_number >= itemId && 0 <= itemId)
+        if (items_number > itemId && 0 <= itemId)
         {
             inventory[itemId] += value;
         }
     }
     int seeItems(int itemId)        //podglad ilosci itemu o podanym id     *zwrot wartosci -2 oznacza ze cos poszlo nie tak
     {
-        if (items_number >= itemId && 0 <= itemId)
+        if (items_number > itemId && 0 <= itemId)
         {
             return inventory[itemId];
         }
