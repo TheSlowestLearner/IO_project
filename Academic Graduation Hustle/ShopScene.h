@@ -37,13 +37,13 @@ private:
 
     std::vector<std::unique_ptr<sf::Texture>> itemTextures;
     std::vector<std::unique_ptr<sf::Sprite>> itemSprites;
-
+  
     //std::shared_ptr<Inventory> inventory;
     Player* player;
 
-    // Opisy przedmiotów
-    std::vector<sf::Text> itemDescriptions;                // Teksty opisów
-    std::vector<std::string> itemDescriptionStrings = {    // Tre?ci opisów
+    // Opisy przedmiotÃ³w
+    std::vector<sf::Text> itemDescriptions;                // Teksty opisÃ³w
+    std::vector<std::string> itemDescriptionStrings = {    // Tre?ci opisÃ³w
         "Piwo: +15 sanity,-10 zdrowia",
         "Kawa: +5 energii",
         "Sa?atka: +10 zdrowia",
@@ -53,3 +53,4 @@ private:
     int itemId = 0;
     int LocationIndex;
 };
+

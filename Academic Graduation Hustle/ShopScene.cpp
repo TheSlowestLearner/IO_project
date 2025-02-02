@@ -1,4 +1,4 @@
-﻿#include "ShopScene.h"
+#include "ShopScene.h"
 #include "GameScene.h"
 #include "Inventory.h" 
 #include <iostream>
@@ -42,14 +42,12 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setScale(1980, 1080);
 
-    // Dodajê rêczne przypisanie tekstur dla itemków
     std::vector<std::string> itemFiles = {
         "graphics/items/beer.png",
         "graphics/items/coffee.png",
         "graphics/items/salad.png",
         "graphics/items/toilet_paper.png"
     };
-
 
     //itemki
     for (const auto& file : itemFiles)
@@ -77,6 +75,7 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
         text.setFillColor(sf::Color::Black); // Kolor tekstu
         itemDescriptions.push_back(text);
     }
+
 
     // Przypisanie pozycji sprite'ów itemków do odpowiadaj¹cych im czerwonych kwadratów
     if (!itemSprites.empty())
@@ -116,7 +115,7 @@ void ShopScene::Update()
         
         if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
-            
+            //kupowanie
         }
     }
 
@@ -129,16 +128,11 @@ void ShopScene::Update()
         buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
     }
 
-    if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
-    {
-        // Obs³uga klikniêcia przycisku
-        std::cout << "Button clicked!" << std::endl;
-    }
 }
 
 void ShopScene::Render(sf::RenderWindow& window)
 {
-    //T³o
+    //TÂ³o
     window.draw(backgroundSprite);
     window.draw(exitButtonSprite);
 
@@ -162,6 +156,7 @@ void ShopScene::Render(sf::RenderWindow& window)
         // Drugi czerwony kwadrat
         itemFrame.setPosition(750, 400);
         window.draw(itemFrame);
+
 
         // Wyœwietlanie itemków 
         if (itemSprites.size() >= 2)
