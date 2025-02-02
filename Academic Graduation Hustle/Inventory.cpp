@@ -10,15 +10,6 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
 {
     player1 = new Player;
     player1->loadPlayer();
-    exitButton.setPosition(0, 0);
-    exitButton.setSize(sf::Vector2f(100, 100));
-    exitButton.setFillColor(sf::Color::Black);
-    rightButton.setPosition(1600, 500);
-    rightButton.setSize(sf::Vector2f(100, 100));
-    rightButton.setFillColor(sf::Color::Yellow);
-    leftButton.setPosition(200, 500);
-    leftButton.setSize(sf::Vector2f(100, 100));
-    leftButton.setFillColor(sf::Color::Yellow);
     useButton.setPosition(895, 730);
     useButton.setSize(sf::Vector2f(100, 100));
     useButton.setFillColor(sf::Color::Green);
@@ -31,6 +22,23 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     itemsValue.setCharacterSize(120);
     itemsValue.setPosition(920, 550);
     itemsValue.setFillColor(sf::Color::White);
+
+    if (!exitButtonTexture.loadFromFile("graphics/exit_button.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!rightButtonTexture.loadFromFile("graphics/arrow.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!leftButtonTexture.loadFromFile("graphics/arrow.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!useButtonTexture.loadFromFile("graphics/exit_button.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
 
     if (!backgroundTexture.loadFromFile("graphics/shop_background.png"))
     {
@@ -86,6 +94,16 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     }
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setScale(1980, 1080);
+    exitButtonSprite.setTexture(exitButtonTexture);
+    exitButtonSprite.setPosition(0, 100);
+    exitButtonSprite.setScale(3, 3);
+    rightButtonSprite.setTexture(rightButtonTexture);
+    rightButtonSprite.setPosition(1600, 500);
+    rightButtonSprite.setScale(5, 3.15);
+    leftButtonSprite.setTexture(rightButtonTexture);
+    leftButtonSprite.setPosition(300, 600);
+    leftButtonSprite.setScale(5, 3.15);
+    leftButtonSprite.rotate(180);
     for (int i = 0; i <= items_number; i++)
     {
         ItemsSprite[i].setTexture(ItemsTexture[i]);
@@ -102,12 +120,12 @@ void Inventory::Update()
     sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-        if (exitButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (exitButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             auto newScene = std::make_shared<GameScene>(windowHandler);
             windowHandler->SetScene(newScene);
         }
-        if (rightButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (rightButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -129,7 +147,7 @@ void Inventory::Update()
                 }
             }
         }
-        if (leftButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (leftButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -178,9 +196,9 @@ void Inventory::Update()
 void Inventory::Render(sf::RenderWindow& window)
 {
     window.draw(backgroundSprite);
-    window.draw(exitButton);
-    window.draw(rightButton);
-    window.draw(leftButton);
+    //window.draw(rightButtonSprite);
+    window.draw(exitButtonSprite);
+    //window.draw(leftButtonSprite);
     for (int antyloop = 0; player1->seeItems(itemId)<=0; antyloop++)
     {
         if (itemId >= items_number - 1)
@@ -196,6 +214,8 @@ void Inventory::Render(sf::RenderWindow& window)
     window.draw(ItemsSprite[itemId]);
     if (itemId < items_number)
     {
+        window.draw(rightButtonSprite);
+        window.draw(leftButtonSprite);
         window.draw(useButton);
         itemsValue.setString(std::to_string(player1->seeItems(itemId)));
         window.draw(itemsValue);
