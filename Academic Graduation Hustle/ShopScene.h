@@ -49,7 +49,7 @@ private:
         "Sa?atka: +10 zdrowia",
         "Papier toaletowy: +10 energii"
     };
-
+    bool isClicked = false;
     int itemId = 0;
     int LocationIndex;
 };
