@@ -10,18 +10,6 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
 {
     player1 = new Player;
     player1->loadPlayer();
-    exitButton.setPosition(0, 0);
-    exitButton.setSize(sf::Vector2f(100, 100));
-    exitButton.setFillColor(sf::Color::Black);
-    rightButton.setPosition(1600, 500);
-    rightButton.setSize(sf::Vector2f(100, 100));
-    rightButton.setFillColor(sf::Color::Yellow);
-    leftButton.setPosition(200, 500);
-    leftButton.setSize(sf::Vector2f(100, 100));
-    leftButton.setFillColor(sf::Color::Yellow);
-    useButton.setPosition(895, 730);
-    useButton.setSize(sf::Vector2f(100, 100));
-    useButton.setFillColor(sf::Color::Green);
 
     if (!randomFont.loadFromFile("fonts/random_font.ttf"))
     {
@@ -32,6 +20,23 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     itemsValue.setPosition(920, 550);
     itemsValue.setFillColor(sf::Color::White);
 
+    if (!exitButtonTexture.loadFromFile("graphics/exit_button.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!useButtonTexture.loadFromFile("graphics/use_button2.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!rightButtonTexture.loadFromFile("graphics/arrow.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+    if (!leftButtonTexture.loadFromFile("graphics/arrow.png"))
+    {
+        throw std::runtime_error("Texture not found!");
+    }
+
     if (!backgroundTexture.loadFromFile("graphics/shop_background.png"))
     {
         throw std::runtime_error("Texture not found!");
@@ -40,52 +45,61 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[1].loadFromFile("graphics/items/beer2.png"))
+    if (!ItemsTexture[1].loadFromFile("graphics/items/cigarettes.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[2].loadFromFile("graphics/items/cigarettes.png"))
+    if (!ItemsTexture[2].loadFromFile("graphics/items/coffee.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[3].loadFromFile("graphics/items/coffee.png"))
+    if (!ItemsTexture[3].loadFromFile("graphics/items/energy_drink.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[4].loadFromFile("graphics/items/energy_drink.png"))
+    if (!ItemsTexture[4].loadFromFile("graphics/items/harnas.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[5].loadFromFile("graphics/items/harnas.png"))
+    if (!ItemsTexture[5].loadFromFile("graphics/items/headphones.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[6].loadFromFile("graphics/items/headphones.png"))
+    if (!ItemsTexture[6].loadFromFile("graphics/items/salad.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[7].loadFromFile("graphics/items/salad.png"))
+    if (!ItemsTexture[7].loadFromFile("graphics/items/snack_bar.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[8].loadFromFile("graphics/items/snack_bar.png"))
+    if (!ItemsTexture[8].loadFromFile("graphics/items/toilet_paper.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[9].loadFromFile("graphics/items/toilet_paper.png"))
+    if (!ItemsTexture[9].loadFromFile("graphics/items/vape.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[10].loadFromFile("graphics/items/vape.png"))
-    {
-        throw std::runtime_error("Texture not found!");
-    }
-    if (!ItemsTexture[11].loadFromFile("graphics/energy.png"))
+    if (!ItemsTexture[10].loadFromFile("graphics/energy.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setScale(1980, 1080);
+    exitButtonSprite.setTexture(exitButtonTexture);
+    exitButtonSprite.setPosition(0, 100);
+    exitButtonSprite.setScale(3, 3);
+    rightButtonSprite.setTexture(rightButtonTexture);
+    rightButtonSprite.setPosition(1600, 500);
+    rightButtonSprite.setScale(5, 3.15);
+    leftButtonSprite.setTexture(rightButtonTexture);
+    leftButtonSprite.setPosition(300, 600);
+    leftButtonSprite.setScale(5, 3.15);
+    leftButtonSprite.rotate(180);
+    useButtonSprite.setTexture(useButtonTexture);
+    useButtonSprite.setPosition(800, 740);
+    useButtonSprite.setScale(3, 3);
     for (int i = 0; i <= items_number; i++)
     {
         ItemsSprite[i].setTexture(ItemsTexture[i]);
@@ -102,12 +116,12 @@ void Inventory::Update()
     sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-        if (exitButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (exitButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             auto newScene = std::make_shared<GameScene>(windowHandler);
             windowHandler->SetScene(newScene);
         }
-        if (rightButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (rightButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -129,18 +143,18 @@ void Inventory::Update()
                 }
             }
         }
-        if (leftButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (leftButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
                 if (itemId <= 0)
-                    itemId = items_number-1;
+                    itemId = items_number - 1;
                 else
                     itemId--;
                 for (int antyloop = 0; player1->seeItems(itemId) <= 0; antyloop++)
                 {
-                    if (itemId <0)
-                        itemId = items_number-1;
+                    if (itemId < 0)
+                        itemId = items_number - 1;
                     else
                         itemId--;
                     if (antyloop > items_number)
@@ -151,7 +165,7 @@ void Inventory::Update()
                 }
             }
         }
-        if (useButton.getGlobalBounds().contains(mouseWorldPosition))
+        if (useButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -159,7 +173,47 @@ void Inventory::Update()
                 {
                     if (player1->seeItems(itemId) >= 0)
                     {
-                        //Efekt przedmiotu
+                        if (itemId == beer)
+                        {
+                            player1->modifyStats(sanity, 15);
+                            player1->modifyStats(heath, -10);
+                        }
+                        if (itemId == cigarettes)
+                        {
+
+                        }
+                        if (itemId == coffee)
+                        {
+                            player1->modifyStats(energy, 5);
+                        }
+                        if (itemId == energy_drink)
+                        {
+
+                        }
+                        if (itemId == harnas)
+                        {
+
+                        }
+                        if (itemId == headphones)
+                        {
+
+                        }
+                        if (itemId == salad)
+                        {
+                            player1->modifyStats(heath, 10);
+                        }
+                        if (itemId == snack_bar)
+                        {
+
+                        }
+                        if (itemId == toilet_paper)
+                        {
+                            player1->modifyStats(energy, 10);
+                        }
+                        if (itemId == vape)
+                        {
+
+                        }
                         player1->modifyItem(itemId, -1);
                         player1->savePlayer();
                     }
@@ -178,10 +232,8 @@ void Inventory::Update()
 void Inventory::Render(sf::RenderWindow& window)
 {
     window.draw(backgroundSprite);
-    window.draw(exitButton);
-    window.draw(rightButton);
-    window.draw(leftButton);
-    for (int antyloop = 0; player1->seeItems(itemId)<=0; antyloop++)
+    window.draw(exitButtonSprite);
+    for (int antyloop = 0; player1->seeItems(itemId) <= 0; antyloop++)
     {
         if (itemId >= items_number - 1)
             itemId = 0;
@@ -196,7 +248,9 @@ void Inventory::Render(sf::RenderWindow& window)
     window.draw(ItemsSprite[itemId]);
     if (itemId < items_number)
     {
-        window.draw(useButton);
+        window.draw(rightButtonSprite);
+        window.draw(leftButtonSprite);
+        window.draw(useButtonSprite);
         itemsValue.setString(std::to_string(player1->seeItems(itemId)));
         window.draw(itemsValue);
     }
@@ -204,7 +258,7 @@ void Inventory::Render(sf::RenderWindow& window)
 
 void Inventory::HandleMouseClick(int x, int y)
 { }
-void Inventory::UploadPlayer(Player *player)
+void Inventory::UploadPlayer(Player* player)
 {
     player1 = player;
 }
