@@ -8,6 +8,11 @@
 #define stats_number 3      //ilosc statystyk gracza
 #define items_number 10     //ilosc itemow
 #define start_stats_value 100 //poczatkowa wartosc statystyk gracza
+enum Stat {
+    heath,
+    energy,
+    sanity,
+};
 
 enum Item {
     beer,
