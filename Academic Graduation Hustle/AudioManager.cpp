@@ -9,7 +9,7 @@ sf::Music* AudioManager::music;
 
 void AudioManager::LoadSounds()
 {
-	// dŸwiêki
+	// d?wi?ki
 	if (!sounds[0].loadFromFile("sounds/click.wav"))
 		throw std::runtime_error("Failed to load the \"click\" sound!");
 	if (!sounds[1].loadFromFile("sounds/enemy_dying.wav"))

@@ -27,25 +27,25 @@ public:
 	};
 
 	/// <summary>
-	/// Funkcja u¿ywana do inicjalizacji.
+	/// Funkcja u?ywana do inicjalizacji.
 	/// </summary>
 	static void LoadSounds();
 	/// <summary>
-	/// Odgrywa efekt dŸwiêkowy.
+	/// Odgrywa efekt d?wi?kowy.
 	/// </summary>
-	/// <param name="sound">- identyfikator dŸwiêku</param>
+	/// <param name="sound">- identyfikator d?wi?ku</param>
 	static void PlaySound(const Sound& _sound);
 	/// <summary>
-	/// Odgrywa muzykê.
+	/// Odgrywa muzyk?.
 	/// </summary>
 	/// <param name="music">- identyfikator utworu</param>
 	static void PlayMusic(const Music& _music);
 	/// <summary>
-	/// Wstrzymuje muzykê.
+	/// Wstrzymuje muzyk?.
 	/// </summary>
 	static void PauseMusic();
 	/// <summary>
-	/// Kontynuuje muzykê.
+	/// Kontynuuje muzyk?.
 	/// </summary>
 	static void ContinueMusic();
 
