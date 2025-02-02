@@ -3,7 +3,7 @@
 #include "FightScene.h"
 #include <iostream>
 
-#define UNTIL_FIGHT 1
+#define UNTIL_FIGHT 3
 
 GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(handler)
 {
@@ -56,8 +56,8 @@ GameScene::GameScene(std::shared_ptr<WindowHandler> handler): windowHandler(hand
         throw std::runtime_error("Texture not found!");
     }
     equipmentSprite.setTexture(equipmentTexture);
-    equipmentSprite.setScale(3, 3);
-    equipmentSprite.setPosition(1820, 985);
+    equipmentSprite.setScale(4.5, 4.5);
+    equipmentSprite.setPosition(1650, 805);
 
     if (!playerTexture.loadFromFile("graphics/player_sprite_sheet.png")) 
     {
@@ -114,6 +114,7 @@ void GameScene::Update()
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
     float deltaTime = gameClock.restart().asSeconds();
 
+    sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
     sf::Sprite* LocationSprites[] = {&academicSprite,&librarySprite,&biedronkaSprite,&halaSprite,&miasteczkoSprite,&studenciakSprite,&wimiipSprite};
     //Indexy: Akademik=0, Biblioteka=1, Biedronka=2, Hala=3, Miasteczko=4, Studenciak=5, Wimiip=6
     for (int i=0;i<7;i++)
@@ -127,11 +128,7 @@ void GameScene::Update()
         {
             LocationSprites[i]->setScale(4.5f, 4.5f);
         }
-    }
 
-    sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
-    for (int i = 0; i < 7; i++)
-    {
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !isMoving)
         {
             if (LocationSprites[i]->getGlobalBounds().contains(mouseWorldPosition))
@@ -148,7 +145,6 @@ void GameScene::Update()
             }
         }
     }
-    
     
     if (isMoving && selectedLocationIndex != -1)
     {

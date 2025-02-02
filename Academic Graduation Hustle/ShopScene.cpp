@@ -1,7 +1,9 @@
 #include "ShopScene.h"
 #include "GameScene.h"
+#include "Inventory.h" 
 #include <iostream>
 #include <vector>
+#include <filesystem>
 
 ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
@@ -12,12 +14,13 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     }
 
     //przycisk do kupna
-    if (!buttonTexture.loadFromFile("graphics/buy_button2.png"))
+    if (!buttonTexture.loadFromFile("graphics/buy_buttons_sheet.png"))
     {
         throw std::runtime_error("Button texture not found!");
     }
     buttonSprite.setTexture(buttonTexture);
     buttonSprite.setScale(2.0f, 2.0f);
+    buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
 
     //wyjscie ze sceny - przycisk 
     if (!exitButtonTexture.loadFromFile("graphics/exit_button.png"))
@@ -25,28 +28,26 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
         throw std::runtime_error("Exit button texture not found!");
     }
     exitButtonSprite.setTexture(exitButtonTexture);
-    exitButtonSprite.setScale(2.0f, 2.0f); 
+    exitButtonSprite.setScale(2.0f, 2.0f);
     exitButtonSprite.setPosition(80, 200);
 
     offerPlace.setFillColor(sf::Color::Green); //Do zamiany na sprite
     itemFrame.setFillColor(sf::Color::Red); //Do zamiany na sprite
     itemFrame.setSize(sf::Vector2f(150, 150));
 
-    if (!backgroundTexture.loadFromFile("graphics/shop_background.png")) 
+    if (!backgroundTexture.loadFromFile("graphics/shop_background.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
     backgroundSprite.setTexture(backgroundTexture);
     backgroundSprite.setScale(1980, 1080);
 
-    // Dodajê rêczne przypisanie tekstur dla itemków
     std::vector<std::string> itemFiles = {
         "graphics/items/beer.png",
         "graphics/items/coffee.png",
         "graphics/items/salad.png",
         "graphics/items/toilet_paper.png"
     };
-
 
     //itemki
     for (const auto& file : itemFiles)
@@ -64,7 +65,7 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
         }
     }
 
-    //opisy itemków 
+    //opisy itemkÃ³w 
     for (const auto& description : itemDescriptionStrings)
     {
         sf::Text text;
@@ -75,7 +76,8 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
         itemDescriptions.push_back(text);
     }
 
-    // Przypisanie pozycji sprite'ów itemków do odpowiadaj¹cych im czerwonych kwadratów
+
+    // Przypisanie pozycji sprite'Ã³w itemkÃ³w do odpowiadajÂ¹cych im czerwonych kwadratÃ³w
     if (!itemSprites.empty())
     {
         itemSprites[0]->setPosition(700 + (150 - itemSprites[0]->getGlobalBounds().width) / 2,
@@ -94,29 +96,43 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
 
 void ShopScene::Update()
 {
+    auto inventory = std::make_shared<Inventory>(windowHandler);
+    inventory->UploadPlayer(player);
+
+    itemId = 0;
+
     sf::Vector2f currentSize;
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
     sf::Vector2f mouseWorldPosition(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y));
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
-        // Sprawdzenie klikniêcia w przycisk "Exit"
+        // Sprawdzenie klikniÃªcia w przycisk "Exit"
         if (exitButtonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
             auto newScene = std::make_shared<GameScene>(windowHandler);
             windowHandler->SetScene(newScene);
         }
+        
+        if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition))
+        {
+            //kupowanie
+        }
     }
 
-    if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    if (buttonSprite.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
     {
-        // Obs³uga klikniêcia przycisku
-        std::cout << "Button clicked!" << std::endl;
+        buttonSprite.setTextureRect(sf::IntRect(92, 0, 92, 32));
     }
+    else
+    {
+        buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
+    }
+
 }
 
 void ShopScene::Render(sf::RenderWindow& window)
 {
-    //T³o
+    //TÃ‚Â³o
     window.draw(backgroundSprite);
     window.draw(exitButtonSprite);
 
@@ -141,7 +157,8 @@ void ShopScene::Render(sf::RenderWindow& window)
         itemFrame.setPosition(750, 400);
         window.draw(itemFrame);
 
-        // Wyœwietlanie itemków 
+
+        // WyÅ“wietlanie itemkÃ³w 
         if (itemSprites.size() >= 2)
         {
             // Pierwszy itemek
@@ -187,7 +204,7 @@ void ShopScene::Render(sf::RenderWindow& window)
         itemFrame.setPosition(850, 400);
         window.draw(itemFrame);
 
-        // Wyœwietlanie itemków 
+        // WyÅ“wietlanie itemkÃ³w 
         if (itemSprites.size() >= 2)
         {
             // Pierwszy itemek
@@ -204,7 +221,7 @@ void ShopScene::Render(sf::RenderWindow& window)
             window.draw(*itemSprites[1]);
         }
 
-        //opisy itemków
+        //opisy itemkÃ³w
         itemDescriptions[0].setPosition(450 + (150 - itemDescriptions[0].getLocalBounds().width) / 2, 580); // Pod pierwszym przedmiotem
         window.draw(itemDescriptions[0]);
 
@@ -231,7 +248,7 @@ void ShopScene::Render(sf::RenderWindow& window)
         itemFrame.setPosition(700, 400);
         window.draw(itemFrame);
 
-        // Wyœwietlanie tylko jednego itemka
+        // WyÅ“wietlanie tylko jednego itemka
         if (!itemSprites.empty())
         {
             itemSprites[0]->setScale(5.0f, 5.0f);
@@ -259,5 +276,5 @@ void ShopScene::Render(sf::RenderWindow& window)
 }
 
 void ShopScene::HandleMouseClick(int x, int y)
-{ }
-
+{
+}

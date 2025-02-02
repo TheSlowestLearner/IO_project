@@ -26,6 +26,8 @@ public:
     void SetShopIndex(const int index);
     int GetShopIndex() const;
 
+    void CloseScene();
+
     // Losowanie semestru
     void RandomizeSemester();
 

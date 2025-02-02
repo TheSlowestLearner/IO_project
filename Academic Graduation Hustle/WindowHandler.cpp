@@ -114,3 +114,8 @@ void WindowHandler::RandomizeSemester()
     currentSemester = 3;
     //currentSemester = rand() % 5 + 1;
 }
+
+void WindowHandler::CloseScene()
+{
+    window.close();
+}
