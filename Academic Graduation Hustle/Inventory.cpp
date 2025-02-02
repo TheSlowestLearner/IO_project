@@ -48,47 +48,43 @@ Inventory::Inventory(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[1].loadFromFile("graphics/items/beer2.png"))
+    if (!ItemsTexture[1].loadFromFile("graphics/items/cigarettes.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[2].loadFromFile("graphics/items/cigarettes.png"))
+    if (!ItemsTexture[2].loadFromFile("graphics/items/coffee.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[3].loadFromFile("graphics/items/coffee.png"))
+    if (!ItemsTexture[3].loadFromFile("graphics/items/energy_drink.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[4].loadFromFile("graphics/items/energy_drink.png"))
+    if (!ItemsTexture[4].loadFromFile("graphics/items/harnas.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[5].loadFromFile("graphics/items/harnas.png"))
+    if (!ItemsTexture[5].loadFromFile("graphics/items/headphones.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[6].loadFromFile("graphics/items/headphones.png"))
+    if (!ItemsTexture[6].loadFromFile("graphics/items/salad.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[7].loadFromFile("graphics/items/salad.png"))
+    if (!ItemsTexture[7].loadFromFile("graphics/items/snack_bar.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[8].loadFromFile("graphics/items/snack_bar.png"))
+    if (!ItemsTexture[8].loadFromFile("graphics/items/toilet_paper.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[9].loadFromFile("graphics/items/toilet_paper.png"))
+    if (!ItemsTexture[9].loadFromFile("graphics/items/vape.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
-    if (!ItemsTexture[10].loadFromFile("graphics/items/vape.png"))
-    {
-        throw std::runtime_error("Texture not found!");
-    }
-    if (!ItemsTexture[11].loadFromFile("graphics/energy.png"))
+    if (!ItemsTexture[10].loadFromFile("graphics/energy.png"))
     {
         throw std::runtime_error("Texture not found!");
     }
@@ -177,7 +173,47 @@ void Inventory::Update()
                 {
                     if (player1->seeItems(itemId) >= 0)
                     {
-                        //Efekt przedmiotu
+                        if (itemId == beer)
+                        {
+                            player1->modifyStats(sanity, 15);
+                            player1->modifyStats(heath, -10);
+                        }
+                        if (itemId == cigarettes)
+                        {
+
+                        }
+                        if (itemId == coffee)
+                        {
+                            player1->modifyStats(energy, 5);
+                        }
+                        if (itemId == energy_drink)
+                        {
+                            
+                        }
+                        if (itemId == harnas)
+                        {
+                            
+                        }
+                        if (itemId == headphones)
+                        {
+
+                        }
+                        if (itemId == salad)
+                        {
+                            player1->modifyStats(heath, 10);
+                        }
+                        if (itemId == snack_bar)
+                        {
+
+                        }
+                        if (itemId == toilet_paper)
+                        {
+                            player1->modifyStats(energy, 10);
+                        }
+                        if (itemId == vape)
+                        {
+
+                        }
                         player1->modifyItem(itemId, -1);
                         player1->savePlayer();
                     }
@@ -196,9 +232,7 @@ void Inventory::Update()
 void Inventory::Render(sf::RenderWindow& window)
 {
     window.draw(backgroundSprite);
-    //window.draw(rightButtonSprite);
     window.draw(exitButtonSprite);
-    //window.draw(leftButtonSprite);
     for (int antyloop = 0; player1->seeItems(itemId)<=0; antyloop++)
     {
         if (itemId >= items_number - 1)
