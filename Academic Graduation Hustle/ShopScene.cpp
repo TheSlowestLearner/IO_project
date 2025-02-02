@@ -7,6 +7,11 @@
 
 ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(handler)
 {
+    player = &(GameManager::player);
+    if (!player->loadPlayer())
+    {
+        throw std::runtime_error("Player error!");
+    }
     //czcionka
     if (!font.loadFromFile("fonts/VT323-Regular.ttf"))
     {
@@ -112,11 +117,26 @@ void ShopScene::Update()
             auto newScene = std::make_shared<GameScene>(windowHandler);
             windowHandler->SetScene(newScene);
         }
-        
         if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition))
         {
-            //kupowanie
+            if (!isClicked)
+            {
+                if (itemId >= 0 && itemId < items_number)
+                {
+                    player->modifyItem(itemId, 1);
+                    player->savePlayer();
+                }
+                else
+                {
+                    std::cerr << "Błąd: Nieprawidłowy itemId: " << itemId << std::endl;
+                }
+            }
+            isClicked = true;
         }
+    }
+    else
+    {
+        isClicked = false;
     }
 
     if (buttonSprite.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
@@ -128,6 +148,11 @@ void ShopScene::Update()
         buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
     }
 
+    if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        // Obs³uga klikniêcia przycisku
+        std::cout << "Button clicked!" << std::endl;
+    }
 }
 
 void ShopScene::Render(sf::RenderWindow& window)
