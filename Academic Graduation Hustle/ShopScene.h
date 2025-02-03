@@ -30,7 +30,8 @@ private:
     sf::Texture exitButtonTexture;
     sf::RectangleShape offerPlace; //Do zamiany na sprite
     sf::RectangleShape itemFrame; //Do zamiany na sprite
-    sf::Sprite buttonSprite;             // Sprite przycisku
+    sf::Sprite buttonSprite1;             // Sprite przycisku
+    sf::Sprite buttonSprite2;
     sf::Texture buttonTexture;
 
     std::shared_ptr<WindowHandler> windowHandler;

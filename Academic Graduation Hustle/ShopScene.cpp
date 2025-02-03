@@ -23,9 +23,12 @@ ShopScene::ShopScene(std::shared_ptr<WindowHandler> handler) : windowHandler(han
     {
         throw std::runtime_error("Button texture not found!");
     }
-    buttonSprite.setTexture(buttonTexture);
-    buttonSprite.setScale(2.0f, 2.0f);
-    buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
+    buttonSprite1.setTexture(buttonTexture);
+    buttonSprite1.setScale(2.0f, 2.0f);
+    buttonSprite1.setTextureRect(sf::IntRect(0, 0, 92, 32));
+    buttonSprite2.setTexture(buttonTexture);
+    buttonSprite2.setScale(2.0f, 2.0f);
+    buttonSprite2.setTextureRect(sf::IntRect(0, 0, 92, 32));
 
     //wyjscie ze sceny - przycisk 
     if (!exitButtonTexture.loadFromFile("graphics/exit_button.png"))
@@ -104,7 +107,7 @@ void ShopScene::Update()
     auto inventory = std::make_shared<Inventory>(windowHandler);
     inventory->UploadPlayer(player);
 
-    itemId = 0;
+    //itemId = 0;
 
     sf::Vector2f currentSize;
     sf::Vector2i mousePosition = sf::Mouse::getPosition();
@@ -117,7 +120,23 @@ void ShopScene::Update()
             auto newScene = std::make_shared<GameScene>(windowHandler);
             windowHandler->SetScene(newScene);
         }
-        if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition))
+        if (buttonSprite1.getGlobalBounds().contains(mouseWorldPosition))
+        {
+            if (!isClicked)
+            {
+                if (itemId >= 0 && itemId < items_number)
+                {
+                    player->modifyItem(itemId, 1);
+                    player->savePlayer();
+                }
+                else
+                {
+                    std::cerr << "Błąd: Nieprawidłowy itemId: " << itemId << std::endl;
+                }
+            }
+            isClicked = true;
+        }
+        if (buttonSprite2.getGlobalBounds().contains(mouseWorldPosition))
         {
             if (!isClicked)
             {
@@ -139,20 +158,29 @@ void ShopScene::Update()
         isClicked = false;
     }
 
-    if (buttonSprite.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
+    if (buttonSprite1.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
     {
-        buttonSprite.setTextureRect(sf::IntRect(92, 0, 92, 32));
+        buttonSprite1.setTextureRect(sf::IntRect(92, 0, 92, 32));
     }
     else
     {
-        buttonSprite.setTextureRect(sf::IntRect(0, 0, 92, 32));
+        buttonSprite1.setTextureRect(sf::IntRect(0, 0, 92, 32));
     }
 
-    if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    if (buttonSprite2.getGlobalBounds().contains(static_cast<float>(mousePosition.x), static_cast<float>(mousePosition.y)))
+    {
+        buttonSprite2.setTextureRect(sf::IntRect(92, 0, 92, 32));
+    }
+    else
+    {
+        buttonSprite2.setTextureRect(sf::IntRect(0, 0, 92, 32));
+    }
+
+    /*if (buttonSprite.getGlobalBounds().contains(mouseWorldPosition) && sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         // Obs³uga klikniêcia przycisku
         std::cout << "Button clicked!" << std::endl;
-    }
+    }*/
 }
 
 void ShopScene::Render(sf::RenderWindow& window)
@@ -207,8 +235,8 @@ void ShopScene::Render(sf::RenderWindow& window)
 
 
         // Przycisk wymiany
-        buttonSprite.setPosition(680, 700);
-        window.draw(buttonSprite);
+        buttonSprite1.setPosition(680, 700);
+        window.draw(buttonSprite1);
         break;
 
     case 2:
@@ -254,11 +282,11 @@ void ShopScene::Render(sf::RenderWindow& window)
         window.draw(itemDescriptions[1]);
 
         // Przyciski wymiany
-        buttonSprite.setPosition(828, 750);
-        window.draw(buttonSprite);
+        buttonSprite1.setPosition(828, 750);
+        window.draw(buttonSprite1);
 
-        buttonSprite.setPosition(428, 750);
-        window.draw(buttonSprite);
+        buttonSprite2.setPosition(428, 750);
+        window.draw(buttonSprite2);
         break;
 
     case 3:
@@ -290,8 +318,8 @@ void ShopScene::Render(sf::RenderWindow& window)
 
 
         // Przycisk wymiany
-        buttonSprite.setPosition(680, 700);
-        window.draw(buttonSprite);
+        buttonSprite1.setPosition(680, 700);
+        window.draw(buttonSprite1);
         break;
 
     default:
